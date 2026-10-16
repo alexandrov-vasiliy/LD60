@@ -1,0 +1,8 @@
+{
+  "name": "BlenderSceneControls.Fbx.Editor",
+  "references": ["BlenderSceneControls.Editor", "Unity.Formats.Fbx.Editor"],
+  "includePlatforms": ["Editor"],
+  "defineConstraints": ["BSC_FBX_5_1"],
+  "versionDefines": [{"name":"com.unity.formats.fbx","expression":"[5.1.6,5.2.0)","define":"BSC_FBX_5_1"}],
+  "autoReferenced": true
+}

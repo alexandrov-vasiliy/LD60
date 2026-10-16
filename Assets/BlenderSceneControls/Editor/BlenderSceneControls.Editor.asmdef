@@ -1,0 +1,6 @@
+{
+    "name": "BlenderSceneControls.Editor",
+    "rootNamespace": "BlenderSceneControls",
+    "includePlatforms": ["Editor"],
+    "autoReferenced": true
+}
