@@ -1,0 +1,11 @@
+{
+  "name": "TextureLab.Editor",
+  "rootNamespace": "TextureLab.Editor",
+  "references": [
+    "TextureLab.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "autoReferenced": true
+}

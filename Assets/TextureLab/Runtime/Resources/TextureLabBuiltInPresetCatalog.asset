@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217c80df6b61438899669af9dc799658, type: 3}
+  m_Name: TextureLabBuiltInPresetCatalog
+  m_EditorClassIdentifier: TextureLab.Runtime::TextureLab.Runtime.TextureLabPresetCatalog
+  presets:
+  - {fileID: 11400000, guid: 00459513c54918a44affa20b3eb66a49, type: 2}
+  - {fileID: 11400000, guid: c9d5ea938cc8f2a4e9e8dc0f95f336e2, type: 2}
+  - {fileID: 11400000, guid: 3b53dfb9c11a45745b709960b09ca424, type: 2}
+  - {fileID: 11400000, guid: 571dfbd807f6ce043acbe0e16d29d5ca, type: 2}
+  - {fileID: 11400000, guid: 1a1697966a0dc8946a95dd6ad4754f9b, type: 2}
+  - {fileID: 11400000, guid: 3f56b01e89e94b94389349a112dd7ddf, type: 2}
+  - {fileID: 11400000, guid: cb034a8b2ab54f24ab008a483dc7cca9, type: 2}
+  - {fileID: 11400000, guid: 9466ce2e2af017a439ee8a2f428f85f0, type: 2}
+  - {fileID: 11400000, guid: ec859e02f6bb32e41be390b575093e6e, type: 2}

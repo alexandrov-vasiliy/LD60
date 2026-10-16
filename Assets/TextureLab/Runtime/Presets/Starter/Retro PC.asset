@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18bff48082725c4e8e6876b971cb6a8, type: 3}
+  m_Name: Retro PC
+  m_EditorClassIdentifier: TextureLab.Runtime::TextureLab.Runtime.TextureLabPreset
+  dataVersion: 1
+  effects:
+  - rid: 2250680610667626618
+  - rid: 2250680610667626619
+  references:
+    version: 2
+    RefIds:
+    - rid: 2250680610667626618
+      type: {class: PixelateEffectData, ns: TextureLab.Runtime, asm: TextureLab.Runtime}
+      data:
+        id: 2735e1bf1894445cad7fd3a3c7b9ed84
+        enabled: 1
+        expanded: 1
+        mode: 1
+        blockSize: 4
+        targetResolution: 320
+        sampling: 0
+    - rid: 2250680610667626619
+      type: {class: PosterizeEffectData, ns: TextureLab.Runtime, asm: TextureLab.Runtime}
+      data:
+        id: 92592370123a45cdba5ca6430e6a7742
+        enabled: 1
+        expanded: 1
+        redBits: 3
+        greenBits: 3
+        blueBits: 2

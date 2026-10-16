@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17088705b6ceb5245bbc7ca01d03c121, type: 3}
+  m_Name: Jungle Canopy
+  m_EditorClassIdentifier: TextureLab.Runtime::TextureLab.Runtime.TextureLabPalette
+  id: c71ab65d0f184e6a8d52a01100000019
+  colors:
+  - {r: 0.008568126, g: 0.023153366, b: 0.042311411, a: 1}
+  - {r: 0, g: 0.05612849, b: 0.061246054, a: 1}
+  - {r: 0.003346536, g: 0.155926464, b: 0.078187422, a: 1}
+  - {r: 0.02518686, g: 0.376262123, b: 0.266355605, a: 1}
+  - {r: 0.462077, g: 0.651405637, b: 0.034339807, a: 1}
+  - {r: 0.896269353, g: 0.584078418, b: 0.141263291, a: 1}
+  - {r: 0.799102738, g: 0.158960835, b: 0.082282707, a: 1}
+  - {r: 0.637596874, g: 0.066625939, b: 0.104616484, a: 1}

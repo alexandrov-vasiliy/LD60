@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17088705b6ceb5245bbc7ca01d03c121, type: 3}
+  m_Name: Rainforest Birds
+  m_EditorClassIdentifier: TextureLab.Runtime::TextureLab.Runtime.TextureLabPalette
+  id: c71ab65d0f184e6a8d52a01100000021
+  colors:
+  - {r: 0.002124689, g: 0.012983032, b: 0.015996293, a: 1}
+  - {r: 0.012286488, g: 0.187820772, b: 0.174647404, a: 1}
+  - {r: 0.13563333, g: 0.287440838, b: 0.250158285, a: 1}
+  - {r: 0.391572478, g: 0.701101892, b: 0.715693501, a: 1}
+  - {r: 0.904661174, g: 0.651405637, b: 0.111932428, a: 1}
+  - {r: 0.854992608, g: 0.304987314, b: 0.070360096, a: 1}
+  - {r: 0.947306537, g: 0.095307467, b: 0.039546235, a: 1}
+  - {r: 0.226965874, g: 0.039546235, b: 0.838799012, a: 1}

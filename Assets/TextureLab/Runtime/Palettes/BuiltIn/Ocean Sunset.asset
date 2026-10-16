@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17088705b6ceb5245bbc7ca01d03c121, type: 3}
+  m_Name: Ocean Sunset
+  m_EditorClassIdentifier: TextureLab.Runtime::TextureLab.Runtime.TextureLabPalette
+  id: c71ab65d0f184e6a8d52a01100000024
+  colors:
+  - {r: 0.000910581, g: 0.001214108, b: 0.111932428, a: 1}
+  - {r: 0, g: 0.184474995, b: 0.467783796, a: 1}
+  - {r: 0, g: 0.456411023, b: 0.686685312, a: 1}
+  - {r: 0.278894263, g: 0.74540421, b: 0.863157213, a: 1}
+  - {r: 1, g: 0.147027266, b: 0.147027266, a: 1}
+  - {r: 0.938685728, g: 0.304987314, b: 0.012983032, a: 1}
+  - {r: 0.947306537, g: 0.230740049, b: 0.06847817, a: 1}
+  - {r: 0.879622397, g: 0.955973353, b: 0.854992608, a: 1}

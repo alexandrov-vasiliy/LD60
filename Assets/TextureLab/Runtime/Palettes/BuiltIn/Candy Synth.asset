@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17088705b6ceb5245bbc7ca01d03c121, type: 3}
+  m_Name: Candy Synth
+  m_EditorClassIdentifier: TextureLab.Runtime::TextureLab.Runtime.TextureLabPalette
+  id: c71ab65d0f184e6a8d52a0110000001f
+  colors:
+  - {r: 0.009721217, g: 0.003346536, b: 0.02121901, a: 1}
+  - {r: 0.102241733, g: 0.009134059, b: 0.323143209, a: 1}
+  - {r: 0.879622397, g: 0.104616484, b: 0.462077, a: 1}
+  - {r: 0.930110858, g: 0.01850022, b: 0.234550582, a: 1}
+  - {r: 1, g: 0.346704056, b: 0.011612245, a: 1}
+  - {r: 0.991102097, g: 0.775822218, b: 0.051269458, a: 1}
+  - {r: 0, g: 0.913098652, b: 0.658374817, a: 1}
+  - {r: 0.072271851, g: 0.584078418, b: 0.871367119, a: 1}

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17088705b6ceb5245bbc7ca01d03c121, type: 3}
+  m_Name: Lavender Dream
+  m_EditorClassIdentifier: TextureLab.Runtime::TextureLab.Runtime.TextureLabPalette
+  id: c71ab65d0f184e6a8d52a0110000000c
+  colors:
+  - {r: 0.008568126, g: 0.005605392, b: 0.019382361, a: 1}
+  - {r: 0.026241222, g: 0.015208514, b: 0.05780543, a: 1}
+  - {r: 0.066625939, g: 0.034339807, b: 0.114435374, a: 1}
+  - {r: 0.138431615, g: 0.06847817, b: 0.187820772, a: 1}
+  - {r: 0.258182853, g: 0.144128471, b: 0.332451536, a: 1}
+  - {r: 0.467783796, g: 0.327778098, b: 0.527115126, a: 1}
+  - {r: 0.693871761, g: 0.57758044, b: 0.723055129, a: 1}
+  - {r: 0.887923118, g: 0.822785754, b: 0.904661174, a: 1}

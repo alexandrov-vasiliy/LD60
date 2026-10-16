@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18bff48082725c4e8e6876b971cb6a8, type: 3}
+  m_Name: Low Color
+  m_EditorClassIdentifier: TextureLab.Runtime::TextureLab.Runtime.TextureLabPreset
+  dataVersion: 1
+  effects:
+  - rid: 2250680610667626616
+  - rid: 2250680610667626617
+  references:
+    version: 2
+    RefIds:
+    - rid: 2250680610667626616
+      type: {class: PosterizeEffectData, ns: TextureLab.Runtime, asm: TextureLab.Runtime}
+      data:
+        id: c3ea8cc56269478fb0372ed23aa39b17
+        enabled: 1
+        expanded: 1
+        redBits: 3
+        greenBits: 3
+        blueBits: 3
+    - rid: 2250680610667626617
+      type: {class: DitherEffectData, ns: TextureLab.Runtime, asm: TextureLab.Runtime}
+      data:
+        id: 815eae33670441388b1758e0d9afb68c
+        enabled: 1
+        expanded: 1
+        pattern: 2
+        strength: 0.12
+        scale: 1
+        seed: 0
+        channels: 0

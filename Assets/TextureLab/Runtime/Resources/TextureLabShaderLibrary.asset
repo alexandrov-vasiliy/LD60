@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293f6f60c7a340dbb9ef68d24401c2ef, type: 3}
+  m_Name: TextureLabShaderLibrary
+  m_EditorClassIdentifier: TextureLab.Runtime::TextureLab.Runtime.TextureLabShaderLibrary
+  pixelate: {fileID: 4800000, guid: 5de5f758d31bb5846a2e54d346491f96, type: 3}
+  color: {fileID: 4800000, guid: a6399c236baefa84e906bd27fd2d3b4a, type: 3}
+  paletteQuantize: {fileID: 4800000, guid: fc8c4a7b8ae27e3449bd5760eee167d7, type: 3}
+  dither: {fileID: 4800000, guid: 7a44fdc1e33c6c74c890f4584be10e0d, type: 3}
+  noise: {fileID: 4800000, guid: 3c5cfe9c3f4de3449b2471c2c06cfb0f, type: 3}
+  blur: {fileID: 4800000, guid: 48ebb8de239975a47bf2b2822111f7fa, type: 3}
+  seamless: {fileID: 4800000, guid: dae63b86272ec4945b1c20cee3dc2ddf, type: 3}
+  channels: {fileID: 4800000, guid: b538e740bee819649b7c804783ecf64f, type: 3}
+  brushExposure: {fileID: 4800000, guid: 8b4ddc0f42aa7f94896cc0feee74b63f, type: 3}

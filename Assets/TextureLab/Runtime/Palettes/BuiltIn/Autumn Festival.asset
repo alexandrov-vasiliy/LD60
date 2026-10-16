@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17088705b6ceb5245bbc7ca01d03c121, type: 3}
+  m_Name: Autumn Festival
+  m_EditorClassIdentifier: TextureLab.Runtime::TextureLab.Runtime.TextureLabPalette
+  id: c71ab65d0f184e6a8d52a01100000023
+  colors:
+  - {r: 0.026241222, g: 0.012983032, b: 0.02842604, a: 1}
+  - {r: 0.102241733, g: 0.046665086, b: 0.107023103, a: 1}
+  - {r: 0.37123768, g: 0.054480276, b: 0, a: 1}
+  - {r: 0.693871761, g: 0.109461711, b: 0.040915197, a: 1}
+  - {r: 0.871367119, g: 0.36130678, b: 0.000607054, a: 1}
+  - {r: 0.19461783, g: 0.341914425, b: 0.20863687, a: 1}
+  - {r: 0.072271851, g: 0.300543794, b: 0.14995979, a: 1}
+  - {r: 0.887923118, g: 0.806952258, b: 0.623960392, a: 1}

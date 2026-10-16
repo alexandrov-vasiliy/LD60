@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17088705b6ceb5245bbc7ca01d03c121, type: 3}
+  m_Name: Neon Night
+  m_EditorClassIdentifier: TextureLab.Runtime::TextureLab.Runtime.TextureLabPalette
+  id: c71ab65d0f184e6a8d52a01100000006
+  colors:
+  - {r: 0.002731743, g: 0, b: 0.00699541, a: 1}
+  - {r: 0.010329823, g: 0.002124689, b: 0.039546235, a: 1}
+  - {r: 0.054480276, g: 0.005181517, b: 0.147027266, a: 1}
+  - {r: 0.19806932, g: 0.013702083, b: 0.36130678, a: 1}
+  - {r: 0.597201788, g: 0.011612245, b: 0.806952258, a: 1}
+  - {r: 1, g: 0.048171824, b: 0.57758044, a: 1}
+  - {r: 0.015996293, g: 0.651405637, b: 0.854992608, a: 1}
+  - {r: 0.152926152, g: 1, b: 0.450785783, a: 1}

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17088705b6ceb5245bbc7ca01d03c121, type: 3}
+  m_Name: Rust Industrial
+  m_EditorClassIdentifier: TextureLab.Runtime::TextureLab.Runtime.TextureLabPalette
+  id: c71ab65d0f184e6a8d52a01100000014
+  colors:
+  - {r: 0.007499032, g: 0.007499032, b: 0.007499032, a: 1}
+  - {r: 0.024157632, g: 0.022173885, b: 0.019382361, a: 1}
+  - {r: 0.064803267, g: 0.054480276, b: 0.042311411, a: 1}
+  - {r: 0.147027266, g: 0.095307467, b: 0.059511238, a: 1}
+  - {r: 0.274677312, g: 0.130136477, b: 0.059511238, a: 1}
+  - {r: 0.473531496, g: 0.191201683, b: 0.070360096, a: 1}
+  - {r: 0.617206562, g: 0.327778098, b: 0.122138772, a: 1}
+  - {r: 0.67954247, g: 0.552011402, b: 0.376262123, a: 1}

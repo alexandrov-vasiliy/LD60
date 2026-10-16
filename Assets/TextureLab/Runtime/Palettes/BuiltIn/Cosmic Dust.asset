@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17088705b6ceb5245bbc7ca01d03c121, type: 3}
+  m_Name: Cosmic Dust
+  m_EditorClassIdentifier: TextureLab.Runtime::TextureLab.Runtime.TextureLabPalette
+  id: c71ab65d0f184e6a8d52a0110000001a
+  colors:
+  - {r: 0.005181517, g: 0, b: 0.024157632, a: 1}
+  - {r: 0.017641954, g: 0, b: 0.061246054, a: 1}
+  - {r: 0.102241733, g: 0.009134059, b: 0.323143209, a: 1}
+  - {r: 0.337163615, g: 0.076185381, b: 0.723055129, a: 1}
+  - {r: 1, g: 0.074213568, b: 0.152926152, a: 1}
+  - {r: 1, g: 0.341914425, b: 0, a: 1}
+  - {r: 1, g: 0.637596874, b: 0.132868322, a: 1}
+  - {r: 0, g: 0.913098652, b: 0.658374817, a: 1}

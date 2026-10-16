@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17088705b6ceb5245bbc7ca01d03c121, type: 3}
+  m_Name: Sepia Archive
+  m_EditorClassIdentifier: TextureLab.Runtime::TextureLab.Runtime.TextureLabPalette
+  id: c71ab65d0f184e6a8d52a01100000002
+  colors:
+  - {r: 0.010960094, g: 0.006048833, b: 0.005181517, a: 1}
+  - {r: 0.042311411, g: 0.01850022, b: 0.011612245, a: 1}
+  - {r: 0.104616484, g: 0.042311411, b: 0.022173885, a: 1}
+  - {r: 0.2158605, g: 0.090841711, b: 0.03688945, a: 1}
+  - {r: 0.396755231, g: 0.187820772, b: 0.078187422, a: 1}
+  - {r: 0.584078418, g: 0.386429434, b: 0.184474995, a: 1}
+  - {r: 0.783537792, g: 0.623960392, b: 0.323143209, a: 1}
+  - {r: 0.904661174, g: 0.799102738, b: 0.55834039, a: 1}

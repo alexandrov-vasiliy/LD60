@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17088705b6ceb5245bbc7ca01d03c121, type: 3}
+  m_Name: Botanical Print
+  m_EditorClassIdentifier: TextureLab.Runtime::TextureLab.Runtime.TextureLabPalette
+  id: c71ab65d0f184e6a8d52a0110000001e
+  colors:
+  - {r: 0.013702083, g: 0.022173885, b: 0.038204372, a: 1}
+  - {r: 0.019382361, g: 0.061246054, b: 0.086500462, a: 1}
+  - {r: 0.023153366, g: 0.337163615, b: 0.274677312, a: 1}
+  - {r: 0.230740049, g: 0.396755231, b: 0.262250658, a: 1}
+  - {r: 0.814846572, g: 0.552011402, b: 0.144128471, a: 1}
+  - {r: 0.799102738, g: 0.158960835, b: 0.082282707, a: 1}
+  - {r: 0.637596874, g: 0.066625939, b: 0.104616484, a: 1}
+  - {r: 0.904661174, g: 0.879622397, b: 0.73046074, a: 1}

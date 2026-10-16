@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17088705b6ceb5245bbc7ca01d03c121, type: 3}
+  m_Name: Earth Stone
+  m_EditorClassIdentifier: TextureLab.Runtime::TextureLab.Runtime.TextureLabPalette
+  id: c71ab65d0f184e6a8d52a0110000000d
+  colors:
+  - {r: 0.008568126, g: 0.010329823, b: 0.009134059, a: 1}
+  - {r: 0.029556834, g: 0.034339807, b: 0.02842604, a: 1}
+  - {r: 0.070360096, g: 0.08021982, b: 0.064803267, a: 1}
+  - {r: 0.138431615, g: 0.147027266, b: 0.111932428, a: 1}
+  - {r: 0.242281122, g: 0.234550582, b: 0.177888416, a: 1}
+  - {r: 0.376262123, g: 0.356400144, b: 0.266355605, a: 1}
+  - {r: 0.584078418, g: 0.539479489, b: 0.40197778, a: 1}
+  - {r: 0.806952258, g: 0.752942217, b: 0.623960392, a: 1}

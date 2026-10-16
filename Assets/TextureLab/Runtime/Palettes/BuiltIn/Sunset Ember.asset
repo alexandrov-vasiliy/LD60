@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17088705b6ceb5245bbc7ca01d03c121, type: 3}
+  m_Name: Sunset Ember
+  m_EditorClassIdentifier: TextureLab.Runtime::TextureLab.Runtime.TextureLabPalette
+  id: c71ab65d0f184e6a8d52a01100000005
+  colors:
+  - {r: 0.015996293, g: 0.006512091, b: 0.024157632, a: 1}
+  - {r: 0.063010018, g: 0.014443844, b: 0.042311411, a: 1}
+  - {r: 0.181164244, g: 0.026241222, b: 0.046665086, a: 1}
+  - {r: 0.381326011, g: 0.045186204, b: 0.045186204, a: 1}
+  - {r: 0.693871761, g: 0.102241733, b: 0.042311411, a: 1}
+  - {r: 0.913098652, g: 0.226965874, b: 0.059511238, a: 1}
+  - {r: 1, g: 0.450785783, b: 0.107023103, a: 1}
+  - {r: 1, g: 0.74540421, b: 0.366252596, a: 1}

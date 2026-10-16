@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17088705b6ceb5245bbc7ca01d03c121, type: 3}
+  m_Name: Retro Diner
+  m_EditorClassIdentifier: TextureLab.Runtime::TextureLab.Runtime.TextureLabPalette
+  id: c71ab65d0f184e6a8d52a0110000001b
+  colors:
+  - {r: 0.010960094, g: 0.013702083, b: 0.043735029, a: 1}
+  - {r: 0.79129794, g: 0.040915197, b: 0.061246054, a: 1}
+  - {r: 0.879622397, g: 0.955973353, b: 0.854992608, a: 1}
+  - {r: 0.023153366, g: 0.337163615, b: 0.274677312, a: 1}
+  - {r: 0.904661174, g: 0.36130678, b: 0.119538428, a: 1}
+  - {r: 0.921581856, g: 0.508881321, b: 0.116970668, a: 1}
+  - {r: 0.059511238, g: 0.19806932, b: 0.337163615, a: 1}
+  - {r: 1, g: 0.590618841, b: 0.658374817, a: 1}

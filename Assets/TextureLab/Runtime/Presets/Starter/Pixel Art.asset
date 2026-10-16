@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18bff48082725c4e8e6876b971cb6a8, type: 3}
+  m_Name: Pixel Art
+  m_EditorClassIdentifier: TextureLab.Runtime::TextureLab.Runtime.TextureLabPreset
+  dataVersion: 1
+  effects:
+  - rid: 2250680610667626623
+  - rid: 2250680610667626624
+  references:
+    version: 2
+    RefIds:
+    - rid: 2250680610667626623
+      type: {class: PixelateEffectData, ns: TextureLab.Runtime, asm: TextureLab.Runtime}
+      data:
+        id: 02ef320beb2c4100954600c9e3b1618f
+        enabled: 1
+        expanded: 1
+        mode: 0
+        blockSize: 8
+        targetResolution: 128
+        sampling: 0
+    - rid: 2250680610667626624
+      type: {class: PosterizeEffectData, ns: TextureLab.Runtime, asm: TextureLab.Runtime}
+      data:
+        id: c6ab0db66de649a28c6fcdc119a72fcd
+        enabled: 1
+        expanded: 1
+        redBits: 5
+        greenBits: 5
+        blueBits: 5

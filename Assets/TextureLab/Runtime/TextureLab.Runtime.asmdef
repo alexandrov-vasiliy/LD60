@@ -1,0 +1,5 @@
+{
+  "name": "TextureLab.Runtime",
+  "rootNamespace": "TextureLab.Runtime",
+  "autoReferenced": true
+}
