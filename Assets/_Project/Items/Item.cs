@@ -6,11 +6,15 @@ public enum ItemId { Vase, Typewriter }
 public sealed class Item : MonoBehaviour
 {
     [SerializeField] private ItemId id;
+    [SerializeField] private Transform visual;
+    [SerializeField] private Vector3 previewRotation = new Vector3(15f, -30f, 0f);
     [SerializeField] private Vector3 heldPosition;
     [SerializeField] private Vector3 heldRotation;
     [SerializeField] private Vector3 heldScale = Vector3.one;
 
     public ItemId Id => id;
+    public Transform Visual => visual;
+    public Quaternion PreviewRotation => Quaternion.Euler(previewRotation);
     public bool WasDropped { get; private set; }
     public Vector3 HeldPosition => heldPosition;
     public Quaternion HeldRotation => Quaternion.Euler(heldRotation);

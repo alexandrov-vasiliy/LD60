@@ -1,4 +1,5 @@
 using System;
+using Febucci.TextAnimatorCore.Text;
 using Febucci.TextAnimatorForUnity;
 using MoreMountains.Feedbacks;
 using TMPro;
@@ -22,6 +23,27 @@ public sealed class DialoguePresenter : MonoBehaviour
     private CinemachineCamera cameraRig;
     private string[] lines;
     private int index, inputFrame;
+    private bool muteTypewriter;
+
+    private void OnEnable() => typewriter.onCharacterVisible.AddListener(PlayCharacterSound);
+
+    private void OnDisable()
+    {
+        typewriter.onCharacterVisible.RemoveListener(PlayCharacterSound);
+        Speaker?.SoundWriter?.Stop();
+    }
+
+    private void PlayCharacterSound(CharacterData character)
+    {
+        if (IsOpen && !muteTypewriter) Speaker?.SoundWriter?.PlayCharacter(character);
+    }
+
+    private void ShowLine()
+    {
+        Speaker?.SoundWriter?.Stop();
+        muteTypewriter = false;
+        typewriter.ShowText(lines[index]);
+    }
 
     public bool TryOpen(NpcDialog npc, string speaker, string[] text, CinemachineCamera npcCamera,
         Transform playerPosition, Action onCompleted = null)
@@ -51,7 +73,7 @@ public sealed class DialoguePresenter : MonoBehaviour
         index = 0;
         completed = onCompleted;
         inputFrame = Time.frameCount;
-        typewriter.ShowText(lines[index]);
+        ShowLine();
         return true;
     }
 
@@ -63,8 +85,13 @@ public sealed class DialoguePresenter : MonoBehaviour
             || (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame);
         if (!advance) return;
         inputFrame = Time.frameCount;
-        if (typewriter.IsShowingText) typewriter.SkipTypewriter();
-        else if (++index < lines.Length) typewriter.ShowText(lines[index]);
+        if (typewriter.IsShowingText)
+        {
+            muteTypewriter = true;
+            Speaker?.SoundWriter?.Stop();
+            typewriter.SkipTypewriter();
+        }
+        else if (++index < lines.Length) ShowLine();
         else
         {
             Action next = completed;
@@ -76,6 +103,7 @@ public sealed class DialoguePresenter : MonoBehaviour
 
     private void Close()
     {
+        Speaker?.SoundWriter?.Stop();
         IsOpen = false;
         Speaker = null;
         completed = null;

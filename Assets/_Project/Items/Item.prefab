@@ -187,6 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
   id: 0
+  visual: {fileID: 3705321120208615570}
+  previewRotation: {x: 15, y: -30, z: 0}
   heldPosition: {x: 0, y: 0, z: 0}
   heldRotation: {x: 0, y: 0, z: 0}
   heldScale: {x: 1, y: 1, z: 1}

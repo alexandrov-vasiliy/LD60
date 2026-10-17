@@ -11,6 +11,7 @@ public sealed class PlayerControls : MonoBehaviour
     [SerializeField] private CinemachineCamera gameplayCamera;
     [SerializeField] private Camera heldItemCamera;
     [SerializeField] private GameObject gameplayHud;
+    [SerializeField] private GameObject inventoryHud;
     [SerializeField] private GameObject body;
     private bool requested;
     private int resumeFrame;
@@ -21,6 +22,7 @@ public sealed class PlayerControls : MonoBehaviour
     {
         inventory.UsePlayerDropOrigin = value;
         inventory.enabled = value;
+        inventoryHud.SetActive(value);
     }
 
     public void SetGameplayEnabled(bool value)
@@ -45,6 +47,7 @@ public sealed class PlayerControls : MonoBehaviour
         look.enabled = value;
         heldItemCamera.enabled = value;
         gameplayHud.SetActive(value);
+        inventoryHud.SetActive(value);
     }
 
     public void Teleport(Transform destination)

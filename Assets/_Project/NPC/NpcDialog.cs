@@ -4,6 +4,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 
 [RequireComponent(typeof(NpcWantItem))]
+[RequireComponent(typeof(TAnimSoundWriter))]
 public abstract class NpcDialog : MonoBehaviour, IInteractable
 {
     [System.Serializable]
@@ -25,6 +26,7 @@ public abstract class NpcDialog : MonoBehaviour, IInteractable
     [SerializeField] private Reaction afterItem = new Reaction();
     [SerializeField] private Reaction wrongItem = new Reaction();
     public bool HasMet { get; private set; }
+    public TAnimSoundWriter SoundWriter { get; private set; }
     protected NpcWantItem Want { get; private set; }
     private DialoguePresenter presenter;
     private GameSequencer sequencer;
@@ -33,6 +35,7 @@ public abstract class NpcDialog : MonoBehaviour, IInteractable
     protected virtual void Awake()
     {
         Want = GetComponent<NpcWantItem>();
+        SoundWriter = GetComponent<TAnimSoundWriter>();
         presenter = FindAnyObjectByType<DialoguePresenter>();
         sequencer = FindAnyObjectByType<GameSequencer>();
     }

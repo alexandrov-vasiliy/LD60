@@ -18,6 +18,7 @@ public sealed class PlayerInventory : MonoBehaviour
     [SerializeField] private MMF_Player dropFeedback;
 
     public IReadOnlyList<Item> Slots { get; private set; }
+    public event Action Changed;
     public int ActiveIndex { get; private set; }
     public Item ActiveItem => items[ActiveIndex];
     public bool UsePlayerDropOrigin { get; set; }
@@ -56,6 +57,14 @@ public sealed class PlayerInventory : MonoBehaviour
         if (dropAction != null && dropAction.action.WasPressedThisFrame()) DropActive();
         float scroll = scrollAction != null ? scrollAction.action.ReadValue<float>() : 0f;
         if (scroll != 0f) SelectSlot((ActiveIndex + (scroll > 0f ? 1 : -1) + items.Length) % items.Length);
+        Keyboard keyboard = Keyboard.current;
+        if (keyboard == null) return;
+        for (int index = 0; index < Mathf.Min(9, items.Length); index++)
+        {
+            if (!keyboard[(Key)((int)Key.Digit1 + index)].wasPressedThisFrame) continue;
+            if (index != ActiveIndex) SelectSlot(index);
+            break;
+        }
     }
 
     public bool Pickup(Item item)
@@ -70,6 +79,7 @@ public sealed class PlayerInventory : MonoBehaviour
         ActiveIndex = index;
         presenter.Show(item, true);
         pickupFeedback?.PlayFeedbacks();
+        Changed?.Invoke();
         return true;
     }
 
@@ -80,6 +90,7 @@ public sealed class PlayerInventory : MonoBehaviour
         if (ActiveItem != null) ActiveItem.gameObject.SetActive(false);
         ActiveIndex = index;
         presenter.Show(ActiveItem, false);
+        Changed?.Invoke();
     }
 
     public bool Contains(ItemId id) => Array.Exists(items, item => item != null && item.Id == id);
@@ -92,6 +103,7 @@ public sealed class PlayerInventory : MonoBehaviour
         presenter.CompleteFlight();
         items[index] = null;
         item.Release(DropOrigin.position, DropOrigin.rotation, Vector3.zero);
+        Changed?.Invoke();
         return true;
     }
 
@@ -105,6 +117,7 @@ public sealed class PlayerInventory : MonoBehaviour
         // shortcut: drops can overlap walls; add clearance checks only if playtesting needs them.
         item.Release(origin.position + origin.forward * dropDistance, origin.rotation, origin.forward * dropImpulse);
         dropFeedback?.PlayFeedbacks();
+        Changed?.Invoke();
     }
 
     private void OnDestroy()
