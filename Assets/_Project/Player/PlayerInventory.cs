@@ -8,6 +8,7 @@ public sealed class PlayerInventory : MonoBehaviour
     [SerializeField, Min(1)] private int capacity = 3;
     [SerializeField] private HeldItemPresenter presenter;
     [SerializeField] private Transform dropOrigin;
+    [SerializeField] private Transform playerDropOrigin;
     [SerializeField, Min(0f)] private float dropDistance = 0.8f;
     [SerializeField, Min(0f)] private float dropImpulse = 2f;
     [SerializeField] private InputActionReference dropAction;
@@ -16,6 +17,8 @@ public sealed class PlayerInventory : MonoBehaviour
     public IReadOnlyList<Item> Slots { get; private set; }
     public int ActiveIndex { get; private set; }
     public Item ActiveItem => items[ActiveIndex];
+    public bool UsePlayerDropOrigin { get; set; }
+    private Transform DropOrigin => UsePlayerDropOrigin ? playerDropOrigin : dropOrigin;
     private Item[] items;
     private bool enabledDrop, enabledScroll;
 
@@ -23,9 +26,9 @@ public sealed class PlayerInventory : MonoBehaviour
     {
         items = new Item[Mathf.Max(1, capacity)];
         Slots = Array.AsReadOnly(items);
-        if (presenter == null || dropOrigin == null || dropAction == null || scrollAction == null)
+        if (presenter == null || dropOrigin == null || playerDropOrigin == null || dropAction == null || scrollAction == null)
         {
-            Debug.LogError("PlayerInventory needs a presenter, drop origin, Drop and SelectSlot actions.", this);
+            Debug.LogError("PlayerInventory needs a presenter, camera and player drop origins, Drop and SelectSlot actions.", this);
             enabled = false;
         }
     }
@@ -84,7 +87,7 @@ public sealed class PlayerInventory : MonoBehaviour
         if (index < 0) return false;
         presenter.CompleteFlight();
         items[index] = null;
-        item.Release(dropOrigin.position, dropOrigin.rotation, Vector3.zero);
+        item.Release(DropOrigin.position, DropOrigin.rotation, Vector3.zero);
         return true;
     }
 
@@ -94,9 +97,9 @@ public sealed class PlayerInventory : MonoBehaviour
         Item item = ActiveItem;
         if (item == null) return;
         items[ActiveIndex] = null;
+        Transform origin = DropOrigin;
         // shortcut: drops can overlap walls; add clearance checks only if playtesting needs them.
-        item.Release(dropOrigin.position + dropOrigin.forward * dropDistance,
-            dropOrigin.rotation, dropOrigin.forward * dropImpulse);
+        item.Release(origin.position + origin.forward * dropDistance, origin.rotation, origin.forward * dropImpulse);
     }
 
     private void OnDestroy()

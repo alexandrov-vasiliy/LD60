@@ -11,6 +11,7 @@ public sealed class Item : MonoBehaviour
     [SerializeField] private Vector3 heldScale = Vector3.one;
 
     public ItemId Id => id;
+    public bool WasDropped { get; private set; }
     public Vector3 HeldPosition => heldPosition;
     public Quaternion HeldRotation => Quaternion.Euler(heldRotation);
     public Vector3 HeldScale => heldScale;
@@ -35,6 +36,7 @@ public sealed class Item : MonoBehaviour
     internal void Store(PlayerInventory owner)
     {
         Owner = owner;
+        WasDropped = false;
         worldScale = transform.lossyScale;
         transform.SetParent(null, true);
         for (int i = 0; i < parts.Length; i++) layers[i] = parts[i].gameObject.layer;
@@ -56,6 +58,7 @@ public sealed class Item : MonoBehaviour
     internal void Release(Vector3 position, Quaternion rotation, Vector3 impulse)
     {
         Owner = null;
+        WasDropped = true;
         transform.SetParent(null, true);
         transform.SetPositionAndRotation(position, rotation);
         transform.localScale = worldScale;
@@ -67,3 +70,4 @@ public sealed class Item : MonoBehaviour
         body.AddForce(impulse, ForceMode.Impulse);
     }
 }
+

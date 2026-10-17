@@ -1,28 +1,23 @@
-using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StartButton : MonoBehaviour
 {
     [SerializeField] private Button _startButton;
+    [SerializeField] private IntroComic intro;
 
-    private void OnValidate()
-    {
-        _startButton ??= GetComponent<Button>();
-    }
-
+    private void OnValidate() => _startButton ??= GetComponent<Button>();
     private void OnEnable()
     {
-        _startButton.onClick.AddListener(LoadGameScene);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        _startButton.onClick.AddListener(StartGame);
     }
-    private void OnDisable()
-    {
-        _startButton.onClick.RemoveListener(LoadGameScene);
-    }
+    private void OnDisable() => _startButton.onClick.RemoveListener(StartGame);
 
-    private void LoadGameScene()
+    private void StartGame()
     {
-        SceneManager.LoadScene("GameScene");
+        _startButton.interactable = false;
+        intro.Begin();
     }
 }
