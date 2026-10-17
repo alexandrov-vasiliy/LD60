@@ -40,4 +40,4 @@ MonoBehaviour:
   EmulateThreeButtonMouse: 1
   SwapYAndZAxisKeys: 1
   Enable3DCursor: 1
-  ToolVisibility: 2
+  ToolVisibility: 1
