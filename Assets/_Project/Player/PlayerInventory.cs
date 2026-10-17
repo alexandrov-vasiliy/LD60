@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using MoreMountains.Feedbacks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +14,8 @@ public sealed class PlayerInventory : MonoBehaviour
     [SerializeField, Min(0f)] private float dropImpulse = 2f;
     [SerializeField] private InputActionReference dropAction;
     [SerializeField] private InputActionReference scrollAction;
+    [SerializeField] private MMF_Player pickupFeedback;
+    [SerializeField] private MMF_Player dropFeedback;
 
     public IReadOnlyList<Item> Slots { get; private set; }
     public int ActiveIndex { get; private set; }
@@ -66,6 +69,7 @@ public sealed class PlayerInventory : MonoBehaviour
         items[index] = item;
         ActiveIndex = index;
         presenter.Show(item, true);
+        pickupFeedback?.PlayFeedbacks();
         return true;
     }
 
@@ -100,6 +104,7 @@ public sealed class PlayerInventory : MonoBehaviour
         Transform origin = DropOrigin;
         // shortcut: drops can overlap walls; add clearance checks only if playtesting needs them.
         item.Release(origin.position + origin.forward * dropDistance, origin.rotation, origin.forward * dropImpulse);
+        dropFeedback?.PlayFeedbacks();
     }
 
     private void OnDestroy()

@@ -9,6 +9,8 @@ public sealed class SceneLoader : MonoBehaviour
     [SerializeField, Min(0f)] private float fadeDuration = 0.4f;
     private bool loading;
 
+    public float FadeDuration => fadeDuration;
+
     private IEnumerator Start() => Fade(false);
 
     public IEnumerator Fade(bool toBlack)

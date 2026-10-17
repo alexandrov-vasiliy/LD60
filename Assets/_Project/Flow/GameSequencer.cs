@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Text;
+using MoreMountains.Feedbacks;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -16,12 +17,14 @@ public sealed class GameSequencer : MonoBehaviour
     [SerializeField] private PlayerInventory inventory;
     [SerializeField] private DialoguePresenter dialogue;
     [SerializeField] private SceneLoader loader;
+    [SerializeField] private StageAlarm stageAlarm;
     [SerializeField] private Transform collectingSpawn;
     [SerializeField] private Transform secondStageSpawn;
     [SerializeField] private PlayableDirector cutscene;
     [SerializeField] private CinemachineCamera cutsceneCamera;
     [SerializeField] private CinemachineBrain cameraBrain;
     [SerializeField] private TMP_Text timerLabel;
+    [SerializeField] private MMF_Player timerTickFeedback;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject resultsPanel;
     [SerializeField] private TMP_Text resultsText;
@@ -58,7 +61,9 @@ public sealed class GameSequencer : MonoBehaviour
         }
 #endif
         if (!IsFreeGameplay) return;
+        int previousSeconds = Mathf.CeilToInt(Remaining);
         Remaining = Mathf.Max(0f, Remaining - Time.deltaTime);
+        if (Mathf.CeilToInt(Remaining) < previousSeconds) timerTickFeedback?.PlayFeedbacks();
         timerLabel.text = $"{(Phase == GamePhase.Collecting ? "Сбор предметов" : "Помоги людям")} — {Mathf.CeilToInt(Remaining)} с";
         if (Remaining > 0f) return;
         if (Phase == GamePhase.Collecting) StartCoroutine(ChangeStage());
@@ -75,7 +80,9 @@ public sealed class GameSequencer : MonoBehaviour
         cutscene.time = 0;
         cutscene.Play();
         while (cutscene.state == PlayState.Playing) yield return null;
+        stageAlarm?.FadeOut(loader.FadeDuration);
         yield return loader.Fade(true);
+        stageAlarm?.StopAlarm();
         controls.Teleport(secondStageSpawn);
         controls.SetBodyVisible(false);
         cutsceneCamera.gameObject.SetActive(false);

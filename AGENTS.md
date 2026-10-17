@@ -9,6 +9,11 @@
 - If discovery fails, inspect `unity pipeline list`. A running project with the Pipeline package installed but no PID, server port, or reachable server usually indicates failed process validation or a server startup problem.
 - Prefer commands from the discovered command list instead of assuming command names or parameters.
 
+## Feedback requests
+
+- A request to add feedback means using `MoreMountains.Feedbacks.MMF_Player`: create appropriately named GameObjects in the relevant prefab, add the components, wire serialized references, and call `PlayFeedbacks()` at the appropriate moments.
+- Leave the feedback lists empty for the user to configure. Do not configure sounds, animations, or other feedback effects unless the user explicitly asks.
+
 ## Required verification
 
 - After making Editor or project changes, wait until compilation and domain reloads finish and confirm `editor_status` is ready.
