@@ -1,7 +1,7 @@
 namespace DialogueSystem
 {
     /// <summary>
-    /// История Агафьевны: два этапа знакомства и приём медицинских предметов после первого обращения. Каждая передача заменяет вид помощи Лизе до начала реплик; таблетки дают хороший исход, спирт, стетоскоп и отсутствие помощи — плохой.
+    /// История Агафьевны: три отдельных вступления и приём медицинских предметов после первого обращения. Предметы не меняют счётчик вступлений. Таблетки закрепляют спасение Лизы; после них спирт и стетоскоп больше не принимаются.
     /// </summary>
     public sealed class AgafyevnaScenario : NpcScenario
     {
@@ -25,28 +25,31 @@ namespace DialogueSystem
                         new Sequence()),
                     Reply(feedback, SpeechMode.Dialogue, lines)),
                 ItemDisposition.Consume,
-                new SetFact<bool>(StoryFacts.AgafyevnaIntroduced, true),
                 new SetFact<LizaHelp>(StoryFacts.LizaTreatment, help));
 
         public override ScenarioRule[] Rules { get; } = new[]
         {
-            new ScenarioRule(ScenarioEvent.Interact, new Not(new FactIs<bool>(StoryFacts.AgafyevnaMet, true)),
+            new ScenarioRule(ScenarioEvent.Interact, new FactIs<int>(StoryFacts.AgafyevnaVisits, 0),
                 new Sequence(
-                    new SetFact<bool>(StoryFacts.AgafyevnaMet, true),
+                    new SetFact<int>(StoryFacts.AgafyevnaVisits, 1),
                     new SetIntroduction(true),
                     Reply("BeforeItem", SpeechMode.Dialogue,
                         "Не лезь.",
                         "Ходит тут. Ходит, а толку нет."))),
-            new ScenarioRule(ScenarioEvent.Interact, new Not(new FactIs<bool>(StoryFacts.AgafyevnaIntroduced, true)),
+            new ScenarioRule(ScenarioEvent.Interact, new FactIs<int>(StoryFacts.AgafyevnaVisits, 1),
                 new Sequence(
-                    new SetFact<bool>(StoryFacts.AgafyevnaIntroduced, true),
+                    new SetFact<int>(StoryFacts.AgafyevnaVisits, 2),
                     new SetIntroduction(true),
                     Reply("SecondIntroduction", SpeechMode.Dialogue,
                         "Ты кто таков? Не из наших. И не прохожий — прохожие так не стоят.",
-                        "…",
+                        "…"))),
+            new ScenarioRule(ScenarioEvent.Interact, new FactIs<int>(StoryFacts.AgafyevnaVisits, 2),
+                new Sequence(
+                    new SetFact<int>(StoryFacts.AgafyevnaVisits, 3),
+                    new SetIntroduction(true),
+                    Reply("SecondIntroduction", SpeechMode.Dialogue,
                         "Ну и стой. Мне-то что.",
-                        "…"),
-                    Request())),
+                        "…"))),
 
             new ScenarioRule(ScenarioEvent.Interact, new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Pills),
                 Reply("AfterItem", SpeechMode.Dialogue, "Хоть бы до утра. Хоть бы до свету дожить")),
@@ -56,8 +59,12 @@ namespace DialogueSystem
                 Reply("AfterItem", SpeechMode.Dialogue, "Это не сглаз. Сглаз не хрипит. Сглаз — он тихий.")),
             new ScenarioRule(ScenarioEvent.Interact, new Always(), Request()),
 
-            new ScenarioRule(ScenarioEvent.ItemHit, new Not(new FactIs<bool>(StoryFacts.AgafyevnaMet, true)),
+            new ScenarioRule(ScenarioEvent.ItemHit, new FactIs<int>(StoryFacts.AgafyevnaVisits, 0),
                 Reply("BeforeMeeting", SpeechMode.Dialogue, "Убери от меня эту дребедень!")),
+            new ScenarioRule(ScenarioEvent.ItemHit,
+                new All(new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Pills),
+                    new ItemIs(ItemId.Stethoscope, ItemId.Alcohol)),
+                new Say(SpeechMode.Dialogue, "Мне больше это не нужно.")),
             Receive(ItemId.Stethoscope, LizaHelp.Stethoscope, "StethoscopeReceived",
                 "Чего это? Железо и кишка. И что мне с этого?",
                 "Я не поняла, чего ты сказал.",
@@ -79,9 +86,7 @@ namespace DialogueSystem
                 "…",
                 "Хоть бы до утра. Хоть бы до свету дожить"),
             new ScenarioRule(ScenarioEvent.ItemHit, new DuringIntroduction(),
-                new Sequence(
-                    new SetFact<bool>(StoryFacts.AgafyevnaIntroduced, true),
-                    Reply("EarlyWrongItem", SpeechMode.Dialogue, "Убери от меня эту дребедень!"))),
+                Reply("EarlyWrongItem", SpeechMode.Dialogue, "Убери от меня эту дребедень!")),
             new ScenarioRule(ScenarioEvent.ItemHit, new Always(),
                 Reply("WrongItem", SpeechMode.Dialogue, "Убери от меня эту дребедень!"))
         };

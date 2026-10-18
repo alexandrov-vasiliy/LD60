@@ -1,7 +1,7 @@
 namespace DialogueSystem
 {
     /// <summary>
-    /// Последний выбранный вид помощи Лизе; определяет реплики о лечении и будущий исход, но не означает уже наступившую смерть или выздоровление.
+    /// Вид помощи Лизе; таблетки имеют приоритет и больше не заменяются спиртом или стетоскопом. Определяет реплики и будущий исход, но не означает уже наступившую смерть или выздоровление.
     /// </summary>
     public enum LizaHelp { None, Pills, Alcohol, Stethoscope }
 
@@ -17,8 +17,7 @@ namespace DialogueSystem
         public static readonly StoryKey<bool> LetterRead = new StoryKey<bool>("innokenty.letter.read", false);
         public static readonly StoryKey<bool> AnnaMet = new StoryKey<bool>("anna.met", false);
         public static readonly StoryKey<int> ProkhorVisits = new StoryKey<int>("prokhor.visits", 0);
-        public static readonly StoryKey<bool> AgafyevnaMet = new StoryKey<bool>("agafyevna.met", false);
-        public static readonly StoryKey<bool> AgafyevnaIntroduced = new StoryKey<bool>("agafyevna.introduced", false);
+        public static readonly StoryKey<int> AgafyevnaVisits = new StoryKey<int>("agafyevna.visits", 0);
         public static readonly StoryKey<LizaHelp> LizaTreatment = new StoryKey<LizaHelp>("liza.help", LizaHelp.None);
     }
 }

@@ -1,7 +1,7 @@
 namespace DialogueSystem
 {
     /// <summary>
-    /// История Ильи: три обращения ведут к просьбе помочь со счётом; ранний предмет переводит к третьему блоку. Один раз принимает калькулятор, сразу закрепляя успешный исход. Если просьба Иннокентия уже достигнута на момент передачи, запускает защищённую сцену письма; хороший исход деда записывается после последней реплики.
+    /// История Ильи: три обращения ведут к просьбе помочь со счётом; ранний предмет переводит к третьему блоку. Сдаёт с калькулятором или в тишине после смерти Лизы; после калькулятора отказывается от счётов. Если просьба Иннокентия уже достигнута на момент передачи калькулятора, запускает защищённую сцену письма; хороший исход деда записывается после последней реплики.
     /// </summary>
     public sealed class IlyaScenario : NpcScenario
     {
@@ -39,7 +39,7 @@ namespace DialogueSystem
         public override ScenarioRule[] Rules { get; } = new[]
         {
             new ScenarioRule(ScenarioEvent.Interact, new FactIs<bool>(StoryFacts.IlyaCalculatorGiven, true),
-                new Say(SpeechMode.Dialogue, "Девяносто три. Теперь всё сходится. Спасибо.")),
+                new Say(SpeechMode.Dialogue, "Теперь всё сходится.")),
             new ScenarioRule(ScenarioEvent.Interact, new FactIs<int>(StoryFacts.IlyaVisits, 0),
                 new Sequence(
                     new SetFact<int>(StoryFacts.IlyaVisits, 1),
@@ -90,6 +90,9 @@ namespace DialogueSystem
             new ScenarioRule(ScenarioEvent.ItemHit, new ItemIs(ItemId.Pencil),
                 Reply("Дело не в том, чем писать.", "Я записываю. Я всё записываю!",
                     "А потом слышу — и записываю уже не то. Вот тут, гляди, у меня «84» и «90» на одном листе стоит. Оба мои. Оба враньё.")),
+            new ScenarioRule(ScenarioEvent.ItemHit,
+                new All(new ItemIs(ItemId.Abacus), new FactIs<bool>(StoryFacts.IlyaCalculatorGiven, true)),
+                Reply("Мне это больше не нужно.")),
             new ScenarioRule(ScenarioEvent.ItemHit, new ItemIs(ItemId.Abacus),
                 Reply("Я знаю что это.", "Восемьдесят четыре. Восемьдесят пять.",
                     "Видишь? Костяшки остались. Мне не считать. Мне помнить.")),
@@ -104,6 +107,8 @@ namespace DialogueSystem
         public override EndingRule[] Endings { get; } = new[]
         {
             new EndingRule(new FactIs<bool>(StoryFacts.IlyaCalculatorGiven, true), "Илья сдал"),
+            new EndingRule(new Not(new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Pills)),
+                "Илья сдал в тишине"),
             new EndingRule(new Always(), "Илья не сдал")
         };
     }

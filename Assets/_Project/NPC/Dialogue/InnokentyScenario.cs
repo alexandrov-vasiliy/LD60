@@ -1,7 +1,7 @@
 namespace DialogueSystem
 {
     /// <summary>
-    /// История Иннокентия: пять обращений ведут к просьбе прочесть письмо; попадание предмета до просьбы переводит к пятому блоку. Хорошую концовку даёт только завершённая совместная сцена из сценария Ильи; спирт и очки не блокируют её.
+    /// История Иннокентия: пять обращений ведут к просьбе прочесть письмо; только спирт и очки до просьбы переводят к пятому блоку. Хорошую концовку даёт только завершённая совместная сцена из сценария Ильи; спирт и очки не блокируют её.
     /// </summary>
     public sealed class InnokentyScenario : NpcScenario
     {
@@ -33,7 +33,7 @@ namespace DialogueSystem
                 Reply("О, это деду надо"), ItemDisposition.Consume),
             new ScenarioRule(ScenarioEvent.ItemHit, new ItemIs(ItemId.Glasses),
                 Reply("Буквы вижу. А прочесть всё одно. Не могу.", "Буквы — они не сами говорят.")),
-            new ScenarioRule(ScenarioEvent.ItemHit, new Always(), Reply("Убери"))
+            new ScenarioRule(ScenarioEvent.ItemHit, new Always(), new Say(SpeechMode.Dialogue, "Убери"))
         };
 
         private static ScenarioRule Visit(int previous, string line) => new ScenarioRule(
