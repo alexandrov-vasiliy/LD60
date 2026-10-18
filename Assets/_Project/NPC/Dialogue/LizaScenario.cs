@@ -9,7 +9,7 @@ namespace DialogueSystem
             new ScenarioRule(ScenarioEvent.Interact, new Always(),
                 new ProtectedSequence(
                     new Say(SpeechMode.Dialogue, "ААААААААААААААААА ааааааааааааааааааааааааа"),
-                    new Say("prokhor", SpeechMode.Dialogue, "LizaGoAway", "Уйди отсюда"))),
+                    new Say("prokhor", SpeechMode.Dialogue, "LizaGoAway", "Отойди от нее"))),
             new ScenarioRule(ScenarioEvent.ItemHit, new Always(),
                 new ProtectedSequence(
                     new Say("agafyevna", SpeechMode.Dialogue, "LizaItemHit", "ТЫ С ДУБА РУХНУЛ!!!")))

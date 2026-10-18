@@ -94,7 +94,7 @@ namespace DialogueSystem
         public override EndingRule[] Endings { get; } = new[]
         {
             new EndingRule(new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Pills),
-                "Сохранив жизнь Лизе, Агафьевна упакоилась с миром."),
+                "Сохранив жизнь Лизе, Агафьевна упокоилась с миром."),
             new EndingRule(new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Alcohol),
                 "Агафьевна не уследила за бутылокой: Содержимое бутылки, оказалось внутри деда."),
             new EndingRule(new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Stethoscope),
