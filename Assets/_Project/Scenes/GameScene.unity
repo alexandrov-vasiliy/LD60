@@ -2945,6 +2945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b26d9f764726534cbec49e1c8635796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameSequencer
+  startDelay: 5
   collectingDuration: 1111
   secondStageDuration: 1111
   controls: {fileID: 5771641395260253673}
@@ -2967,8 +2968,8 @@ MonoBehaviour:
   - {fileID: 1749228853}
   - {fileID: 1280584224}
   - {fileID: 2041638602}
-  - {fileID: 1073391237}
   - {fileID: 1778519212}
+  - {fileID: 1073391237}
   - {fileID: 1474274453}
 --- !u!4 &1468584947
 Transform:

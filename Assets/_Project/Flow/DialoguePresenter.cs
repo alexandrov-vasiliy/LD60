@@ -125,7 +125,12 @@ public sealed class DialoguePresenter : MonoBehaviour
             Speaker?.SoundWriter?.Stop();
             typewriter.SkipTypewriter();
         }
-        else if (waitForAction) return;
+        else if (waitForAction)
+        {
+            Action action = completed;
+            completed = null;
+            action?.Invoke();
+        }
         else if (++index < lines.Length) ShowLine();
         else
         {

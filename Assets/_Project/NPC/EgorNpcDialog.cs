@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// Подключает историю Егора и выполняет съёмку: выбирает полароид, ждёт Q, запускает эффект и передаёт карточку. Регистрирует очистку корутины, анимации, карточки и эффекта при завершении или отмене сценария.
+/// Подключает историю Егора и выполняет съёмку: выбирает полароид, ждёт Q или подтверждения диалога, запускает эффект и передаёт карточку. Регистрирует очистку корутины, анимации, карточки и эффекта при завершении или отмене сценария.
 /// </summary>
 public sealed class EgorNpcDialog : NpcDialog
 {
@@ -45,7 +45,8 @@ public sealed class EgorNpcDialog : NpcDialog
     public void WaitForPhoto(ScenarioRunner runner)
     {
         Action resume = runner.Await();
-        if (!Presenter.TryShow(this, this, new[] { "Не двигаться? Хорошо" }, GetCamera(), null, true, true))
+        bool photoRequested = false;
+        if (!Presenter.TryShow(this, this, new[] { "Не двигаться? Хорошо" }, GetCamera(), () => photoRequested = true, true, true))
             throw new InvalidOperationException("Cannot open Egor's photo dialogue.");
         Item item = Inventory.ActiveItem;
         if (item == null || item.Id != ItemId.Polaroid ||
@@ -67,9 +68,9 @@ public sealed class EgorNpcDialog : NpcDialog
 
         IEnumerator Capture()
         {
-            // The Q that threw the camera must not also take the picture.
+            // Input that opened this line must not also take the picture.
             yield return null;
-            while (Keyboard.current == null || !Keyboard.current.qKey.wasPressedThisFrame) yield return null;
+            while (!photoRequested && (Keyboard.current == null || !Keyboard.current.qKey.wasPressedThisFrame)) yield return null;
             feedback.PlayFeedbacks();
             yield return new WaitForSeconds(1f);
             card = Instantiate(photoPrefab, polaroid.PhotoOrigin.position, photoTarget.rotation);
