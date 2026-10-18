@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Передаёт попадание активного предмета в триггер NPC компоненту NpcDialog; возможность реакции и принятие определяет диалоговый сценарий.
+/// </summary>
 [RequireComponent(typeof(Rigidbody))]
 public sealed class NpcWantItem : MonoBehaviour
 {

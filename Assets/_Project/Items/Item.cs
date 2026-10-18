@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum ItemId { Vase = 0, Typewriter = 1, Stethoscope = 2, Pills = 3, Alcohol = 4, Calculator = 5 }
+public enum ItemId { Vase = 0, Typewriter = 1, Stethoscope = 2, Pills = 3, Alcohol = 4, Calculator = 5, Polaroid = 6, Pencil = 7, Abacus = 8, Glasses = 9 }
 
 [RequireComponent(typeof(Rigidbody))]
 public sealed class Item : MonoBehaviour
@@ -59,6 +59,11 @@ public sealed class Item : MonoBehaviour
         foreach (Transform part in parts) part.gameObject.layer = layer;
     }
 
+    internal void RestoreWorldLayers()
+    {
+        for (int i = 0; i < parts.Length; i++) parts[i].gameObject.layer = layers[i];
+    }
+
     internal void Release(Vector3 position, Quaternion rotation, Vector3 impulse)
     {
         Owner = null;
@@ -66,7 +71,7 @@ public sealed class Item : MonoBehaviour
         transform.SetParent(null, true);
         transform.SetPositionAndRotation(position, rotation);
         transform.localScale = worldScale;
-        for (int i = 0; i < parts.Length; i++) parts[i].gameObject.layer = layers[i];
+        RestoreWorldLayers();
         for (int i = 0; i < colliders.Length; i++) colliders[i].enabled = colliderStates[i];
         gameObject.SetActive(true);
         body.isKinematic = false;

@@ -3,6 +3,9 @@ using System;
 using Febucci.TextAnimatorForUnity;
 using UnityEngine;
 
+/// <summary>
+/// Последовательно показывает реплики над NPC с печатью и выдержкой времени, затем сообщает исполнителю о завершении. При скрытии отменяет текущий показ без продолжения сценария.
+/// </summary>
 public sealed class WorldText : MonoBehaviour
 {
     [SerializeField] private GameObject label;

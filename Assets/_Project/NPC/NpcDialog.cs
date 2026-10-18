@@ -4,9 +4,15 @@ using MoreMountains.Feedbacks;
 using Unity.Cinemachine;
 using UnityEngine;
 
+/// <summary>
+/// Связывает NPC в сцене с его сценарием: принимает обращения и попадания, создаёт контекст и запускает первое подходящее правило. Хранит привязки камер и эффектов, предоставляет текст концовки и отменяет выполнение при отключении.
+/// </summary>
 [RequireComponent(typeof(NpcWantItem), typeof(TAnimSoundWriter))]
 public abstract class NpcDialog : MonoBehaviour, IInteractable
 {
+    /// <summary>
+    /// Связывает строковый идентификатор эффекта из сценария с MMF_Player этого NPC, назначенным в инспекторе.
+    /// </summary>
     [Serializable]
     public sealed class FeedbackBinding
     {
@@ -14,6 +20,9 @@ public abstract class NpcDialog : MonoBehaviour, IInteractable
         public MMF_Player player;
     }
 
+    /// <summary>
+    /// Связывает идентификатор ракурса в реплике с CinemachineCamera говорящего, например для отдельной фразы совместной сцены.
+    /// </summary>
     [Serializable]
     public sealed class CameraBinding
     {

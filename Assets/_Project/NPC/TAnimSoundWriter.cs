@@ -1,6 +1,9 @@
 using Febucci.TextAnimatorCore.Text;
 using UnityEngine;
 
+/// <summary>
+/// Озвучивает печать букв и цифр реплики короткими случайными звуками текущего говорящего с ограничением частоты и разбросом высоты тона.
+/// </summary>
 [RequireComponent(typeof(AudioSource))]
 public sealed class TAnimSoundWriter : MonoBehaviour
 {

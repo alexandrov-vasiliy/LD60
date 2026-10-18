@@ -1,5 +1,8 @@
 namespace DialogueSystem
 {
+    /// <summary>
+    /// История Анны: знакомство, просьба о помощи Лизе и перенаправление медицинских предметов Агафьевне без принятия. Последующие реплики отражают текущее лечение, а концовка зависит от того, были ли последней помощью таблетки.
+    /// </summary>
     public sealed class AnnaScenario : NpcScenario
     {
         public override string Id => "anna";
@@ -36,8 +39,9 @@ namespace DialogueSystem
 
             new ScenarioRule(ScenarioEvent.ItemHit, new Not(new FactIs<bool>(StoryFacts.AnnaMet, true)),
                 Reply("BeforeMeeting", SpeechMode.World, "Тише ты. Разбудишь её.")),
-            new ScenarioRule(ScenarioEvent.ItemHit, new ItemIs(ItemId.Stethoscope, ItemId.Pills, ItemId.Alcohol),
-                Reply("ItemReceived", SpeechMode.Current, "Не мне.", "Отдай Агафьевне.")),
+            new ScenarioRule(ScenarioEvent.ItemHit,
+                new ItemIs(ItemId.Stethoscope, ItemId.Pills, ItemId.Alcohol),
+                Reply("ItemReceived", SpeechMode.Dialogue, "Не мне.", "Отдай Агафьевне.")),
             new ScenarioRule(ScenarioEvent.ItemHit, new DuringIntroduction(),
                 new Sequence(Reply("EarlyWrongItem", SpeechMode.Dialogue, "К чему это?"), Request())),
             new ScenarioRule(ScenarioEvent.ItemHit, new Always(),

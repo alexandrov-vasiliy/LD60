@@ -1,5 +1,8 @@
 namespace DialogueSystem
 {
+    /// <summary>
+    /// История Прохора: вступление и просьба, отказы от предметов и направление за медицинской помощью к Агафьевне. Итог определяется общим фактом лечения Лизы: таблетки дают выздоровление, остальные варианты — смерть к утру.
+    /// </summary>
     public sealed class ProkhorScenario : NpcScenario
     {
         public override string Id => "prokhor";

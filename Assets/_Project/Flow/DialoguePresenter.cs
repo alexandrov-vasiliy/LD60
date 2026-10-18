@@ -7,6 +7,9 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Управляет общим окном разговора: говорящим, камерой, печатью реплик, вводом и блокировкой инвентаря. Инициатор владеет сессией и точкой игрока, а смена говорящего внутри неё не переносит игрока повторно; окончание реплик продолжает сценарий.
+/// </summary>
 [DefaultExecutionOrder(-40)]
 public sealed class DialoguePresenter : MonoBehaviour
 {
@@ -25,7 +28,7 @@ public sealed class DialoguePresenter : MonoBehaviour
     private CinemachineCamera cameraRig;
     private string[] lines;
     private int index, inputFrame;
-    private bool muteTypewriter;
+    private bool muteTypewriter, waitForAction;
 
     private void OnEnable() => typewriter.onCharacterVisible.AddListener(PlayCharacterSound);
 
@@ -50,7 +53,7 @@ public sealed class DialoguePresenter : MonoBehaviour
     }
 
     public bool TryShow(NpcDialog owner, NpcDialog actor, string[] text, CinemachineCamera camera,
-        Action onCompleted, bool itemsLocked)
+        Action onCompleted, bool itemsLocked, bool waitForAction = false)
     {
         if (!sequencer.CanReceiveItems || (IsOpen && Owner != owner) || owner == null || actor == null ||
             camera == null || owner.PlayerPosition == null || text == null || text.Length == 0)
@@ -60,6 +63,7 @@ public sealed class DialoguePresenter : MonoBehaviour
         {
             controls.SetGameplayEnabled(false);
             controls.Teleport(owner.PlayerPosition);
+            controls.SetDialogueMode(true);
             controls.SetBodyVisible(true);
             IsOpen = true;
             Owner = owner;
@@ -79,6 +83,7 @@ public sealed class DialoguePresenter : MonoBehaviour
         lines = text;
         index = 0;
         completed = onCompleted;
+        this.waitForAction = waitForAction;
         inputFrame = Time.frameCount;
         if (opening) openedFeedback?.PlayFeedbacks();
         ShowLine();
@@ -120,6 +125,7 @@ public sealed class DialoguePresenter : MonoBehaviour
             Speaker?.SoundWriter?.Stop();
             typewriter.SkipTypewriter();
         }
+        else if (waitForAction) return;
         else if (++index < lines.Length) ShowLine();
         else
         {
@@ -143,6 +149,7 @@ public sealed class DialoguePresenter : MonoBehaviour
         cameraRig = null;
         closedFeedback?.PlayFeedbacks();
         controls.SetDialogueInventoryEnabled(false);
+        controls.SetDialogueMode(false);
         controls.SetGameplayEnabled(sequencer.CanReceiveItems && !sequencer.IsPaused);
     }
 }

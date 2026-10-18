@@ -6,6 +6,7 @@ public sealed class PlayerControls : MonoBehaviour
 {
     [SerializeField] private PlayerMovement movement;
     [SerializeField] private PlayerInventory inventory;
+    [SerializeField] private HeldItemPresenter itemPresenter;
     [SerializeField] private PlayerInteractor interactor;
     [SerializeField] private CinemachineInputAxisController look;
     [SerializeField] private CinemachineCamera gameplayCamera;
@@ -20,9 +21,14 @@ public sealed class PlayerControls : MonoBehaviour
 
     public void SetDialogueInventoryEnabled(bool value)
     {
-        inventory.UsePlayerDropOrigin = value;
         inventory.enabled = value;
         inventoryHud.SetActive(value);
+    }
+
+    public void SetDialogueMode(bool value)
+    {
+        inventory.UsePlayerDropOrigin = value;
+        itemPresenter.SetDialogueMode(value, inventory.ActiveItem);
     }
 
     public void SetGameplayEnabled(bool value)

@@ -2,10 +2,22 @@ using System;
 
 namespace DialogueSystem
 {
+    /// <summary>
+    /// Событие, по которому сценарий выбирает реакцию: обращение игрока или попадание предмета в NPC.
+    /// </summary>
     public enum ScenarioEvent { Interact, ItemHit }
+    /// <summary>
+    /// Судьба попавшего предмета после принятия правила: оставить доступным игроку или убрать из мира.
+    /// </summary>
     public enum ItemDisposition { Keep, Consume }
+    /// <summary>
+    /// Способ показа реплик: окно диалога, текст над NPC или выбор по состоянию разговора на момент события.
+    /// </summary>
     public enum SpeechMode { Dialogue, World, Current }
 
+    /// <summary>
+    /// Данные события для условий и шагов: NPC, предмет и общее состояние истории. Состояние вступления и открытого разговора фиксируется при создании контекста, а сюжетные факты читаются из текущего состояния.
+    /// </summary>
     public sealed class ScenarioContext
     {
         public NpcDialog Npc { get; }
@@ -24,6 +36,9 @@ namespace DialogueSystem
         public NpcDialog Actor(string id) => string.IsNullOrEmpty(id) ? Npc : Npc.Sequencer.GetNpc(id);
     }
 
+    /// <summary>
+    /// Реакция на событие: условие выбора, выполняемые шаги и способ обращения с предметом. Изменения OnReceipt применяются вместе до начала шагов; среди правил одного события выбирается первое подходящее.
+    /// </summary>
     public sealed class ScenarioRule
     {
         public ScenarioEvent Event { get; }
@@ -45,6 +60,9 @@ namespace DialogueSystem
         }
     }
 
+    /// <summary>
+    /// Условие и текст итога персонажа в конце попытки. Выбирается первое подходящее правило; пустой текст скрывает персонажа на экране итогов.
+    /// </summary>
     public sealed class EndingRule
     {
         public ScenarioCondition Condition { get; }
@@ -52,6 +70,9 @@ namespace DialogueSystem
         public EndingRule(ScenarioCondition condition, string text) { Condition = condition; Text = text; }
     }
 
+    /// <summary>
+    /// Описание истории NPC: уникальный идентификатор, упорядоченные реакции и варианты концовки. Для события и для итога выбирается первое подходящее правило; последняя концовка должна покрывать случай без взаимодействий.
+    /// </summary>
     public abstract class NpcScenario
     {
         public abstract string Id { get; }

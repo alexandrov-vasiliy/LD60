@@ -9,6 +9,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Playables;
 
+/// <summary>
+/// Управляет этапами попытки и хранит общее состояние истории и список NPC для совместных сцен. Перед итогами отменяет незавершённые реакции и собирает концовки по текущим фактам; следующая попытка перезагружает сцену.
+/// </summary>
 [DefaultExecutionOrder(-50)]
 public sealed class GameSequencer : MonoBehaviour
 {
@@ -128,7 +131,11 @@ public sealed class GameSequencer : MonoBehaviour
         foreach (Item item in inventory.Slots)
             if (item != null && item.TryGetComponent(out WorthItem value)) worth += value.Value;
         StringBuilder text = new StringBuilder();
-        foreach (NpcDialog npc in npcs) text.AppendLine(npc.GetEndingText()).AppendLine();
+        foreach (NpcDialog npc in npcs)
+        {
+            string ending = npc.GetEndingText();
+            if (!string.IsNullOrWhiteSpace(ending)) text.AppendLine(ending).AppendLine();
+        }
         text.Append($"Стоимость оставшихся предметов: {worth}");
         resultsText.text = text.ToString();
         timerLabel.text = "Итоги";

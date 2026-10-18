@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace DialogueSystem
 {
+    /// <summary>
+    /// Идентификатор сюжетного факта, общий для всех использующих его сценариев. Разные экземпляры ключей с одинаковым Id считаются ошибкой.
+    /// </summary>
     public abstract class StoryKey
     {
         public string Id { get; }
@@ -13,12 +16,18 @@ namespace DialogueSystem
         }
     }
 
+    /// <summary>
+    /// Типизированный ключ сюжетного факта с начальным значением, возвращаемым до первой записи в текущей попытке.
+    /// </summary>
     public sealed class StoryKey<T> : StoryKey
     {
         public T InitialValue { get; }
         public StoryKey(string id, T initialValue) : base(id) => InitialValue = initialValue;
     }
 
+    /// <summary>
+    /// Общее хранилище сюжетных фактов одной попытки для реакций и концовок всех NPC. Изменения при передаче предмета сначала применяются к копии и публикуются вместе; новая попытка получает новое состояние.
+    /// </summary>
     public sealed class StoryState
     {
         private Dictionary<string, StoryKey> keys = new Dictionary<string, StoryKey>();

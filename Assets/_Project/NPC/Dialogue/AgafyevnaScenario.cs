@@ -1,5 +1,8 @@
 namespace DialogueSystem
 {
+    /// <summary>
+    /// История Агафьевны: два этапа знакомства и приём медицинских предметов после первого обращения. Каждая передача заменяет вид помощи Лизе до начала реплик; таблетки дают хороший исход, спирт, стетоскоп и отсутствие помощи — плохой.
+    /// </summary>
     public sealed class AgafyevnaScenario : NpcScenario
     {
         public override string Id => "agafyevna";

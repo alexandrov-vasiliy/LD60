@@ -2,12 +2,18 @@ using System;
 
 namespace DialogueSystem
 {
+    /// <summary>
+    /// Базовый шаг сценария: проверка настроек выполняется до принятия предмета, действие — при достижении шага. Для ожидания внешнего завершения шаг получает продолжение через ScenarioRunner.Await().
+    /// </summary>
     public abstract class ScenarioStep
     {
         public virtual void Validate(ScenarioContext context) { }
         public abstract void Execute(ScenarioRunner runner);
     }
 
+    /// <summary>
+    /// Выполняет шаги по порядку объявления, дожидаясь завершения каждого; пустая последовательность сразу заканчивается.
+    /// </summary>
     public sealed class Sequence : ScenarioStep
     {
         public ScenarioStep[] Steps { get; }
@@ -26,6 +32,9 @@ namespace DialogueSystem
         }
     }
 
+    /// <summary>
+    /// Выбирает одну из двух веток по состоянию при достижении шага. До запуска реакции проверяются настройки обеих веток, независимо от будущего выбора.
+    /// </summary>
     public sealed class Branch : ScenarioStep
     {
         public ScenarioCondition Condition { get; }
@@ -46,6 +55,9 @@ namespace DialogueSystem
         public override void Execute(ScenarioRunner runner) => runner.Push(Condition.Matches(runner.Context) ? Yes : No);
     }
 
+    /// <summary>
+    /// Показывает реплики владельца сценария или указанного говорящего с выбранной камерой и ждёт окончания показа. Текст над NPC продвигается автоматически, окно — вводом игрока; StartFeedback запускается после начала показа и очищается при завершении сценария.
+    /// </summary>
     public sealed class Say : ScenarioStep
     {
         public string ActorId { get; }
@@ -100,12 +112,18 @@ namespace DialogueSystem
         }
     }
 
+    /// <summary>
+    /// Шаг изменения сюжетных фактов, допустимый также в OnReceipt для применения к копии состояния до начала реакции. Внешние эффекты должны выполняться отдельными обычными шагами.
+    /// </summary>
     public abstract class FactChange : ScenarioStep
     {
         public abstract void Apply(StoryState state);
         public sealed override void Execute(ScenarioRunner runner) => Apply(runner.Context.State);
     }
 
+    /// <summary>
+    /// Записывает значение общего сюжетного факта. В последовательности применяется при достижении шага, а в OnReceipt — сразу при передаче предмета до реплик.
+    /// </summary>
     public sealed class SetFact<T> : FactChange
     {
         public StoryKey<T> Key { get; }
@@ -115,6 +133,9 @@ namespace DialogueSystem
         public override void Apply(StoryState state) => state.Set(Key, Value);
     }
 
+    /// <summary>
+    /// Включает или завершает вступительную фазу NPC для обработки следующих событий; факт знакомства хранится отдельно в StoryState.
+    /// </summary>
     public sealed class SetIntroduction : ScenarioStep
     {
         public bool Value { get; }
@@ -122,6 +143,9 @@ namespace DialogueSystem
         public override void Execute(ScenarioRunner runner) => runner.Context.Npc.SetIntroduction(Value);
     }
 
+    /// <summary>
+    /// Немедленно запускает MMF_Player из именованных привязок владельца сценария при достижении шага.
+    /// </summary>
     public sealed class PlayFeedback : ScenarioStep
     {
         public string Id { get; }
@@ -130,6 +154,9 @@ namespace DialogueSystem
         public override void Execute(ScenarioRunner runner) => runner.Context.Npc.GetFeedback(Id).PlayFeedbacks();
     }
 
+    /// <summary>
+    /// На время последовательности запрещает выброс, смену слота и приём новых предметов, защищая совместную сцену от прерывания предметами. После блока восстанавливает предыдущую блокировку, при отмене её снимает исполнитель.
+    /// </summary>
     public sealed class ProtectedSequence : ScenarioStep
     {
         public Sequence Content { get; }
@@ -143,6 +170,9 @@ namespace DialogueSystem
         }
     }
 
+    /// <summary>
+    /// Служебный шаг восстановления предыдущей блокировки предметов после защищённой последовательности, в том числе при вложенных блоках.
+    /// </summary>
     internal sealed class SetItemLock : ScenarioStep
     {
         private readonly bool value;
@@ -150,6 +180,9 @@ namespace DialogueSystem
         public override void Execute(ScenarioRunner runner) => runner.SetItemLock(value);
     }
 
+    /// <summary>
+    /// Завершает текущую реакцию и принадлежащий ей разговор, отбрасывает оставшиеся шаги и освобождает ресурсы исполнения.
+    /// </summary>
     public sealed class EndDialogue : ScenarioStep
     {
         public override void Execute(ScenarioRunner runner) => runner.End();
