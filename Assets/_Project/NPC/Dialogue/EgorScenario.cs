@@ -62,8 +62,8 @@ namespace DialogueSystem
 
         public override EndingRule[] Endings { get; } = new[]
         {
-            new EndingRule(new FactIs<bool>(Photographed, true), "Егор ушел спокойно"),
-            new EndingRule(new Always(), "Егор ушел не спокойно")
+            new EndingRule(new FactIs<bool>(Photographed, true), "Егор ушел на войну, со спокойной душой."),
+            new EndingRule(new Always(), "Егор отправился на войну.")
         };
     }
 

@@ -96,7 +96,7 @@ namespace DialogueSystem
             new EndingRule(new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Pills),
                 "Агафьевна дала Лизе таблетки. К утру жар отступил, и девочка выжила."),
             new EndingRule(new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Alcohol),
-                "Агафьевна растирала Лизу спиртом, но до утра девочка не дожила."),
+                "Содержимое бутылки, оказалось внутри деда."),
             new EndingRule(new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Stethoscope),
                 "Агафьевна послушала дыхание Лизы, но помочь ей не смогла. До утра девочка не дожила."),
             new EndingRule(new Always(), "Агафьевна так и не получила лекарства. До утра Лиза не дожила.")

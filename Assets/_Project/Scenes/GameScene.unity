@@ -4747,8 +4747,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b26d9f764726534cbec49e1c8635796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameSequencer
-  collectingDuration: 30
-  secondStageDuration: 120
+  collectingDuration: 1111
+  secondStageDuration: 1111
   controls: {fileID: 5771641395260253673}
   inventory: {fileID: 5771641395260253672}
   dialogue: {fileID: 731481541}

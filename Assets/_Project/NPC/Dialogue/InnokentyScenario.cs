@@ -15,7 +15,7 @@ namespace DialogueSystem
             Visit(1, "..."),
             Visit(2, "Ну?"),
             Visit(3, "Отстань христа ради, я никому ничего не должен"),
-            new ScenarioRule(ScenarioEvent.Interact, new FactIs<int>(StoryFacts.InnokentyVisits, 4),
+            new ScenarioRule(ScenarioEvent.Interact, new All( new FactIs<int>(StoryFacts.InnokentyVisits, 4), new FactIs<bool>(StoryFacts.IlyaCalculatorGiven, true)),
                 new Sequence(
                     new SetFact<int>(StoryFacts.InnokentyVisits, 5),
                     new SetIntroduction(true),
