@@ -1,112 +1,113 @@
 using System;
+using DialogueSystem;
 using MoreMountains.Feedbacks;
 using Unity.Cinemachine;
 using UnityEngine;
 
-[RequireComponent(typeof(NpcWantItem))]
-[RequireComponent(typeof(TAnimSoundWriter))]
+[RequireComponent(typeof(NpcWantItem), typeof(TAnimSoundWriter))]
 public abstract class NpcDialog : MonoBehaviour, IInteractable
 {
-    [System.Serializable]
-    public sealed class Reaction
+    [Serializable]
+    public sealed class FeedbackBinding
     {
-        public MMF_Player feedback;
+        public string id;
+        public MMF_Player player;
+    }
+
+    [Serializable]
+    public sealed class CameraBinding
+    {
+        public string id;
+        public CinemachineCamera camera;
     }
 
     [SerializeField] private string speaker;
     [SerializeField] private CinemachineCamera dialogueCamera;
     [SerializeField] private WorldText worldText;
     [SerializeField] private Transform playerPosition;
-    [SerializeField] private Reaction beforeItem = new Reaction();
-    [SerializeField] private Reaction needItem = new Reaction();
-    [SerializeField] private Reaction earlyWrongItem = new Reaction();
-    [SerializeField] private Reaction earlyCorrectItem = new Reaction();
-    [SerializeField] private Reaction beforeMeeting = new Reaction();
-    [SerializeField] private Reaction itemReceived = new Reaction();
-    [SerializeField] private Reaction afterItem = new Reaction();
-    [SerializeField] private Reaction wrongItem = new Reaction();
-    public bool HasMet { get; private set; }
+    [SerializeField] private FeedbackBinding[] feedbacks = Array.Empty<FeedbackBinding>();
+    [SerializeField] private CameraBinding[] cameras = Array.Empty<CameraBinding>();
+    private NpcScenario scenario;
+    private ScenarioRunner runner;
+
+    public string CharacterId => Scenario.Id;
+    public string SpeakerName => speaker;
+    public Transform PlayerPosition => playerPosition;
+    public bool IsIntroducing { get; private set; }
     public TAnimSoundWriter SoundWriter { get; private set; }
-    protected NpcWantItem Want { get; private set; }
-    private DialoguePresenter presenter;
-    private GameSequencer sequencer;
-    private bool introducing;
+    public DialoguePresenter Presenter { get; private set; }
+    public GameSequencer Sequencer { get; private set; }
+    private NpcScenario Scenario => scenario ??= CreateScenario();
+    protected abstract NpcScenario CreateScenario();
 
     protected virtual void Awake()
     {
-        Want = GetComponent<NpcWantItem>();
         SoundWriter = GetComponent<TAnimSoundWriter>();
-        presenter = FindAnyObjectByType<DialoguePresenter>();
-        sequencer = FindAnyObjectByType<GameSequencer>();
+        Presenter = FindAnyObjectByType<DialoguePresenter>();
+        Sequencer = FindAnyObjectByType<GameSequencer>();
+        runner = new ScenarioRunner(this);
     }
 
-    public bool CanInteract(PlayerInventory player) => isActiveAndEnabled && player != null && sequencer.CanReceiveItems && !presenter.IsOpen;
+    public bool CanInteract(PlayerInventory player) => player != null && CanReact() && !Presenter.IsOpen;
+    private bool CanReact() => isActiveAndEnabled && Sequencer != null && Presenter != null &&
+        Sequencer.CanReceiveItems && !(runner?.ItemsLocked ?? false) && !Presenter.ItemsLocked && (!Presenter.IsOpen || Presenter.Owner == this);
 
     public void Interact(PlayerInventory player)
     {
-        if (!CanInteract(player)) return;
-        if (Want.HasReceivedItem) ShowWorld(afterItem, AfterItem());
-        else if (HasMet) ShowNeed();
-        else
+        if (CanInteract(player)) Run(ScenarioEvent.Interact, null);
+    }
+
+    public void ReactToItem(Item item)
+    {
+        if (CanReact() && item != null && item.Owner == null && item.WasDropped)
+            Run(ScenarioEvent.ItemHit, item);
+    }
+
+    private void Run(ScenarioEvent trigger, Item item)
+    {
+        try
         {
-            introducing = true;
-            if (ShowDialog(beforeItem, BeforeItem(), ShowNeed)) HasMet = true;
-            else introducing = false;
+            var context = new ScenarioContext(this, item);
+            ScenarioRule rule = Scenario.Select(trigger, context);
+            if (rule != null) runner.Start(rule, context);
+        }
+        catch (Exception exception)
+        {
+            Debug.LogError($"Scenario '{CharacterId}': {exception}", this);
         }
     }
 
-    public void ReactToItem(bool accepted)
+    public void SetIntroduction(bool value) => IsIntroducing = value;
+    public void ShowWorld(string[] lines, Action completed) => worldText.Show(lines, completed);
+    public void HideWorld() => worldText.Hide();
+
+    public CinemachineCamera GetCamera(string id = null)
     {
-        if (!HasMet)
+        if (string.IsNullOrEmpty(id)) return dialogueCamera;
+        foreach (CameraBinding binding in cameras)
+            if (binding.id == id && binding.camera != null) return binding.camera;
+        throw new InvalidOperationException($"NPC '{CharacterId}' needs camera '{id}'.");
+    }
+
+    public MMF_Player GetFeedback(string id)
+    {
+        foreach (FeedbackBinding binding in feedbacks)
+            if (binding.id == id && binding.player != null) return binding.player;
+        throw new InvalidOperationException($"NPC '{CharacterId}' needs feedback '{id}'.");
+    }
+
+    public void ValidateSpeech(bool world, string cameraId)
+    {
+        if (world)
         {
-            ShowWorld(beforeMeeting, BeforeMeeting());
-            return;
+            if (worldText == null || !worldText.IsConfigured)
+                throw new InvalidOperationException($"NPC '{CharacterId}' needs configured WorldText.");
         }
-        bool early = presenter.Speaker == this && introducing;
-        introducing = false;
-        if (accepted)
-        {
-            if (early) ShowDialog(earlyCorrectItem, EarlyCorrectItem(), ShowReceived);
-            else ShowReceived();
-        }
-        else if (presenter.Speaker == this)
-        {
-            if (early) ShowDialog(earlyWrongItem, EarlyWrongItem(), ShowWrong);
-            else ShowWrong();
-        }
-        else ShowWorld(wrongItem, WrongItem());
+        else if (GetCamera(cameraId) == null || playerPosition == null || string.IsNullOrWhiteSpace(speaker))
+            throw new InvalidOperationException($"NPC '{CharacterId}' needs a name, camera and player position.");
     }
 
-    private void ShowNeed()
-    {
-        introducing = false;
-        ShowDialog(needItem, NeedItem());
-    }
-
-    private void ShowReceived() => ShowDialog(itemReceived, ItemReceived());
-    private void ShowWrong() => ShowDialog(wrongItem, WrongItem(), ShowNeed);
-
-    private bool ShowDialog(Reaction reaction, string[] lines, Action completed = null)
-    {
-        if (!presenter.TryOpen(this, speaker, lines, dialogueCamera, playerPosition, completed)) return false;
-        worldText.Hide();
-        reaction.feedback?.PlayFeedbacks();
-        return true;
-    }
-
-    private void ShowWorld(Reaction reaction, string[] lines)
-    {
-        worldText.Show(lines);
-        reaction.feedback?.PlayFeedbacks();
-    }
-
-    protected abstract string[] BeforeItem();
-    protected abstract string[] NeedItem();
-    protected abstract string[] EarlyWrongItem();
-    protected abstract string[] EarlyCorrectItem();
-    protected abstract string[] BeforeMeeting();
-    protected abstract string[] ItemReceived();
-    protected abstract string[] AfterItem();
-    protected abstract string[] WrongItem();
-    public abstract string GetEndingText();
+    public string GetEndingText() => Scenario.GetEnding(new ScenarioContext(this));
+    public void CancelScenario() => runner?.Cancel(true);
+    protected virtual void OnDisable() => CancelScenario();
 }

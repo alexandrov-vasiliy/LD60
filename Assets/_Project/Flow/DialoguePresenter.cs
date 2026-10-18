@@ -18,6 +18,8 @@ public sealed class DialoguePresenter : MonoBehaviour
     [SerializeField] private MMF_Player openedFeedback;
     [SerializeField] private MMF_Player closedFeedback;
     public bool IsOpen { get; private set; }
+    public bool ItemsLocked { get; private set; }
+    public NpcDialog Owner { get; private set; }
     public NpcDialog Speaker { get; private set; }
     private Action completed;
     private CinemachineCamera cameraRig;
@@ -30,7 +32,9 @@ public sealed class DialoguePresenter : MonoBehaviour
     private void OnDisable()
     {
         typewriter.onCharacterVisible.RemoveListener(PlayCharacterSound);
-        Speaker?.SoundWriter?.Stop();
+        NpcDialog owner = Owner;
+        owner?.CancelScenario();
+        Close(owner);
     }
 
     private void PlayCharacterSound(CharacterData character)
@@ -45,40 +49,65 @@ public sealed class DialoguePresenter : MonoBehaviour
         typewriter.ShowText(lines[index]);
     }
 
-    public bool TryOpen(NpcDialog npc, string speaker, string[] text, CinemachineCamera npcCamera,
-        Transform playerPosition, Action onCompleted = null)
+    public bool TryShow(NpcDialog owner, NpcDialog actor, string[] text, CinemachineCamera camera,
+        Action onCompleted, bool itemsLocked)
     {
-        if (!sequencer.CanReceiveItems || (IsOpen && Speaker != npc) || text == null || text.Length == 0)
+        if (!sequencer.CanReceiveItems || (IsOpen && Owner != owner) || owner == null || actor == null ||
+            camera == null || owner.PlayerPosition == null || text == null || text.Length == 0)
             return false;
-        if (npcCamera == null || playerPosition == null)
-        {
-            Debug.LogError("NPC dialogue needs a camera and player position.", npc);
-            return false;
-        }
-        if (!IsOpen)
+        bool opening = !IsOpen;
+        if (opening)
         {
             controls.SetGameplayEnabled(false);
-            controls.Teleport(playerPosition);
-            controls.SetDialogueInventoryEnabled(true);
+            controls.Teleport(owner.PlayerPosition);
             controls.SetBodyVisible(true);
             IsOpen = true;
-            Speaker = npc;
-            cameraRig = npcCamera;
-            cameraRig.gameObject.SetActive(true);
+            Owner = owner;
             panel.SetActive(true);
-            speakerLabel.text = speaker;
-            openedFeedback?.PlayFeedbacks();
         }
+        Speaker?.SoundWriter?.Stop();
+        Speaker = actor;
+        actor.HideWorld();
+        if (cameraRig != camera)
+        {
+            if (cameraRig != null) cameraRig.gameObject.SetActive(false);
+            cameraRig = camera;
+            cameraRig.gameObject.SetActive(true);
+        }
+        speakerLabel.text = actor.SpeakerName;
+        SetItemLock(owner, itemsLocked);
         lines = text;
         index = 0;
         completed = onCompleted;
         inputFrame = Time.frameCount;
+        if (opening) openedFeedback?.PlayFeedbacks();
         ShowLine();
         return true;
     }
 
+    public void SetItemLock(NpcDialog owner, bool value)
+    {
+        if (!IsOpen || Owner != owner) return;
+        ItemsLocked = value;
+        controls.SetDialogueInventoryEnabled(!value);
+    }
+
+    public void ClearContinuation(NpcDialog owner)
+    {
+        if (Owner != owner) return;
+        completed = null;
+        Speaker?.SoundWriter?.Stop();
+    }
+
     private void Update()
     {
+        if (IsOpen && (Owner == null || !Owner.isActiveAndEnabled || Speaker == null || !Speaker.isActiveAndEnabled))
+        {
+            NpcDialog owner = Owner;
+            if (owner != null) owner.CancelScenario();
+            Close(owner);
+            return;
+        }
         if (!IsOpen || Time.frameCount <= inputFrame) return;
         Keyboard keyboard = Keyboard.current;
         bool advance = (keyboard != null && (keyboard.eKey.wasPressedThisFrame || keyboard.spaceKey.wasPressedThisFrame))
@@ -97,21 +126,23 @@ public sealed class DialoguePresenter : MonoBehaviour
             Action next = completed;
             completed = null;
             if (next != null) next();
-            else Close();
+            else Close(Owner);
         }
     }
 
-    private void Close()
+    public void Close(NpcDialog owner)
     {
+        if (!IsOpen || Owner != owner) return;
         Speaker?.SoundWriter?.Stop();
-        IsOpen = false;
-        Speaker = null;
+        IsOpen = ItemsLocked = false;
+        Owner = Speaker = null;
         completed = null;
         panel.SetActive(false);
         controls.SetBodyVisible(false);
-        cameraRig.gameObject.SetActive(false);
+        if (cameraRig != null) cameraRig.gameObject.SetActive(false);
+        cameraRig = null;
         closedFeedback?.PlayFeedbacks();
         controls.SetDialogueInventoryEnabled(false);
-        controls.SetGameplayEnabled(true);
+        controls.SetGameplayEnabled(sequencer.CanReceiveItems && !sequencer.IsPaused);
     }
 }

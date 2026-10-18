@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using Febucci.TextAnimatorForUnity;
 using UnityEngine;
 
@@ -8,14 +9,15 @@ public sealed class WorldText : MonoBehaviour
     [SerializeField] private TypewriterComponent typewriter;
     [SerializeField, Min(0.1f)] private float lineDuration = 2.5f;
     private Coroutine reaction;
+    public bool IsConfigured => label != null && typewriter != null;
 
-    public void Show(string[] lines)
+    public void Show(string[] lines, Action completed = null)
     {
         Hide();
-        reaction = StartCoroutine(Present(lines));
+        reaction = StartCoroutine(Present(lines, completed));
     }
 
-    private IEnumerator Present(string[] lines)
+    private IEnumerator Present(string[] lines, Action completed)
     {
         label.SetActive(true);
         foreach (string line in lines)
@@ -26,6 +28,7 @@ public sealed class WorldText : MonoBehaviour
         }
         label.SetActive(false);
         reaction = null;
+        completed?.Invoke();
     }
 
     private void LateUpdate()

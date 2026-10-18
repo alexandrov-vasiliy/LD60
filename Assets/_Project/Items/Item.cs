@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum ItemId { Vase, Typewriter }
+public enum ItemId { Vase = 0, Typewriter = 1, Stethoscope = 2, Pills = 3, Alcohol = 4, Calculator = 5 }
 
 [RequireComponent(typeof(Rigidbody))]
 public sealed class Item : MonoBehaviour
@@ -74,4 +74,3 @@ public sealed class Item : MonoBehaviour
         body.AddForce(impulse, ForceMode.Impulse);
     }
 }
-

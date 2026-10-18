@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Text;
+using System;
+using DialogueSystem;
 using MoreMountains.Feedbacks;
 using TMPro;
 using Unity.Cinemachine;
@@ -29,6 +31,19 @@ public sealed class GameSequencer : MonoBehaviour
     [SerializeField] private GameObject resultsPanel;
     [SerializeField] private TMP_Text resultsText;
     private NpcDialog[] npcs;
+    public StoryState Story { get; } = new StoryState();
+
+    public NpcDialog GetNpc(string id)
+    {
+        NpcDialog found = null;
+        foreach (NpcDialog npc in npcs)
+        {
+            if (npc.CharacterId != id) continue;
+            if (found != null) throw new InvalidOperationException($"Duplicate NPC ID '{id}'.");
+            found = npc;
+        }
+        return found != null ? found : throw new InvalidOperationException($"Missing NPC '{id}'.");
+    }
 
     public GamePhase Phase { get; private set; }
     public float Remaining { get; private set; }
@@ -106,6 +121,7 @@ public sealed class GameSequencer : MonoBehaviour
 
     private void Finish()
     {
+        foreach (NpcDialog npc in npcs) npc.CancelScenario();
         Phase = GamePhase.Results;
         controls.SetGameplayEnabled(false);
         int worth = 0;
