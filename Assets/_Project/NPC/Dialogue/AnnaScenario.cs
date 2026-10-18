@@ -30,22 +30,22 @@ namespace DialogueSystem
                     Request())),
 
             new ScenarioRule(ScenarioEvent.Interact, new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Pills),
-                Reply("AfterItem", SpeechMode.World, "Агафьевна говорит, лекарство. Я только бы до утра её довела. А там, может, полегчает.")),
+                Reply("AfterItem", SpeechMode.Dialogue, "Агафьевна говорит, лекарство. Я только бы до утра её довела. А там, может, полегчает.")),
             new ScenarioRule(ScenarioEvent.Interact, new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Alcohol),
-                Reply("AfterItem", SpeechMode.World, "Растёрли её. Лежит тихо. Я всё слушаю, как дышит.")),
+                Reply("AfterItem", SpeechMode.Dialogue, "Растёрли её. Лежит тихо. Я всё слушаю, как дышит.")),
             new ScenarioRule(ScenarioEvent.Interact, new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Stethoscope),
-                Reply("AfterItem", SpeechMode.World, "Послушала она её. А я всё на лицо смотрю. Жду, когда глаза откроет.")),
+                Reply("AfterItem", SpeechMode.Dialogue, "Послушала она её. А я всё на лицо смотрю. Жду, когда глаза откроет.")),
             new ScenarioRule(ScenarioEvent.Interact, new Always(), Request()),
 
             new ScenarioRule(ScenarioEvent.ItemHit, new Not(new FactIs<bool>(StoryFacts.AnnaMet, true)),
-                Reply("BeforeMeeting", SpeechMode.World, "Тише ты. Разбудишь её.")),
+                Reply("BeforeMeeting", SpeechMode.Dialogue, "Тише ты. Разбудишь её.")),
             new ScenarioRule(ScenarioEvent.ItemHit,
                 new ItemIs(ItemId.Stethoscope, ItemId.Pills, ItemId.Alcohol),
                 Reply("ItemReceived", SpeechMode.Dialogue, "Не мне.", "Отдай Агафьевне.")),
             new ScenarioRule(ScenarioEvent.ItemHit, new DuringIntroduction(),
                 new Sequence(Reply("EarlyWrongItem", SpeechMode.Dialogue, "К чему это?"), Request())),
             new ScenarioRule(ScenarioEvent.ItemHit, new Always(),
-                Reply("WrongItem", SpeechMode.Current, "К чему это?"))
+                Reply("WrongItem", SpeechMode.Dialogue, "К чему это?"))
         };
 
         public override EndingRule[] Endings { get; } = new[]

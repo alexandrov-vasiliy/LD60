@@ -1,7 +1,7 @@
 namespace DialogueSystem
 {
     /// <summary>
-    /// История Ильи: после знакомства просит помочь со счётом и один раз принимает калькулятор, сразу закрепляя успешный исход. Если просьба Иннокентия уже достигнута на момент передачи, запускает защищённую сцену письма; хороший исход деда записывается после последней реплики.
+    /// История Ильи: три обращения ведут к просьбе помочь со счётом; ранний предмет переводит к третьему блоку. Один раз принимает калькулятор, сразу закрепляя успешный исход. Если просьба Иннокентия уже достигнута на момент передачи, запускает защищённую сцену письма; хороший исход деда записывается после последней реплики.
     /// </summary>
     public sealed class IlyaScenario : NpcScenario
     {
@@ -40,20 +40,30 @@ namespace DialogueSystem
         {
             new ScenarioRule(ScenarioEvent.Interact, new FactIs<bool>(StoryFacts.IlyaCalculatorGiven, true),
                 new Say(SpeechMode.Dialogue, "Девяносто три. Теперь всё сходится. Спасибо.")),
-            new ScenarioRule(ScenarioEvent.Interact, new FactIs<bool>(StoryFacts.IlyaMet, false),
+            new ScenarioRule(ScenarioEvent.Interact, new FactIs<int>(StoryFacts.IlyaVisits, 0),
                 new Sequence(
-                    new SetFact<bool>(StoryFacts.IlyaMet, true),
+                    new SetFact<int>(StoryFacts.IlyaVisits, 1),
                     new SetIntroduction(true),
                     new Say(SpeechMode.Dialogue,
                         "Сорок один. Сорок два. Сорок три...",
                         "Сорок один. Сорок два, да, ГОСПОДИ.",
                         "Что?!",
                         "Молчи. Молчи, пожалуйста, я почти..."),
+                    new SetIntroduction(false))),
+            new ScenarioRule(ScenarioEvent.Interact, new FactIs<int>(StoryFacts.IlyaVisits, 1),
+                new Sequence(
+                    new SetFact<int>(StoryFacts.IlyaVisits, 2),
+                    new SetIntroduction(true),
                     new Say(SpeechMode.Dialogue,
                         "Я так с вечера. Я не считать не умею. Я её слышу.",
                         "Она кричит — и у меня из головы всё вышибает. Как ведром.",
                         "Я дохожу до сорок второго и всё. Дальше пусто.",
                         "Я не прошу, чтоб она замолчала. Я прошу, чтоб я не слышал."),
+                    new SetIntroduction(false))),
+            new ScenarioRule(ScenarioEvent.Interact, new FactIs<int>(StoryFacts.IlyaVisits, 2),
+                new Sequence(
+                    new SetFact<int>(StoryFacts.IlyaVisits, 3),
+                    new SetIntroduction(true),
                     new Say(SpeechMode.Dialogue,
                         "Мне к утру ведомость. Семьдесят шесть позиций.",
                         "Я трижды сводил. Трижды разное. И знаешь почему?",
@@ -68,12 +78,12 @@ namespace DialogueSystem
                 new All(new ItemIs(ItemId.Calculator), new FactIs<bool>(StoryFacts.IlyaCalculatorGiven, false),
                     new FactIs<bool>(StoryFacts.InnokentyRequestReached, true)),
                 new ProtectedSequence(CalculatorReply(), LetterScene()), ItemDisposition.Consume,
-                new SetFact<bool>(StoryFacts.IlyaMet, true),
+                new SetFact<int>(StoryFacts.IlyaVisits, 3),
                 new SetFact<bool>(StoryFacts.IlyaCalculatorGiven, true)),
             new ScenarioRule(ScenarioEvent.ItemHit,
                 new All(new ItemIs(ItemId.Calculator), new FactIs<bool>(StoryFacts.IlyaCalculatorGiven, false)),
                 CalculatorReply(), ItemDisposition.Consume,
-                new SetFact<bool>(StoryFacts.IlyaMet, true),
+                new SetFact<int>(StoryFacts.IlyaVisits, 3),
                 new SetFact<bool>(StoryFacts.IlyaCalculatorGiven, true)),
             new ScenarioRule(ScenarioEvent.ItemHit, new ItemIs(ItemId.Calculator),
                 Reply("У меня уже есть. Спасибо.")),
@@ -87,7 +97,9 @@ namespace DialogueSystem
         };
 
         private static Sequence Reply(params string[] lines) => new Sequence(
-            new SetFact<bool>(StoryFacts.IlyaMet, true), new Say(SpeechMode.Dialogue, lines));
+            new Branch(new Any(new FactIs<int>(StoryFacts.IlyaVisits, 0), new FactIs<int>(StoryFacts.IlyaVisits, 1)),
+                new SetFact<int>(StoryFacts.IlyaVisits, 2), new Sequence()),
+            new Say(SpeechMode.Dialogue, lines));
 
         public override EndingRule[] Endings { get; } = new[]
         {

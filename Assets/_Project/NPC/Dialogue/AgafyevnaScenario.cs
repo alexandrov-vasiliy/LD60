@@ -49,15 +49,15 @@ namespace DialogueSystem
                     Request())),
 
             new ScenarioRule(ScenarioEvent.Interact, new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Pills),
-                Reply("AfterItem", SpeechMode.World, "Хоть бы до утра. Хоть бы до свету дожить")),
+                Reply("AfterItem", SpeechMode.Dialogue, "Хоть бы до утра. Хоть бы до свету дожить")),
             new ScenarioRule(ScenarioEvent.Interact, new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Alcohol),
-                Reply("AfterItem", SpeechMode.World, "Хоть что-то путное за вечер.")),
+                Reply("AfterItem", SpeechMode.Dialogue, "Хоть что-то путное за вечер.")),
             new ScenarioRule(ScenarioEvent.Interact, new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Stethoscope),
-                Reply("AfterItem", SpeechMode.World, "Это не сглаз. Сглаз не хрипит. Сглаз — он тихий.")),
+                Reply("AfterItem", SpeechMode.Dialogue, "Это не сглаз. Сглаз не хрипит. Сглаз — он тихий.")),
             new ScenarioRule(ScenarioEvent.Interact, new Always(), Request()),
 
             new ScenarioRule(ScenarioEvent.ItemHit, new Not(new FactIs<bool>(StoryFacts.AgafyevnaMet, true)),
-                Reply("BeforeMeeting", SpeechMode.World, "Убери от меня эту дребедень!")),
+                Reply("BeforeMeeting", SpeechMode.Dialogue, "Убери от меня эту дребедень!")),
             Receive(ItemId.Stethoscope, LizaHelp.Stethoscope, "StethoscopeReceived",
                 "Чего это? Железо и кишка. И что мне с этого?",
                 "Я не поняла, чего ты сказал.",
@@ -83,7 +83,7 @@ namespace DialogueSystem
                     new SetFact<bool>(StoryFacts.AgafyevnaIntroduced, true),
                     Reply("EarlyWrongItem", SpeechMode.Dialogue, "Убери от меня эту дребедень!"))),
             new ScenarioRule(ScenarioEvent.ItemHit, new Always(),
-                Reply("WrongItem", SpeechMode.Current, "Убери от меня эту дребедень!"))
+                Reply("WrongItem", SpeechMode.Dialogue, "Убери от меня эту дребедень!"))
         };
 
         public override EndingRule[] Endings { get; } = new[]
