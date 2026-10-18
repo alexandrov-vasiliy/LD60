@@ -38,7 +38,7 @@ namespace DialogueSystem
             new ScenarioRule(ScenarioEvent.Interact, new Always(), Request()),
 
             new ScenarioRule(ScenarioEvent.ItemHit, new Not(new FactIs<bool>(StoryFacts.AnnaMet, true)),
-                Reply("BeforeMeeting", SpeechMode.Dialogue, "Тише ты. Разбудишь её.")),
+                Reply("BeforeMeeting", SpeechMode.Dialogue, "Ай!")),
             new ScenarioRule(ScenarioEvent.ItemHit,
                 new ItemIs(ItemId.Stethoscope, ItemId.Pills, ItemId.Alcohol),
                 Reply("ItemReceived", SpeechMode.Dialogue, "Не мне.", "Отдай Агафьевне.")),
