@@ -10,12 +10,13 @@ namespace DialogueSystem
         public override ScenarioRule[] Rules { get; } = new[]
         {
             new ScenarioRule(ScenarioEvent.Interact, new Always(),
-                new Say(SpeechMode.Dialogue, "ГАВ!"))
+                new Say(SpeechMode.Dialogue, "ГАВ!")),
+            new ScenarioRule(ScenarioEvent.ItemHit, new Always(), new Say(SpeechMode.Dialogue, "ГАФ!"))
         };
 
         public override EndingRule[] Endings { get; } = new[]
         {
-            new EndingRule(new Always(), string.Empty)
+            new EndingRule(new Always(), "Барбос: ГАВ!")
         };
     }
 }

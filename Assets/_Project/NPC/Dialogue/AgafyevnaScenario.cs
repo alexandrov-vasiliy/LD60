@@ -94,12 +94,12 @@ namespace DialogueSystem
         public override EndingRule[] Endings { get; } = new[]
         {
             new EndingRule(new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Pills),
-                "Агафьевна дала Лизе таблетки. К утру жар отступил, и девочка выжила."),
+                "Сохранив жизнь Лизе, Агафьевна упакоилась с миром."),
             new EndingRule(new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Alcohol),
-                "Содержимое бутылки, оказалось внутри деда."),
+                "Агафьевна не уследила за бутылокой: Содержимое бутылки, оказалось внутри деда."),
             new EndingRule(new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Stethoscope),
-                "Агафьевна послушала дыхание Лизы, но помочь ей не смогла. До утра девочка не дожила."),
-            new EndingRule(new Always(), "Агафьевна так и не получила лекарства. До утра Лиза не дожила.")
+                "После смерти Лизы, Агафьевна отошла на тот свет, успев схоронить 21 ребенка."),
+            new EndingRule(new Always(), "После смерти Лизы, Агафьевна отошла на тот свет, успев схоронить 21 ребенка.")
         };
     }
 }

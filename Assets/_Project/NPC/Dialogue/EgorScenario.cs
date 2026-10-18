@@ -6,7 +6,6 @@ namespace DialogueSystem
     public sealed class EgorScenario : NpcScenario
     {
         public static readonly StoryKey<int> Visits = new StoryKey<int>("egor.visits", 0);
-        public static readonly StoryKey<bool> Photographed = new StoryKey<bool>("egor.photographed", false);
         public override string Id => "egor";
 
         private static Say Need() => new Say(SpeechMode.Dialogue,
@@ -18,7 +17,7 @@ namespace DialogueSystem
             new PreparePolaroid(),
             new Say(SpeechMode.Dialogue, "Что это?"),
             new TakeEgorPhoto(),
-            new SetFact<bool>(Photographed, true),
+            new SetFact<bool>(StoryFacts.EgorPhotographed, true),
             new Say(SpeechMode.Dialogue,
                 "Это я?", "Это я, мам",
                 "А чего оно такое маленькое? Ничего. Маленькое — хорошо.",
@@ -26,7 +25,7 @@ namespace DialogueSystem
 
         public override ScenarioRule[] Rules { get; } = new[]
         {
-            new ScenarioRule(ScenarioEvent.Interact, new FactIs<bool>(Photographed, true),
+            new ScenarioRule(ScenarioEvent.Interact, new FactIs<bool>(StoryFacts.EgorPhotographed, true),
                 new Say(SpeechMode.Dialogue, "Спасибо")),
             new ScenarioRule(ScenarioEvent.Interact, new FactIs<int>(Visits, 0),
                 new Sequence(
@@ -51,7 +50,7 @@ namespace DialogueSystem
 
             new ScenarioRule(ScenarioEvent.ItemHit, new ItemIs(ItemId.Polaroid),
                 new Sequence(new SetFact<int>(Visits, 3),
-                    new Branch(new FactIs<bool>(Photographed, true),
+                    new Branch(new FactIs<bool>(StoryFacts.EgorPhotographed, true),
                         new ProtectedSequence(new PreparePolaroid(), new Say(SpeechMode.Dialogue, "Спасибо")),
                         Photo()))),
             new ScenarioRule(ScenarioEvent.ItemHit, new ItemIs(ItemId.Pencil),
@@ -62,7 +61,7 @@ namespace DialogueSystem
 
         public override EndingRule[] Endings { get; } = new[]
         {
-            new EndingRule(new FactIs<bool>(Photographed, true), "Егор ушел на войну, со спокойной душой."),
+            new EndingRule(new FactIs<bool>(StoryFacts.EgorPhotographed, true), "Егор ушел на войну, со спокойной душой."),
             new EndingRule(new Always(), "Егор отправился на войну.")
         };
     }

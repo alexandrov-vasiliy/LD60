@@ -33,7 +33,7 @@ public sealed class GameSequencer : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject resultsPanel;
     [SerializeField] private TMP_Text resultsText;
-    private NpcDialog[] npcs;
+    [SerializeField] private NpcDialog[] npcs;
     public StoryState Story { get; } = new StoryState();
 
     public NpcDialog GetNpc(string id)
@@ -56,7 +56,6 @@ public sealed class GameSequencer : MonoBehaviour
 
     private void Start()
     {
-        npcs = FindObjectsByType<NpcDialog>();
         Time.timeScale = 1f;
         pausePanel.SetActive(false);
         resultsPanel.SetActive(false);
@@ -131,12 +130,14 @@ public sealed class GameSequencer : MonoBehaviour
         foreach (Item item in inventory.Slots)
             if (item != null && item.TryGetComponent(out WorthItem value)) worth += value.Value;
         StringBuilder text = new StringBuilder();
+        if(worth > 0)  
+            text.Append($"Я смог заработать: {worth}$");
+
         foreach (NpcDialog npc in npcs)
         {
             string ending = npc.GetEndingText();
             if (!string.IsNullOrWhiteSpace(ending)) text.AppendLine(ending).AppendLine();
         }
-        text.Append($"Стоимость оставшихся предметов: {worth}");
         resultsText.text = text.ToString();
         timerLabel.text = "Итоги";
         resultsPanel.SetActive(true);

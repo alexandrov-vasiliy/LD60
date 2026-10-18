@@ -15,7 +15,7 @@ namespace DialogueSystem
             Visit(1, "..."),
             Visit(2, "Ну?"),
             Visit(3, "Отстань христа ради, я никому ничего не должен"),
-            new ScenarioRule(ScenarioEvent.Interact, new All( new FactIs<int>(StoryFacts.InnokentyVisits, 4), new FactIs<bool>(StoryFacts.IlyaCalculatorGiven, true)),
+            new ScenarioRule(ScenarioEvent.Interact, new All( new FactIs<int>(StoryFacts.InnokentyVisits, 4), new FactIs<bool>(StoryFacts.IlyaCalculatorGiven, false)),
                 new Sequence(
                     new SetFact<int>(StoryFacts.InnokentyVisits, 5),
                     new SetIntroduction(true),
@@ -31,7 +31,7 @@ namespace DialogueSystem
 
             new ScenarioRule(ScenarioEvent.ItemHit, new ItemIs(ItemId.Alcohol),
                 Reply("О, это деду надо"), ItemDisposition.Consume),
-            new ScenarioRule(ScenarioEvent.ItemHit, new ItemIs(ItemId.Glasses),
+            new ScenarioRule(ScenarioEvent.ItemHit, new All(new ItemIs(ItemId.Glasses), new FactIs<bool>(StoryFacts.IlyaCalculatorGiven, false)),
                 Reply("Буквы вижу. А прочесть всё одно. Не могу.", "Буквы — они не сами говорят.")),
             new ScenarioRule(ScenarioEvent.ItemHit, new Always(), new Say(SpeechMode.Dialogue, "Убери"))
         };

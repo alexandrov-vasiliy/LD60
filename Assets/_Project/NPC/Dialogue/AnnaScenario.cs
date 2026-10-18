@@ -51,9 +51,9 @@ namespace DialogueSystem
         public override EndingRule[] Endings { get; } = new[]
         {
             new EndingRule(new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Pills),
-                "К утру Лиза открыла глаза. Анна ещё долго сидела рядом, боясь поверить, что жар отступил."),
+                "Анна ещё долго сидела рядом, боясь поверить, что жар отступил."),
             new EndingRule(new Always(),
-                "До утра Лиза не дожила. Анна всё держала её за руку и просила говорить потише.")
+                "Анна: ...")
         };
     }
 }

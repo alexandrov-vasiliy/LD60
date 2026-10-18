@@ -19,5 +19,7 @@ namespace DialogueSystem
         public static readonly StoryKey<int> ProkhorVisits = new StoryKey<int>("prokhor.visits", 0);
         public static readonly StoryKey<int> AgafyevnaVisits = new StoryKey<int>("agafyevna.visits", 0);
         public static readonly StoryKey<LizaHelp> LizaTreatment = new StoryKey<LizaHelp>("liza.help", LizaHelp.None);
+        public static readonly StoryKey<bool> EgorPhotographed = new StoryKey<bool>("egor.photographed", false);
+
     }
 }

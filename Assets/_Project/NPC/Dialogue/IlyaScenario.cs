@@ -106,10 +106,10 @@ namespace DialogueSystem
 
         public override EndingRule[] Endings { get; } = new[]
         {
-            new EndingRule(new FactIs<bool>(StoryFacts.IlyaCalculatorGiven, true), "Илья сдал"),
+            new EndingRule(new FactIs<bool>(StoryFacts.IlyaCalculatorGiven, true), "Илья сдал экзамен."),
             new EndingRule(new Not(new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Pills)),
-                "Илья сдал в тишине"),
-            new EndingRule(new Always(), "Илья не сдал")
+                "Когда прекратились крики, Илья смог сосредоточится."),
+            new EndingRule(new Always(), "Илья не сдал, и ушел с Прохором на фронт.")
         };
     }
 }
