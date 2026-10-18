@@ -16,6 +16,7 @@ using UnityEngine.Playables;
 public sealed class GameSequencer : MonoBehaviour
 {
     public enum GamePhase { Collecting, Cutscene, SecondStage, Results }
+    [SerializeField, Min(0f)] private float startDelay = 5f;
     [SerializeField, Min(0.1f)] private float collectingDuration = 60f;
     [SerializeField, Min(0.1f)] private float secondStageDuration = 90f;
     [SerializeField] private PlayerControls controls;
@@ -35,6 +36,8 @@ public sealed class GameSequencer : MonoBehaviour
     [SerializeField] private TMP_Text resultsText;
     [SerializeField] private NpcDialog[] npcs;
     public StoryState Story { get; } = new StoryState();
+    private float delayRemaining;
+    private bool timerStarted;
 
     public NpcDialog GetNpc(string id)
     {
@@ -63,6 +66,8 @@ public sealed class GameSequencer : MonoBehaviour
         controls.Teleport(collectingSpawn);
         Phase = GamePhase.Collecting;
         Remaining = collectingDuration;
+        delayRemaining = startDelay;
+        timerLabel.enabled = false;
         controls.SetGameplayEnabled(true);
     }
 
@@ -78,6 +83,14 @@ public sealed class GameSequencer : MonoBehaviour
         }
 #endif
         if (!IsFreeGameplay) return;
+        if (!timerStarted)
+        {
+            delayRemaining -= Time.deltaTime;
+            if (delayRemaining > 0f) return;
+            timerStarted = true;
+            timerLabel.enabled = true;
+            stageAlarm?.StartAlarm();
+        }
         int previousSeconds = Mathf.CeilToInt(Remaining);
         Remaining = Mathf.Max(0f, Remaining - Time.deltaTime);
         if (Mathf.CeilToInt(Remaining) < previousSeconds) timerTickFeedback?.PlayFeedbacks();

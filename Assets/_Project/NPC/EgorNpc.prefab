@@ -653,7 +653,7 @@ MonoBehaviour:
         FlashDuration: 0.4
         FlashAlpha: 1
         FlashID: 0
-        TargetFlash: {fileID: 5104707380251945582}
+        TargetFlash: {fileID: 0}
 --- !u!82 &673358496747968299
 AudioSource:
   m_ObjectHideFlags: 0

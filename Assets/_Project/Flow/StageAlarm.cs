@@ -6,6 +6,21 @@ public sealed class StageAlarm : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private Transform beacons;
     [SerializeField] private float rotationSpeed = 120f;
+    private float volume;
+
+    private void Awake()
+    {
+        volume = audioSource.volume;
+        audioSource.playOnAwake = false;
+        StopAlarm();
+    }
+
+    public void StartAlarm()
+    {
+        gameObject.SetActive(true);
+        audioSource.volume = volume;
+        audioSource.Play();
+    }
 
     private void Update()
     {
