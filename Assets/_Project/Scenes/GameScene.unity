@@ -1557,6 +1557,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 929214507}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &548674613 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7438429421057630415, guid: 88d8a9dc38c9814488b6ffce7a8d4c51, type: 3}
+  m_PrefabInstance: {fileID: 5771641395260253671}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &548674616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548674613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1 &621272740
 GameObject:
   m_ObjectHideFlags: 0
@@ -3330,6 +3364,10 @@ PrefabInstance:
     - target: {fileID: 6127343005977866266, guid: 9985f9c42fbc52b45b6501dfe4d5941c, type: 3}
       propertyPath: m_Name
       value: EgorNpc
+      objectReference: {fileID: 0}
+    - target: {fileID: 8138854699724074961, guid: 9985f9c42fbc52b45b6501dfe4d5941c, type: 3}
+      propertyPath: managedReferences[6313034443790745693].TargetFlash
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6411,6 +6449,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5012262896116627362, guid: 88d8a9dc38c9814488b6ffce7a8d4c51, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1266941701}
+    - targetCorrespondingSourceObject: {fileID: 7438429421057630415, guid: 88d8a9dc38c9814488b6ffce7a8d4c51, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 548674616}
   m_SourcePrefab: {fileID: 100100000, guid: 88d8a9dc38c9814488b6ffce7a8d4c51, type: 3}
 --- !u!114 &5771641395260253672 stripped
 MonoBehaviour:
