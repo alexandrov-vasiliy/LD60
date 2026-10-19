@@ -56,12 +56,22 @@ public sealed class PlayerControls : MonoBehaviour
         inventoryHud.SetActive(value);
     }
 
-    public void Teleport(Transform destination)
+    public void TeleportToCamera(Transform view)
+    {
+        Quaternion rotation = Quaternion.Euler(0f, view.eulerAngles.y, 0f);
+        Vector3 eyeOffset = Quaternion.Inverse(transform.rotation) * (gameplayCamera.Follow.position - transform.position);
+        Teleport(view.position - rotation * eyeOffset, rotation);
+        gameplayCamera.ForceCameraPosition(view.position, view.rotation);
+    }
+
+    public void Teleport(Transform destination) => Teleport(destination.position, destination.rotation);
+
+    private void Teleport(Vector3 position, Quaternion rotation)
     {
         CharacterController controller = GetComponent<CharacterController>();
         controller.enabled = false;
-        Vector3 delta = destination.position - transform.position;
-        transform.SetPositionAndRotation(destination.position, destination.rotation);
+        Vector3 delta = position - transform.position;
+        transform.SetPositionAndRotation(position, rotation);
         gameplayCamera.OnTargetObjectWarped(transform, delta);
         CinemachinePanTilt panTilt = gameplayCamera.GetComponent<CinemachinePanTilt>();
         panTilt.PanAxis.Value = 0f;

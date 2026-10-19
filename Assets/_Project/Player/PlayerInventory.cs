@@ -115,7 +115,7 @@ public sealed class PlayerInventory : MonoBehaviour
         items[ActiveIndex] = null;
         Transform origin = DropOrigin;
         // shortcut: drops can overlap walls; add clearance checks only if playtesting needs them.
-        item.Release(origin.position + origin.forward * dropDistance, origin.rotation, origin.forward * dropImpulse);
+        item.Release(origin.position + origin.forward * dropDistance, origin.rotation, origin.forward * dropImpulse, playImpactFeedback: true);
         dropFeedback?.PlayFeedbacks();
         Changed?.Invoke();
     }

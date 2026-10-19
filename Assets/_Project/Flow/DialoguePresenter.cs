@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// Управляет общим окном разговора: говорящим, камерой, печатью реплик, вводом и блокировкой инвентаря. Инициатор владеет сессией и точкой игрока, а смена говорящего внутри неё не переносит игрока повторно; окончание реплик продолжает сценарий.
+/// Управляет общим окном разговора: говорящим, камерой, печатью реплик, вводом и блокировкой инвентаря. Инициатор владеет сессией; окончание реплик продолжает сценарий.
 /// </summary>
 [DefaultExecutionOrder(-40)]
 public sealed class DialoguePresenter : MonoBehaviour
@@ -78,9 +78,8 @@ public sealed class DialoguePresenter : MonoBehaviour
         if (opening)
         {
             controls.SetGameplayEnabled(false);
-            controls.Teleport(owner.PlayerPosition);
             controls.SetDialogueMode(true);
-            controls.SetBodyVisible(true);
+            controls.SetBodyVisible(false);
             IsOpen = true;
             Owner = owner;
             panel.SetActive(true);
@@ -90,6 +89,7 @@ public sealed class DialoguePresenter : MonoBehaviour
         actor.HideWorld();
         if (cameraRig != camera)
         {
+            controls.TeleportToCamera(camera.transform);
             if (cameraRig != null) cameraRig.gameObject.SetActive(false);
             cameraRig = camera;
             cameraRig.gameObject.SetActive(true);

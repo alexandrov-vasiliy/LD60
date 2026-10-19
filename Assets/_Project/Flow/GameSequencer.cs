@@ -7,7 +7,6 @@ using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Playables;
 
 /// <summary>
 /// Управляет этапами попытки и хранит общее состояние истории и список NPC для совместных сцен. Перед итогами отменяет незавершённые реакции и собирает концовки по текущим фактам; следующая попытка перезагружает сцену.
@@ -15,7 +14,7 @@ using UnityEngine.Playables;
 [DefaultExecutionOrder(-50)]
 public sealed class GameSequencer : MonoBehaviour
 {
-    public enum GamePhase { Collecting, Cutscene, SecondStage, Results }
+    public enum GamePhase { Collecting, Comic, SecondStage, Results }
     [SerializeField, Min(0f)] private float startDelay = 5f;
     [SerializeField, Min(0.1f)] private float collectingDuration = 60f;
     [SerializeField, Min(0.1f)] private float secondStageDuration = 90f;
@@ -26,8 +25,7 @@ public sealed class GameSequencer : MonoBehaviour
     [SerializeField] private StageAlarm stageAlarm;
     [SerializeField] private Transform collectingSpawn;
     [SerializeField] private Transform secondStageSpawn;
-    [SerializeField] private PlayableDirector cutscene;
-    [SerializeField] private CinemachineCamera cutsceneCamera;
+    [SerializeField] private IntroComic stageComic;
     [SerializeField] private CinemachineBrain cameraBrain;
     [SerializeField] private TMP_Text timerLabel;
     [SerializeField] private MMF_Player timerTickFeedback;
@@ -65,7 +63,6 @@ public sealed class GameSequencer : MonoBehaviour
         Time.timeScale = 1f;
         pausePanel.SetActive(false);
         resultsPanel.SetActive(false);
-        cutsceneCamera.gameObject.SetActive(false);
         controls.Teleport(collectingSpawn);
         Phase = GamePhase.Collecting;
         Remaining = collectingDuration;
@@ -82,8 +79,7 @@ public sealed class GameSequencer : MonoBehaviour
 #if UNITY_EDITOR
         if (Keyboard.current != null && Keyboard.current.xKey.wasPressedThisFrame)
         {
-            if (Phase == GamePhase.Cutscene) cutscene.Stop();
-            else if (IsFreeGameplay) Remaining = 0f;
+            if (IsFreeGameplay) Remaining = 0f;
         }
 #endif
         if (!IsFreeGameplay) return;
@@ -106,20 +102,16 @@ public sealed class GameSequencer : MonoBehaviour
 
     private IEnumerator ChangeStage()
     {
-        Phase = GamePhase.Cutscene;
+        Phase = GamePhase.Comic;
         controls.SetGameplayEnabled(false);
-        controls.SetBodyVisible(true);
         RefreshTimer();
-        cutsceneCamera.gameObject.SetActive(true);
-        cutscene.time = 0;
-        cutscene.Play();
-        while (cutscene.state == PlayState.Playing) yield return null;
+        yield return stageComic.Play();
         stageAlarm?.FadeOut(loader.FadeDuration);
         yield return loader.Fade(true);
+        stageComic.gameObject.SetActive(false);
         stageAlarm?.StopAlarm();
         controls.Teleport(secondStageSpawn);
         controls.SetBodyVisible(false);
-        cutsceneCamera.gameObject.SetActive(false);
         cameraBrain.ResetState();
         yield return null;
         yield return loader.Fade(false);
@@ -158,7 +150,7 @@ public sealed class GameSequencer : MonoBehaviour
     private void RefreshTimer()
     {
         timerLabel.text = Phase == GamePhase.Results ? Localization.Get("hud.results")
-            : Phase == GamePhase.Cutscene ? Localization.Get("hud.time_up")
+            : Phase == GamePhase.Comic ? Localization.Get("hud.time_up")
             : Localization.Format(Phase == GamePhase.Collecting ? "hud.collecting" : "hud.helping", Mathf.CeilToInt(Remaining));
     }
 

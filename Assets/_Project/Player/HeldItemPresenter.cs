@@ -71,6 +71,7 @@ public sealed class HeldItemPresenter : MonoBehaviour
     private void LateUpdate()
     {
         itemCamera.fieldOfView = worldCamera.fieldOfView;
+        if (dialogueMode) dialogueMount.SetPositionAndRotation(mount.position, mount.rotation);
     }
 
     private void OnDisable() => CompleteFlight();

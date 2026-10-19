@@ -5,6 +5,8 @@ public sealed class InventoryPanel : MonoBehaviour
     [SerializeField] private PlayerInventory inventory;
     [SerializeField] private ItemPreviewRenderer previews;
     [SerializeField] private RectTransform slotTemplate;
+    [SerializeField] private PlayerInteractor interactor;
+    [SerializeField] private TMPro.TMP_Text actionHint;
     [SerializeField] private Color normalBorder = new Color(0.5f, 0.5f, 0.5f, 1f);
     [SerializeField] private Color selectedBorder = Color.white;
 
@@ -15,9 +17,9 @@ public sealed class InventoryPanel : MonoBehaviour
 
     private void OnEnable()
     {
-        if (inventory == null || previews == null || slotTemplate == null)
+        if (inventory == null || previews == null || slotTemplate == null || interactor == null || actionHint == null)
         {
-            Debug.LogError("InventoryPanel needs an inventory, preview renderer and slot template.", this);
+            Debug.LogError("InventoryPanel needs an inventory, preview renderer, slot template, interactor and action hint.", this);
             enabled = false;
             return;
         }
@@ -45,6 +47,12 @@ public sealed class InventoryPanel : MonoBehaviour
 
     private void LateUpdate()
     {
+        actionHint.enabled = inventory.ActiveItem != null;
+        if (actionHint.enabled)
+        {
+            bool give = interactor.isActiveAndEnabled && interactor.FindTarget() is NpcDialog;
+            actionHint.text = Localization.Get(give ? "hud.give_item" : "hud.drop_item");
+        }
         if (!dirty) return;
         dirty = false;
         for (int i = 0; i < images.Length; i++)

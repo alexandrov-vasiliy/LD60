@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StageAlarm
   audioSource: {fileID: 5793441843711489350}
   beacons: {fileID: 2916551761013734223}
+  beaconMaterial: {fileID: 2100000, guid: 2422176a54d025b459ccd266ec0b0f4f, type: 2}
   rotationSpeed: 120
 --- !u!1 &4122496582402079273
 GameObject:
