@@ -10,30 +10,30 @@ namespace DialogueSystem
         public override ScenarioRule[] Rules { get; } = new[]
         {
             new ScenarioRule(ScenarioEvent.Interact, new FactIs<bool>(StoryFacts.LetterRead, true),
-                new Say(SpeechMode.Dialogue, "Живой. Слышал? Живой.")),
-            Visit(0, "..."),
-            Visit(1, "..."),
-            Visit(2, "Ну?"),
-            Visit(3, "Отстань христа ради, я никому ничего не должен"),
+                new Say(SpeechMode.Dialogue, "npc.innokenty.01")),
+            Visit(0, "dialogue.silence"),
+            Visit(1, "dialogue.silence"),
+            Visit(2, "npc.innokenty.02"),
+            Visit(3, "npc.innokenty.03"),
             new ScenarioRule(ScenarioEvent.Interact, new All( new FactIs<int>(StoryFacts.InnokentyVisits, 4), new FactIs<bool>(StoryFacts.IlyaCalculatorGiven, false)),
                 new Sequence(
                     new SetFact<int>(StoryFacts.InnokentyVisits, 5),
                     new SetIntroduction(true),
                     new Say(SpeechMode.Dialogue,
-                        "Письмо у меня. От сына.", "Третий месяц за пазухой. А я не прочту.",
-                        "Не умею.", "И не проси, тебе не дам.",
-                        "Вон, грамотный. Всю ночь цифры бормочет."),
+                        "npc.innokenty.04", "npc.innokenty.05",
+                        "npc.innokenty.06", "npc.innokenty.07",
+                        "npc.innokenty.08"),
                     new SetIntroduction(false),
                     new SetFact<bool>(StoryFacts.InnokentyRequestReached, true),
-                    new Say(SpeechMode.Dialogue, "Только он сам себя не слышит. Какая ему моя бумага"))),
+                    new Say(SpeechMode.Dialogue, "npc.innokenty.09"))),
             new ScenarioRule(ScenarioEvent.Interact, new Always(),
-                new Say(SpeechMode.Dialogue, "Отстань христа ради, я никому ничего не должен")),
+                new Say(SpeechMode.Dialogue, "npc.innokenty.10")),
 
             new ScenarioRule(ScenarioEvent.ItemHit, new ItemIs(ItemId.Alcohol),
-                Reply("О, это деду надо"), ItemDisposition.Consume),
+                Reply("npc.innokenty.11"), ItemDisposition.Consume),
             new ScenarioRule(ScenarioEvent.ItemHit, new All(new ItemIs(ItemId.Glasses), new FactIs<bool>(StoryFacts.IlyaCalculatorGiven, false)),
-                Reply("Буквы вижу. А прочесть всё одно. Не могу.", "Буквы — они не сами говорят.")),
-            new ScenarioRule(ScenarioEvent.ItemHit, new Always(), new Say(SpeechMode.Dialogue, "Убери"))
+                Reply("npc.innokenty.12", "npc.innokenty.13")),
+            new ScenarioRule(ScenarioEvent.ItemHit, new Always(), new Say(SpeechMode.Dialogue, "npc.innokenty.14"))
         };
 
         private static ScenarioRule Visit(int previous, string line) => new ScenarioRule(
@@ -47,8 +47,8 @@ namespace DialogueSystem
 
         public override EndingRule[] Endings { get; } = new[]
         {
-            new EndingRule(new FactIs<bool>(StoryFacts.LetterRead, true), "Дед не спился"),
-            new EndingRule(new Always(), "Дед спился")
+            new EndingRule(new FactIs<bool>(StoryFacts.LetterRead, true), "npc.innokenty.15"),
+            new EndingRule(new Always(), "npc.innokenty.16")
         };
     }
 }

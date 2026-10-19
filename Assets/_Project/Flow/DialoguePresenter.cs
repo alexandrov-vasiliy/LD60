@@ -30,10 +30,15 @@ public sealed class DialoguePresenter : MonoBehaviour
     private int index, inputFrame;
     private bool muteTypewriter, waitForAction;
 
-    private void OnEnable() => typewriter.onCharacterVisible.AddListener(PlayCharacterSound);
+    private void OnEnable()
+    {
+        typewriter.onCharacterVisible.AddListener(PlayCharacterSound);
+        Localization.LanguageChanged += RefreshLanguage;
+    }
 
     private void OnDisable()
     {
+        Localization.LanguageChanged -= RefreshLanguage;
         typewriter.onCharacterVisible.RemoveListener(PlayCharacterSound);
         NpcDialog owner = Owner;
         owner?.CancelScenario();
@@ -49,7 +54,18 @@ public sealed class DialoguePresenter : MonoBehaviour
     {
         Speaker?.SoundWriter?.Stop();
         muteTypewriter = false;
-        typewriter.ShowText(lines[index]);
+        typewriter.ShowText(Localization.Get(lines[index]));
+    }
+
+    private void RefreshLanguage()
+    {
+        if (!IsOpen || Speaker == null || lines == null || index >= lines.Length) return;
+        speakerLabel.text = Speaker.SpeakerName;
+        muteTypewriter = true;
+        Speaker.SoundWriter?.Stop();
+        typewriter.StopShowingText();
+        typewriter.TextAnimator.SetText(Localization.Get(lines[index]));
+        typewriter.TextAnimator.SetVisibilityEntireText(true, false);
     }
 
     public bool TryShow(NpcDialog owner, NpcDialog actor, string[] text, CinemachineCamera camera,

@@ -9,36 +9,36 @@ namespace DialogueSystem
         public override string Id => "egor";
 
         private static Say Need() => new Say(SpeechMode.Dialogue,
-            "Ты не думай, я не боюсь. Я решил.",
-            "Боюсь только, что забудут.",
-            "Не того, что убьют — а что забудут, какой я был.");
+            "npc.egor.01",
+            "npc.egor.02",
+            "npc.egor.03");
 
         private static ProtectedSequence Photo() => new ProtectedSequence(
             new PreparePolaroid(),
-            new Say(SpeechMode.Dialogue, "Что это?"),
+            new Say(SpeechMode.Dialogue, "npc.egor.04"),
             new TakeEgorPhoto(),
             new SetFact<bool>(StoryFacts.EgorPhotographed, true),
             new Say(SpeechMode.Dialogue,
-                "Это я?", "Это я, мам",
-                "А чего оно такое маленькое? Ничего. Маленькое — хорошо.",
-                "В карман влезет. В шапку влезет", "Спасибо"));
+                "npc.egor.05", "npc.egor.06",
+                "npc.egor.07",
+                "npc.egor.08", "npc.egor.09"));
 
         public override ScenarioRule[] Rules { get; } = new[]
         {
             new ScenarioRule(ScenarioEvent.Interact, new FactIs<bool>(StoryFacts.EgorPhotographed, true),
-                new Say(SpeechMode.Dialogue, "Спасибо")),
+                new Say(SpeechMode.Dialogue, "npc.egor.10")),
             new ScenarioRule(ScenarioEvent.Interact, new FactIs<int>(Visits, 0),
                 new Sequence(
                     new SetFact<int>(Visits, 1), new SetIntroduction(true),
-                    new Say(SpeechMode.Dialogue, "Сядь, чего стоишь. Место есть."),
+                    new Say(SpeechMode.Dialogue, "npc.egor.11"),
                     new SetIntroduction(false))),
             new ScenarioRule(ScenarioEvent.Interact, new FactIs<int>(Visits, 1),
                 new Sequence(
                     new SetFact<int>(Visits, 2), new SetIntroduction(true),
                     new Say(SpeechMode.Dialogue,
-                        "Утром обоз. Через Тихую Пядь пойдёт.",
-                        "Мать там. Ей бы карточку. Чтоб не по памяти, а чтоб вот — есть лицо.",
-                        "Да и кто ж нарисует. Писарь за пятак такое намалюет, что мать меня не узнает, а перекрестится."),
+                        "npc.egor.12",
+                        "npc.egor.13",
+                        "npc.egor.14"),
                     new SetIntroduction(false))),
             new ScenarioRule(ScenarioEvent.Interact, new FactIs<int>(Visits, 2),
                 new Sequence(
@@ -51,18 +51,18 @@ namespace DialogueSystem
             new ScenarioRule(ScenarioEvent.ItemHit, new ItemIs(ItemId.Polaroid),
                 new Sequence(new SetFact<int>(Visits, 3),
                     new Branch(new FactIs<bool>(StoryFacts.EgorPhotographed, true),
-                        new ProtectedSequence(new PreparePolaroid(), new Say(SpeechMode.Dialogue, "Спасибо")),
+                        new ProtectedSequence(new PreparePolaroid(), new Say(SpeechMode.Dialogue, "npc.egor.15")),
                         Photo()))),
             new ScenarioRule(ScenarioEvent.ItemHit, new ItemIs(ItemId.Pencil),
-                new Say(SpeechMode.Dialogue, "Я не рисую. И писарь не нарисует. Я тебе говорил уже.")),
+                new Say(SpeechMode.Dialogue, "npc.egor.16")),
             new ScenarioRule(ScenarioEvent.ItemHit, new Always(),
-                new Say(SpeechMode.Dialogue, "А толку-то?"))
+                new Say(SpeechMode.Dialogue, "npc.egor.17"))
         };
 
         public override EndingRule[] Endings { get; } = new[]
         {
-            new EndingRule(new FactIs<bool>(StoryFacts.EgorPhotographed, true), "Егор ушел на войну, со спокойной душой."),
-            new EndingRule(new Always(), "Егор отправился на войну.")
+            new EndingRule(new FactIs<bool>(StoryFacts.EgorPhotographed, true), "npc.egor.18"),
+            new EndingRule(new Always(), "npc.egor.19")
         };
     }
 

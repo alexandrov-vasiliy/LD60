@@ -8,17 +8,17 @@ namespace DialogueSystem
         {
             new ScenarioRule(ScenarioEvent.Interact, new Always(),
                 new ProtectedSequence(
-                    new Say(SpeechMode.Dialogue, "ААААААААААААААААА ааааааааааааааааааааааааа"),
-                    new Say("prokhor", SpeechMode.Dialogue, "LizaGoAway", "Отойди от нее"))),
+                    new Say(SpeechMode.Dialogue, "npc.liza.01"),
+                    new Say("prokhor", SpeechMode.Dialogue, "LizaGoAway", "npc.liza.02"))),
             new ScenarioRule(ScenarioEvent.ItemHit, new Always(),
                 new ProtectedSequence(
-                    new Say("agafyevna", SpeechMode.Dialogue, "LizaItemHit", "ТЫ С ДУБА РУХНУЛ!!!")))
+                    new Say("agafyevna", SpeechMode.Dialogue, "LizaItemHit", "npc.liza.03")))
         };
 
         public override EndingRule[] Endings { get; } = new[]
         {
-            new EndingRule(new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Pills), "Лиза выжила."),
-            new EndingRule(new Always(), "Лиза умерла.")
+            new EndingRule(new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Pills), "npc.liza.04"),
+            new EndingRule(new Always(), "npc.liza.05")
         };
     }
 }

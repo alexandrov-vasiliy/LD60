@@ -40,7 +40,7 @@ public abstract class NpcDialog : MonoBehaviour, IInteractable
     private ScenarioRunner runner;
 
     public string CharacterId => Scenario.Id;
-    public string SpeakerName => speaker;
+    public string SpeakerName => Localization.Get($"npc.{CharacterId}.name");
     public Transform PlayerPosition => playerPosition;
     public bool IsIntroducing { get; private set; }
     public TAnimSoundWriter SoundWriter { get; private set; }
@@ -116,7 +116,7 @@ public abstract class NpcDialog : MonoBehaviour, IInteractable
             throw new InvalidOperationException($"NPC '{CharacterId}' needs a name, camera and player position.");
     }
 
-    public string GetEndingText() => Scenario.GetEnding(new ScenarioContext(this));
+    public string GetEndingText() => Localization.Get(Scenario.GetEnding(new ScenarioContext(this)));
     public void CancelScenario() => runner?.Cancel(true);
     protected virtual void OnDisable() => CancelScenario();
 }

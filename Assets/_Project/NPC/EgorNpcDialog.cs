@@ -46,7 +46,7 @@ public sealed class EgorNpcDialog : NpcDialog
     {
         Action resume = runner.Await();
         bool photoRequested = false;
-        if (!Presenter.TryShow(this, this, new[] { "Не двигаться? Хорошо" }, GetCamera(), () => photoRequested = true, true, true))
+        if (!Presenter.TryShow(this, this, new[] { "npc.egor.photo" }, GetCamera(), () => photoRequested = true, true, true))
             throw new InvalidOperationException("Cannot open Egor's photo dialogue.");
         Item item = Inventory.ActiveItem;
         if (item == null || item.Id != ItemId.Polaroid ||

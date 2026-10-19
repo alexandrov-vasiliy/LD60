@@ -39,6 +39,9 @@ public sealed class GameSequencer : MonoBehaviour
     private float delayRemaining;
     private bool timerStarted;
 
+    private void OnEnable() => Localization.LanguageChanged += RefreshLanguage;
+    private void OnDisable() => Localization.LanguageChanged -= RefreshLanguage;
+
     public NpcDialog GetNpc(string id)
     {
         NpcDialog found = null;
@@ -66,6 +69,7 @@ public sealed class GameSequencer : MonoBehaviour
         controls.Teleport(collectingSpawn);
         Phase = GamePhase.Collecting;
         Remaining = collectingDuration;
+        RefreshTimer();
         delayRemaining = startDelay;
         timerLabel.enabled = false;
         controls.SetGameplayEnabled(true);
@@ -94,7 +98,7 @@ public sealed class GameSequencer : MonoBehaviour
         int previousSeconds = Mathf.CeilToInt(Remaining);
         Remaining = Mathf.Max(0f, Remaining - Time.deltaTime);
         if (Mathf.CeilToInt(Remaining) < previousSeconds) timerTickFeedback?.PlayFeedbacks();
-        timerLabel.text = $"{(Phase == GamePhase.Collecting ? "Сбор предметов" : "Помоги людям")} — {Mathf.CeilToInt(Remaining)} с";
+        RefreshTimer();
         if (Remaining > 0f) return;
         if (Phase == GamePhase.Collecting) StartCoroutine(ChangeStage());
         else Finish();
@@ -105,7 +109,7 @@ public sealed class GameSequencer : MonoBehaviour
         Phase = GamePhase.Cutscene;
         controls.SetGameplayEnabled(false);
         controls.SetBodyVisible(true);
-        timerLabel.text = "Время вышло…";
+        RefreshTimer();
         cutsceneCamera.gameObject.SetActive(true);
         cutscene.time = 0;
         cutscene.Play();
@@ -121,6 +125,7 @@ public sealed class GameSequencer : MonoBehaviour
         yield return loader.Fade(false);
         Remaining = secondStageDuration;
         Phase = GamePhase.SecondStage;
+        RefreshTimer();
         controls.SetGameplayEnabled(true);
     }
 
@@ -139,12 +144,34 @@ public sealed class GameSequencer : MonoBehaviour
         foreach (NpcDialog npc in npcs) npc.CancelScenario();
         Phase = GamePhase.Results;
         controls.SetGameplayEnabled(false);
+        RefreshResults();
+        RefreshTimer();
+        resultsPanel.SetActive(true);
+    }
+
+    private void RefreshLanguage()
+    {
+        RefreshTimer();
+        if (Phase == GamePhase.Results) RefreshResults();
+    }
+
+    private void RefreshTimer()
+    {
+        timerLabel.text = Phase == GamePhase.Results ? Localization.Get("hud.results")
+            : Phase == GamePhase.Cutscene ? Localization.Get("hud.time_up")
+            : Localization.Format(Phase == GamePhase.Collecting ? "hud.collecting" : "hud.helping", Mathf.CeilToInt(Remaining));
+    }
+
+    private void RefreshResults()
+    {
         int worth = 0;
         foreach (Item item in inventory.Slots)
             if (item != null && item.TryGetComponent(out WorthItem value)) worth += value.Value;
         StringBuilder text = new StringBuilder();
-        if(worth > 0)  
-            text.Append($"Я смог заработать: {worth}$");
+        if (worth > 0)
+        {
+            text.AppendLine(Localization.Format("results.worth", worth));
+        }
 
         foreach (NpcDialog npc in npcs)
         {
@@ -152,8 +179,6 @@ public sealed class GameSequencer : MonoBehaviour
             if (!string.IsNullOrWhiteSpace(ending)) text.AppendLine(ending).AppendLine();
         }
         resultsText.text = text.ToString();
-        timerLabel.text = "Итоги";
-        resultsPanel.SetActive(true);
     }
 
     public void NextTry() => loader.LoadGame();

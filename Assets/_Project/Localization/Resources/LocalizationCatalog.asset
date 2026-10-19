@@ -1,0 +1,767 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c15ef1170d44e4cb0132ae711ba722, type: 3}
+  m_Name: LocalizationCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizationCatalog
+  entries:
+  - key: npc.agafyevna.01
+    ru: "\u041D\u0435 \u0434\u043E\u0442\u044F\u043D\u0435\u0442 \u0434\u043E \u0441\u0432\u0435\u0442\u0443."
+    en: She won't last till dawn.
+  - key: npc.agafyevna.02
+    ru: "\u042F \u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0442\u0430\u043A\u0438\u0445
+      \u0432\u044B\u0445\u043E\u0434\u0438\u043B\u0430 \u0438 \u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C
+      \u0441\u0445\u043E\u0440\u043E\u043D\u0438\u043B\u0430. \u042F \u0437\u043D\u0430\u044E,
+      \u043A\u0430\u043A \u043E\u043D\u043E \u0432\u044B\u0433\u043B\u044F\u0434\u0438\u0442."
+    en: I've nursed twenty like her back to health and buried twenty more. I know
+      what it looks like.
+  - key: npc.agafyevna.03
+    ru: "\u0410? \u0427\u0435\u0433\u043E \u0442\u044B \u043C\u043D\u0435 \u0442\u0443\u0442
+      \u0441\u0443\u0451\u0448\u044C?!"
+    en: Eh? What are you shoving at me?!
+  - key: npc.agafyevna.04
+    ru: "\u041D\u0435 \u043B\u0435\u0437\u044C."
+    en: Keep out.
+  - key: npc.agafyevna.05
+    ru: "\u0425\u043E\u0434\u0438\u0442 \u0442\u0443\u0442. \u0425\u043E\u0434\u0438\u0442,
+      \u0430 \u0442\u043E\u043B\u043A\u0443 \u043D\u0435\u0442."
+    en: Wandering about. Always wandering, never any use.
+  - key: npc.agafyevna.06
+    ru: "\u0422\u044B \u043A\u0442\u043E \u0442\u0430\u043A\u043E\u0432? \u041D\u0435
+      \u0438\u0437 \u043D\u0430\u0448\u0438\u0445. \u0418 \u043D\u0435 \u043F\u0440\u043E\u0445\u043E\u0436\u0438\u0439
+      \u2014 \u043F\u0440\u043E\u0445\u043E\u0436\u0438\u0435 \u0442\u0430\u043A
+      \u043D\u0435 \u0441\u0442\u043E\u044F\u0442."
+    en: "Who are you? Not one of ours. Not a passerby either \u2014 passersby don't
+      stand like that."
+  - key: npc.agafyevna.07
+    ru: "\u2026"
+    en: "\u2026"
+  - key: npc.agafyevna.08
+    ru: "\u041D\u0443 \u0438 \u0441\u0442\u043E\u0439. \u041C\u043D\u0435-\u0442\u043E
+      \u0447\u0442\u043E."
+    en: Stand there, then. What do I care.
+  - key: npc.agafyevna.09
+    ru: "\u2026"
+    en: "\u2026"
+  - key: npc.agafyevna.10
+    ru: "\u0425\u043E\u0442\u044C \u0431\u044B \u0434\u043E \u0443\u0442\u0440\u0430.
+      \u0425\u043E\u0442\u044C \u0431\u044B \u0434\u043E \u0441\u0432\u0435\u0442\u0443
+      \u0434\u043E\u0436\u0438\u0442\u044C"
+    en: If only she lasts till morning. If only she lives to see the light
+  - key: npc.agafyevna.11
+    ru: "\u0425\u043E\u0442\u044C \u0447\u0442\u043E-\u0442\u043E \u043F\u0443\u0442\u043D\u043E\u0435
+      \u0437\u0430 \u0432\u0435\u0447\u0435\u0440."
+    en: At least something useful came of this evening.
+  - key: npc.agafyevna.12
+    ru: "\u042D\u0442\u043E \u043D\u0435 \u0441\u0433\u043B\u0430\u0437. \u0421\u0433\u043B\u0430\u0437
+      \u043D\u0435 \u0445\u0440\u0438\u043F\u0438\u0442. \u0421\u0433\u043B\u0430\u0437
+      \u2014 \u043E\u043D \u0442\u0438\u0445\u0438\u0439."
+    en: It's not the evil eye. The evil eye doesn't wheeze. The evil eye is quiet.
+  - key: npc.agafyevna.13
+    ru: "\u0423\u0431\u0435\u0440\u0438 \u043E\u0442 \u043C\u0435\u043D\u044F \u044D\u0442\u0443
+      \u0434\u0440\u0435\u0431\u0435\u0434\u0435\u043D\u044C!"
+    en: Get that rubbish away from me!
+  - key: npc.agafyevna.14
+    ru: "\u041C\u043D\u0435 \u0431\u043E\u043B\u044C\u0448\u0435 \u044D\u0442\u043E
+      \u043D\u0435 \u043D\u0443\u0436\u043D\u043E."
+    en: I don't need this anymore.
+  - key: npc.agafyevna.15
+    ru: "\u0427\u0435\u0433\u043E \u044D\u0442\u043E? \u0416\u0435\u043B\u0435\u0437\u043E
+      \u0438 \u043A\u0438\u0448\u043A\u0430. \u0418 \u0447\u0442\u043E \u043C\u043D\u0435
+      \u0441 \u044D\u0442\u043E\u0433\u043E?"
+    en: What's this? Iron and a bit of gut. What am I to do with it?
+  - key: npc.agafyevna.16
+    ru: "\u042F \u043D\u0435 \u043F\u043E\u043D\u044F\u043B\u0430, \u0447\u0435\u0433\u043E
+      \u0442\u044B \u0441\u043A\u0430\u0437\u0430\u043B."
+    en: I didn't understand what you said.
+  - key: npc.agafyevna.17
+    ru: "\u041F\u0440\u0438\u043B\u043E\u0436\u0438\u0442\u044C \u044D\u0442\u043E
+      \u043A \u0443\u0448\u0430\u043C. \u0410 \u044D\u0442\u043E \u043A \u0433\u0440\u0443\u0434\u0438.
+      \u0410-\u0430-\u0430."
+    en: Put these to my ears. And this to her chest. Ahh.
+  - key: npc.agafyevna.18
+    ru: "\u0425\u0440\u0438\u043F\u0438\u0442. \u0412\u043E\u0442 \u0442\u0443\u0442
+      \u0445\u0440\u0438\u043F\u0438\u0442. \u0418 \u0432\u043E\u0442 \u0442\u0443\u0442."
+    en: Wheezing. Here, she's wheezing. And here.
+  - key: npc.agafyevna.19
+    ru: "\u042D\u0442\u043E \u043D\u0435 \u0441\u0433\u043B\u0430\u0437. \u0421\u0433\u043B\u0430\u0437
+      \u043D\u0435 \u0445\u0440\u0438\u043F\u0438\u0442."
+    en: It's not the evil eye. The evil eye doesn't wheeze.
+  - key: npc.agafyevna.20
+    ru: "\u0421\u0433\u043B\u0430\u0437 \u2014 \u043E\u043D \u0442\u0438\u0445\u0438\u0439."
+    en: The evil eye is quiet.
+  - key: npc.agafyevna.21
+    ru: "\u0422\u044B \u043E\u0442\u043A\u0443\u0434\u0430 \u0442\u0430\u043A\u043E\u0439?"
+    en: Where did you come from?
+  - key: npc.agafyevna.22
+    ru: "\u0412\u043E\u0442 \u044D\u0442\u043E \u044F \u0437\u043D\u0430\u044E. \u041A\u0440\u0435\u043F\u043A\u0438\u0439.
+      \u0414\u043E\u0431\u0440\u044B\u0439."
+    en: Now this I know. Strong. Good stuff.
+  - key: npc.agafyevna.23
+    ru: "\u0420\u0430\u0441\u0442\u0438\u0440\u0430\u0442\u044C \u0431\u0443\u0434\u0435\u043C.
+      \u0413\u0440\u0443\u0434\u044C, \u043D\u043E\u0436\u043A\u0438, \u043F\u043E\u0434
+      \u043C\u044B\u0448\u043A\u0430\u043C\u0438. \u0418\u0434\u0438. \u041D\u0435
+      \u043C\u0435\u0448\u0430\u0439. \u041C\u0443\u0436\u0438\u043A \u0432 \u0433\u043E\u0440\u043D\u0438\u0446\u0435
+      \u2014 \u0431\u0435\u0434\u0430."
+    en: We'll rub her down. Chest, little legs, under her arms. Go on. Keep out.
+      A man in the sickroom brings trouble.
+  - key: npc.agafyevna.24
+    ru: "\u0425\u043E\u0442\u044C \u0447\u0442\u043E-\u0442\u043E \u043F\u0443\u0442\u043D\u043E\u0435
+      \u0437\u0430 \u0432\u0435\u0447\u0435\u0440."
+    en: At least something useful came of this evening.
+  - key: npc.agafyevna.25
+    ru: "\u041F\u043B\u0435\u0441\u0435\u043D\u044C\u044E \u043F\u0430\u0445\u043D\u0435\u0442"
+    en: Smells of mould
+  - key: npc.agafyevna.26
+    ru: "\u0425\u043B\u0435\u0431\u043D\u043E\u0439"
+    en: Bread mould
+  - key: npc.agafyevna.27
+    ru: "\u2026"
+    en: "\u2026"
+  - key: npc.agafyevna.28
+    ru: "\u0413\u043D\u0438\u043B\u044C \u2014 \u0433\u043D\u0438\u043B\u044C\u044E,
+      \u0442\u0430\u043A \u0438 \u043B\u0435\u0447\u0430\u0442."
+    en: Rot or no rot, that's how they cure things.
+  - key: npc.agafyevna.29
+    ru: "\u0421\u043A\u043E\u043B\u044C \u0434\u0430\u0432\u0430\u0442\u044C? \u0421\u0430\u043C\u0430
+      \u0437\u043D\u0430\u044E, \u044F \u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C
+      \u0432\u044B\u0445\u043E\u0434\u0438\u043B\u0430"
+    en: How much to give? I know myself, I've nursed twenty back to health
+  - key: npc.agafyevna.30
+    ru: "\u2026"
+    en: "\u2026"
+  - key: npc.agafyevna.31
+    ru: "\u0425\u043E\u0442\u044C \u0431\u044B \u0434\u043E \u0443\u0442\u0440\u0430.
+      \u0425\u043E\u0442\u044C \u0431\u044B \u0434\u043E \u0441\u0432\u0435\u0442\u0443
+      \u0434\u043E\u0436\u0438\u0442\u044C"
+    en: If only she lasts till morning. If only she lives to see the light
+  - key: npc.agafyevna.32
+    ru: "\u0423\u0431\u0435\u0440\u0438 \u043E\u0442 \u043C\u0435\u043D\u044F \u044D\u0442\u0443
+      \u0434\u0440\u0435\u0431\u0435\u0434\u0435\u043D\u044C!"
+    en: Get that rubbish away from me!
+  - key: npc.agafyevna.33
+    ru: "\u0423\u0431\u0435\u0440\u0438 \u043E\u0442 \u043C\u0435\u043D\u044F \u044D\u0442\u0443
+      \u0434\u0440\u0435\u0431\u0435\u0434\u0435\u043D\u044C!"
+    en: Get that rubbish away from me!
+  - key: npc.agafyevna.34
+    ru: "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0432 \u0436\u0438\u0437\u043D\u044C
+      \u041B\u0438\u0437\u0435, \u0410\u0433\u0430\u0444\u044C\u0435\u0432\u043D\u0430
+      \u0443\u043F\u043E\u043A\u043E\u0438\u043B\u0430\u0441\u044C \u0441 \u043C\u0438\u0440\u043E\u043C."
+    en: Having saved Liza's life, Agafyevna passed away in peace.
+  - key: npc.agafyevna.35
+    ru: "\u0410\u0433\u0430\u0444\u044C\u0435\u0432\u043D\u0430 \u043D\u0435 \u0443\u0441\u043B\u0435\u0434\u0438\u043B\u0430
+      \u0437\u0430 \u0431\u0443\u0442\u044B\u043B\u043E\u043A\u043E\u0439: \u0421\u043E\u0434\u0435\u0440\u0436\u0438\u043C\u043E\u0435
+      \u0431\u0443\u0442\u044B\u043B\u043A\u0438, \u043E\u043A\u0430\u0437\u0430\u043B\u043E\u0441\u044C
+      \u0432\u043D\u0443\u0442\u0440\u0438 \u0434\u0435\u0434\u0430."
+    en: 'Agafyevna lost track of the bottle: its contents ended up inside the old
+      man.'
+  - key: npc.agafyevna.36
+    ru: "\u041F\u043E\u0441\u043B\u0435 \u0441\u043C\u0435\u0440\u0442\u0438 \u041B\u0438\u0437\u044B,
+      \u0410\u0433\u0430\u0444\u044C\u0435\u0432\u043D\u0430 \u043E\u0442\u043E\u0448\u043B\u0430
+      \u043D\u0430 \u0442\u043E\u0442 \u0441\u0432\u0435\u0442, \u0443\u0441\u043F\u0435\u0432
+      \u0441\u0445\u043E\u0440\u043E\u043D\u0438\u0442\u044C 21 \u0440\u0435\u0431\u0435\u043D\u043A\u0430."
+    en: After Liza's death, Agafyevna passed on, having buried twenty-one children.
+  - key: npc.agafyevna.37
+    ru: "\u041F\u043E\u0441\u043B\u0435 \u0441\u043C\u0435\u0440\u0442\u0438 \u041B\u0438\u0437\u044B,
+      \u0410\u0433\u0430\u0444\u044C\u0435\u0432\u043D\u0430 \u043E\u0442\u043E\u0448\u043B\u0430
+      \u043D\u0430 \u0442\u043E\u0442 \u0441\u0432\u0435\u0442, \u0443\u0441\u043F\u0435\u0432
+      \u0441\u0445\u043E\u0440\u043E\u043D\u0438\u0442\u044C 21 \u0440\u0435\u0431\u0435\u043D\u043A\u0430."
+    en: After Liza's death, Agafyevna passed on, having buried twenty-one children.
+  - key: npc.anna.01
+    ru: "\u0422\u044B \u0432\u0438\u0434\u0430\u043B \u0447\u0442\u043E\u0431\u044B
+      \u043D\u0430 \u0434\u0438\u0442\u044F \u043C\u043E\u043B\u0447\u0430 \u0441\u043C\u043E\u0442\u0440\u0435\u043B\u0438?"
+    en: Have you ever seen a child get better from someone just staring at her?
+  - key: npc.anna.02
+    ru: "\u0422\u0438\u0448\u0435, \u0442\u0438\u0448\u0435, \u043C\u043E\u044F.
+      \u041D\u0443 \u0442\u0438\u0448\u0435 \u0436\u0435!"
+    en: Hush, hush, my little one. Please, hush!
+  - key: npc.anna.03
+    ru: "\u041E\u043D\u0430 \u0441 \u0432\u0435\u0447\u0435\u0440\u0430, \u044F \u0435\u0439
+      \u0433\u0440\u0443\u0434\u044C, \u043D\u0435 \u0431\u0435\u0440\u0451\u0442.
+      \u042F \u0435\u0439 \u0442\u0440\u044F\u043F\u043A\u0443 \u043C\u043E\u043A\u0440\u0443\u044E,
+      \u043D\u0435 \u0431\u0435\u0440\u0451\u0442."
+    en: She's been like this since evening. I offer her the breast, she won't take
+      it. A wet cloth, she won't take that either.
+  - key: npc.anna.04
+    ru: "\u041C\u0443\u0436 \u0434\u0432\u0430 \u0434\u043D\u044F \u043A\u0430\u043A
+      \u043F\u0440\u0438\u0435\u0445\u0430\u043B, \u0438 \u043E\u043D\u0430 \u0432\u043E\u0442\u2026"
+    en: "My husband's been back two days, and she's like this\u2026"
+  - key: npc.anna.05
+    ru: "\u041E\u043D \u043D\u0430 \u043D\u0435\u0451 \u0441\u043C\u043E\u0442\u0440\u0438\u0442,
+      \u0434\u0430 \u043C\u043E\u043B\u0447\u0438\u0442\u2026"
+    en: "He just looks at her and says nothing\u2026"
+  - key: npc.anna.06
+    ru: "\u0410\u0433\u0430\u0444\u044C\u0435\u0432\u043D\u0430 \u0433\u043E\u0432\u043E\u0440\u0438\u0442,
+      \u043B\u0435\u043A\u0430\u0440\u0441\u0442\u0432\u043E. \u042F \u0442\u043E\u043B\u044C\u043A\u043E
+      \u0431\u044B \u0434\u043E \u0443\u0442\u0440\u0430 \u0435\u0451 \u0434\u043E\u0432\u0435\u043B\u0430.
+      \u0410 \u0442\u0430\u043C, \u043C\u043E\u0436\u0435\u0442, \u043F\u043E\u043B\u0435\u0433\u0447\u0430\u0435\u0442."
+    en: Agafyevna says it's medicine. I just need to get her through the night. Maybe
+      she'll be better by then.
+  - key: npc.anna.07
+    ru: "\u0420\u0430\u0441\u0442\u0451\u0440\u043B\u0438 \u0435\u0451. \u041B\u0435\u0436\u0438\u0442
+      \u0442\u0438\u0445\u043E. \u042F \u0432\u0441\u0451 \u0441\u043B\u0443\u0448\u0430\u044E,
+      \u043A\u0430\u043A \u0434\u044B\u0448\u0438\u0442."
+    en: They rubbed her down. She's lying quietly. I keep listening to her breathe.
+  - key: npc.anna.08
+    ru: "\u041F\u043E\u0441\u043B\u0443\u0448\u0430\u043B\u0430 \u043E\u043D\u0430
+      \u0435\u0451. \u0410 \u044F \u0432\u0441\u0451 \u043D\u0430 \u043B\u0438\u0446\u043E
+      \u0441\u043C\u043E\u0442\u0440\u044E. \u0416\u0434\u0443, \u043A\u043E\u0433\u0434\u0430
+      \u0433\u043B\u0430\u0437\u0430 \u043E\u0442\u043A\u0440\u043E\u0435\u0442."
+    en: She listened to her chest. I just keep watching her face. Waiting for her
+      to open her eyes.
+  - key: npc.anna.09
+    ru: "\u0410\u0439!"
+    en: Ow!
+  - key: npc.anna.10
+    ru: "\u041D\u0435 \u043C\u043D\u0435."
+    en: Not for me.
+  - key: npc.anna.11
+    ru: "\u041E\u0442\u0434\u0430\u0439 \u0410\u0433\u0430\u0444\u044C\u0435\u0432\u043D\u0435."
+    en: Give it to Agafyevna.
+  - key: npc.anna.12
+    ru: "\u041A \u0447\u0435\u043C\u0443 \u044D\u0442\u043E?"
+    en: What's this for?
+  - key: npc.anna.13
+    ru: "\u041A \u0447\u0435\u043C\u0443 \u044D\u0442\u043E?"
+    en: What's this for?
+  - key: npc.anna.14
+    ru: "\u0410\u043D\u043D\u0430 \u0435\u0449\u0451 \u0434\u043E\u043B\u0433\u043E
+      \u0441\u0438\u0434\u0435\u043B\u0430 \u0440\u044F\u0434\u043E\u043C, \u0431\u043E\u044F\u0441\u044C
+      \u043F\u043E\u0432\u0435\u0440\u0438\u0442\u044C, \u0447\u0442\u043E \u0436\u0430\u0440
+      \u043E\u0442\u0441\u0442\u0443\u043F\u0438\u043B."
+    en: Anna sat by her side for a long time, afraid to believe the fever had broken.
+  - key: npc.anna.15
+    ru: "\u0410\u043D\u043D\u0430: ..."
+    en: 'Anna: ...'
+  - key: npc.barbos.01
+    ru: "\u0413\u0410\u0412!"
+    en: WOOF!
+  - key: npc.barbos.02
+    ru: "\u0413\u0410\u0424!"
+    en: RUFF!
+  - key: npc.barbos.03
+    ru: "\u0411\u0430\u0440\u0431\u043E\u0441: \u0413\u0410\u0412!"
+    en: 'Barbos: WOOF!'
+  - key: npc.egor.01
+    ru: "\u0422\u044B \u043D\u0435 \u0434\u0443\u043C\u0430\u0439, \u044F \u043D\u0435
+      \u0431\u043E\u044E\u0441\u044C. \u042F \u0440\u0435\u0448\u0438\u043B."
+    en: Don't get me wrong, I'm not afraid. I've made up my mind.
+  - key: npc.egor.02
+    ru: "\u0411\u043E\u044E\u0441\u044C \u0442\u043E\u043B\u044C\u043A\u043E, \u0447\u0442\u043E
+      \u0437\u0430\u0431\u0443\u0434\u0443\u0442."
+    en: I'm only afraid they'll forget.
+  - key: npc.egor.03
+    ru: "\u041D\u0435 \u0442\u043E\u0433\u043E, \u0447\u0442\u043E \u0443\u0431\u044C\u044E\u0442
+      \u2014 \u0430 \u0447\u0442\u043E \u0437\u0430\u0431\u0443\u0434\u0443\u0442,
+      \u043A\u0430\u043A\u043E\u0439 \u044F \u0431\u044B\u043B."
+    en: "Not that I'll be killed \u2014 that they'll forget what I was like."
+  - key: npc.egor.04
+    ru: "\u0427\u0442\u043E \u044D\u0442\u043E?"
+    en: What's this?
+  - key: npc.egor.05
+    ru: "\u042D\u0442\u043E \u044F?"
+    en: Is that me?
+  - key: npc.egor.06
+    ru: "\u042D\u0442\u043E \u044F, \u043C\u0430\u043C"
+    en: That's me, Mum
+  - key: npc.egor.07
+    ru: "\u0410 \u0447\u0435\u0433\u043E \u043E\u043D\u043E \u0442\u0430\u043A\u043E\u0435
+      \u043C\u0430\u043B\u0435\u043D\u044C\u043A\u043E\u0435? \u041D\u0438\u0447\u0435\u0433\u043E.
+      \u041C\u0430\u043B\u0435\u043D\u044C\u043A\u043E\u0435 \u2014 \u0445\u043E\u0440\u043E\u0448\u043E."
+    en: Why is it so small? Never mind. Small is good.
+  - key: npc.egor.08
+    ru: "\u0412 \u043A\u0430\u0440\u043C\u0430\u043D \u0432\u043B\u0435\u0437\u0435\u0442.
+      \u0412 \u0448\u0430\u043F\u043A\u0443 \u0432\u043B\u0435\u0437\u0435\u0442"
+    en: It'll fit in a pocket. In a cap, too
+  - key: npc.egor.09
+    ru: "\u0421\u043F\u0430\u0441\u0438\u0431\u043E"
+    en: Thank you
+  - key: npc.egor.10
+    ru: "\u0421\u043F\u0430\u0441\u0438\u0431\u043E"
+    en: Thank you
+  - key: npc.egor.11
+    ru: "\u0421\u044F\u0434\u044C, \u0447\u0435\u0433\u043E \u0441\u0442\u043E\u0438\u0448\u044C.
+      \u041C\u0435\u0441\u0442\u043E \u0435\u0441\u0442\u044C."
+    en: Sit down, why are you standing? There's room.
+  - key: npc.egor.12
+    ru: "\u0423\u0442\u0440\u043E\u043C \u043E\u0431\u043E\u0437. \u0427\u0435\u0440\u0435\u0437
+      \u0422\u0438\u0445\u0443\u044E \u041F\u044F\u0434\u044C \u043F\u043E\u0439\u0434\u0451\u0442."
+    en: The convoy leaves in the morning. It'll pass through Tikhaya Pyad.
+  - key: npc.egor.13
+    ru: "\u041C\u0430\u0442\u044C \u0442\u0430\u043C. \u0415\u0439 \u0431\u044B \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443.
+      \u0427\u0442\u043E\u0431 \u043D\u0435 \u043F\u043E \u043F\u0430\u043C\u044F\u0442\u0438,
+      \u0430 \u0447\u0442\u043E\u0431 \u0432\u043E\u0442 \u2014 \u0435\u0441\u0442\u044C
+      \u043B\u0438\u0446\u043E."
+    en: "Mother's there. She could use a photograph. So she won't have to remember
+      \u2014 she'll have my face right there."
+  - key: npc.egor.14
+    ru: "\u0414\u0430 \u0438 \u043A\u0442\u043E \u0436 \u043D\u0430\u0440\u0438\u0441\u0443\u0435\u0442.
+      \u041F\u0438\u0441\u0430\u0440\u044C \u0437\u0430 \u043F\u044F\u0442\u0430\u043A
+      \u0442\u0430\u043A\u043E\u0435 \u043D\u0430\u043C\u0430\u043B\u044E\u0435\u0442,
+      \u0447\u0442\u043E \u043C\u0430\u0442\u044C \u043C\u0435\u043D\u044F \u043D\u0435
+      \u0443\u0437\u043D\u0430\u0435\u0442, \u0430 \u043F\u0435\u0440\u0435\u043A\u0440\u0435\u0441\u0442\u0438\u0442\u0441\u044F."
+    en: And who would draw me? For five kopeks the clerk would make such a mess of
+      it, Mother wouldn't recognise me. She'd cross herself.
+  - key: npc.egor.15
+    ru: "\u0421\u043F\u0430\u0441\u0438\u0431\u043E"
+    en: Thank you
+  - key: npc.egor.16
+    ru: "\u042F \u043D\u0435 \u0440\u0438\u0441\u0443\u044E. \u0418 \u043F\u0438\u0441\u0430\u0440\u044C
+      \u043D\u0435 \u043D\u0430\u0440\u0438\u0441\u0443\u0435\u0442. \u042F \u0442\u0435\u0431\u0435
+      \u0433\u043E\u0432\u043E\u0440\u0438\u043B \u0443\u0436\u0435."
+    en: I can't draw. And the clerk won't do it. I told you already.
+  - key: npc.egor.17
+    ru: "\u0410 \u0442\u043E\u043B\u043A\u0443-\u0442\u043E?"
+    en: What's the use?
+  - key: npc.egor.18
+    ru: "\u0415\u0433\u043E\u0440 \u0443\u0448\u0435\u043B \u043D\u0430 \u0432\u043E\u0439\u043D\u0443,
+      \u0441\u043E \u0441\u043F\u043E\u043A\u043E\u0439\u043D\u043E\u0439 \u0434\u0443\u0448\u043E\u0439."
+    en: Egor went to war with peace of mind.
+  - key: npc.egor.19
+    ru: "\u0415\u0433\u043E\u0440 \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u043B\u0441\u044F
+      \u043D\u0430 \u0432\u043E\u0439\u043D\u0443."
+    en: Egor went to war.
+  - key: npc.ilya.01
+    ru: "\u042F \u043D\u0435 \u0445\u043E\u0447\u0443 \u043D\u0430 \u0444\u0440\u043E\u043D\u0442..."
+    en: I don't want to go to the front...
+  - key: npc.ilya.02
+    ru: "\u041A\u043D\u043E\u043F\u043A\u0438? \u0412\u043E\u0441\u0435\u043C\u044C\u0434\u0435\u0441\u044F\u0442
+      \u0447\u0435\u0442\u044B\u0440\u0435."
+    en: Buttons? Eighty-four.
+  - key: npc.ilya.03
+    ru: "\u041E\u043D\u043E \u0437\u0430\u043F\u043E\u043C\u043D\u0438\u043B\u043E..."
+    en: It remembered...
+  - key: npc.ilya.04
+    ru: "\u041E\u043D\u043E \u0437\u0430\u043F\u043E\u043C\u043D\u0438\u043B\u043E!
+      \u042F \u0432\u044B\u043F\u0430\u043B, \u0430 \u043E\u043D\u043E \u2014 \u043D\u0435\u0442!"
+    en: It remembered! I lost count, but it didn't!
+  - key: npc.ilya.05
+    ru: "\u0418 \u0448\u0435\u0441\u0442\u044C. \u0414\u0435\u0432\u044F\u043D\u043E\u0441\u0442\u043E.
+      \u0422\u0440\u0438 \u0447\u0430\u0441\u0430 \u044F \u0441\u044E\u0434\u0430
+      \u043D\u0435 \u043C\u043E\u0433 \u0434\u043E\u0439\u0442\u0438. \u0422\u0440\u0438
+      \u0447\u0430\u0441\u0430."
+    en: And six. Ninety. It took me three hours to get this far. Three hours.
+  - key: npc.ilya.06
+    ru: "\u0422\u044B \u043A\u0442\u043E? \u041D\u0435 \u0433\u043E\u0432\u043E\u0440\u0438.
+      \u041D\u0435 \u0433\u043E\u0432\u043E\u0440\u0438, \u044F \u0441\u043E\u0431\u044C\u044E\u0441\u044C."
+    en: Who are you? Don't say. Don't say anything, I'll lose count.
+  - key: npc.ilya.07
+    ru: "\u0414\u0435\u0432\u044F\u043D\u043E\u0441\u0442\u043E \u0442\u0440\u0438.
+      \u042F \u0442\u0430\u043A \u0438 \u0434\u0443\u043C\u0430\u043B, \u0447\u0442\u043E
+      \u0434\u0435\u0432\u044F\u043D\u043E\u0441\u0442\u043E \u0442\u0440\u0438.
+      \u042F \u043D\u0435 \u043C\u043E\u0433 \u0434\u043E\u043A\u0430\u0437\u0430\u0442\u044C."
+    en: Ninety-three. I knew it was ninety-three. I couldn't prove it.
+  - key: npc.ilya.08
+    ru: "\u042D\u0439. \u0413\u0440\u0430\u043C\u043E\u0442\u043D\u044B\u0439!"
+    en: Hey. You who can read!
+  - key: npc.ilya.09
+    ru: "\u0421\u043B\u044B\u0448\u0438\u0448\u044C, \u0447\u0442\u043E \u043B\u0438.
+      \u041F\u043E\u0434\u0438 \u0441\u044E\u0434\u0430!"
+    en: Can you hear me? Come here!
+  - key: npc.ilya.10
+    ru: "\u042F \u0432\u0441\u044E \u043D\u043E\u0447\u044C \u0441\u0432\u043E\u0434\u0438\u043B.
+      \u042F \u0441\u043F\u0430\u0442\u044C \u0445\u043E\u0447\u0443."
+    en: I've been adding it up all night. I want to sleep.
+  - key: npc.ilya.11
+    ru: "\u0418 \u044F \u0445\u043E\u0447\u0443! \u0422\u0440\u0438 \u043C\u0435\u0441\u044F\u0446\u0430
+      \u043A\u0430\u043A \u0445\u043E\u0447\u0443!"
+    en: So do I! I've wanted to for three months!
+  - key: npc.ilya.12
+    ru: "\u041F\u0440\u043E\u0447\u0442\u0438."
+    en: Read it.
+  - key: npc.ilya.13
+    ru: "\u0422\u043E\u043B\u044C\u043A\u043E \u0432\u0441\u043B\u0443\u0445 \u043D\u0435
+      \u043D\u0430\u0434\u043E."
+    en: Just not out loud.
+  - key: npc.ilya.14
+    ru: "\u0422\u044B \u043F\u0440\u043E \u0441\u0435\u0431\u044F \u043F\u0440\u043E\u0447\u0442\u0438
+      \u0438 \u043C\u043D\u0435 \u0441\u043A\u0430\u0436\u0438. \u041E\u0434\u043D\u0438\u043C
+      \u0441\u043B\u043E\u0432\u043E\u043C."
+    en: Read it to yourself and tell me. One word.
+  - key: npc.ilya.15
+    ru: "\u041D\u0443?"
+    en: Well?
+  - key: npc.ilya.16
+    ru: "\u0416\u0438\u0432\u043E\u0439."
+    en: Alive.
+  - key: npc.ilya.17
+    ru: "\u041F\u0438\u0448\u0435\u0442 \u2014 \u0436\u0438\u0432\u043E\u0439, \u0438
+      \u0447\u0442\u043E\u0431 \u0442\u044B \u043D\u0435 \u043F\u0438\u043B"
+    en: He says he's alive, and that you shouldn't drink
+  - key: npc.ilya.18
+    ru: "\u0422\u0430\u043A \u0438 \u043D\u0430\u043F\u0438\u0441\u0430\u043D\u043E?"
+    en: Is that what it says?
+  - key: npc.ilya.19
+    ru: "\u0422\u0430\u043A \u0438 \u043D\u0430\u043F\u0438\u0441\u0430\u043D\u043E."
+    en: That's what it says.
+  - key: npc.ilya.20
+    ru: "\u0414\u0443\u0440\u0430\u043A..."
+    en: Fool...
+  - key: npc.ilya.21
+    ru: "\u0422\u0435\u043F\u0435\u0440\u044C \u0432\u0441\u0451 \u0441\u0445\u043E\u0434\u0438\u0442\u0441\u044F."
+    en: Now it all adds up.
+  - key: npc.ilya.22
+    ru: "\u0421\u043E\u0440\u043E\u043A \u043E\u0434\u0438\u043D. \u0421\u043E\u0440\u043E\u043A
+      \u0434\u0432\u0430. \u0421\u043E\u0440\u043E\u043A \u0442\u0440\u0438..."
+    en: Forty-one. Forty-two. Forty-three...
+  - key: npc.ilya.23
+    ru: "\u0421\u043E\u0440\u043E\u043A \u043E\u0434\u0438\u043D. \u0421\u043E\u0440\u043E\u043A
+      \u0434\u0432\u0430, \u0434\u0430, \u0413\u041E\u0421\u041F\u041E\u0414\u0418."
+    en: Forty-one. Forty-two, yes, LORD.
+  - key: npc.ilya.24
+    ru: "\u0427\u0442\u043E?!"
+    en: What?!
+  - key: npc.ilya.25
+    ru: "\u041C\u043E\u043B\u0447\u0438. \u041C\u043E\u043B\u0447\u0438, \u043F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430,
+      \u044F \u043F\u043E\u0447\u0442\u0438..."
+    en: Be quiet. Please be quiet, I'm almost...
+  - key: npc.ilya.26
+    ru: "\u042F \u0442\u0430\u043A \u0441 \u0432\u0435\u0447\u0435\u0440\u0430. \u042F
+      \u043D\u0435 \u0441\u0447\u0438\u0442\u0430\u0442\u044C \u043D\u0435 \u0443\u043C\u0435\u044E.
+      \u042F \u0435\u0451 \u0441\u043B\u044B\u0448\u0443."
+    en: I've been at this since evening. It's not that I can't count. I can hear
+      her.
+  - key: npc.ilya.27
+    ru: "\u041E\u043D\u0430 \u043A\u0440\u0438\u0447\u0438\u0442 \u2014 \u0438 \u0443
+      \u043C\u0435\u043D\u044F \u0438\u0437 \u0433\u043E\u043B\u043E\u0432\u044B
+      \u0432\u0441\u0451 \u0432\u044B\u0448\u0438\u0431\u0430\u0435\u0442. \u041A\u0430\u043A
+      \u0432\u0435\u0434\u0440\u043E\u043C."
+    en: She screams, and it knocks everything out of my head. Like a bucket over
+      the head.
+  - key: npc.ilya.28
+    ru: "\u042F \u0434\u043E\u0445\u043E\u0436\u0443 \u0434\u043E \u0441\u043E\u0440\u043E\u043A
+      \u0432\u0442\u043E\u0440\u043E\u0433\u043E \u0438 \u0432\u0441\u0451. \u0414\u0430\u043B\u044C\u0448\u0435
+      \u043F\u0443\u0441\u0442\u043E."
+    en: I get to forty-two and that's it. Nothing after that.
+  - key: npc.ilya.29
+    ru: "\u042F \u043D\u0435 \u043F\u0440\u043E\u0448\u0443, \u0447\u0442\u043E\u0431
+      \u043E\u043D\u0430 \u0437\u0430\u043C\u043E\u043B\u0447\u0430\u043B\u0430.
+      \u042F \u043F\u0440\u043E\u0448\u0443, \u0447\u0442\u043E\u0431 \u044F \u043D\u0435
+      \u0441\u043B\u044B\u0448\u0430\u043B."
+    en: I'm not asking her to stop. I'm asking not to hear her.
+  - key: npc.ilya.30
+    ru: "\u041C\u043D\u0435 \u043A \u0443\u0442\u0440\u0443 \u0432\u0435\u0434\u043E\u043C\u043E\u0441\u0442\u044C.
+      \u0421\u0435\u043C\u044C\u0434\u0435\u0441\u044F\u0442 \u0448\u0435\u0441\u0442\u044C
+      \u043F\u043E\u0437\u0438\u0446\u0438\u0439."
+    en: The ledger's due by morning. Seventy-six entries.
+  - key: npc.ilya.31
+    ru: "\u042F \u0442\u0440\u0438\u0436\u0434\u044B \u0441\u0432\u043E\u0434\u0438\u043B.
+      \u0422\u0440\u0438\u0436\u0434\u044B \u0440\u0430\u0437\u043D\u043E\u0435.
+      \u0418 \u0437\u043D\u0430\u0435\u0448\u044C \u043F\u043E\u0447\u0435\u043C\u0443?"
+    en: I've added it up three times. Different every time. And do you know why?
+  - key: npc.ilya.32
+    ru: "\u041F\u043E\u0442\u043E\u043C\u0443 \u0447\u0442\u043E \u043E\u043D\u0430
+      \u043D\u0438 \u0440\u0430\u0437\u0443 \u0437\u0430 \u0432\u0435\u0447\u0435\u0440
+      \u043D\u0435 \u0437\u0430\u043C\u043E\u043B\u0447\u0430\u043B\u0430."
+    en: Because she hasn't stopped screaming once all evening.
+  - key: npc.ilya.33
+    ru: "\u041F\u0440\u043E\u0445\u043E\u0440 \u0432\u0447\u0435\u0440\u0430 \u043C\u043E\u0438
+      \u0431\u0443\u043C\u0430\u0433\u0438 \u0433\u043B\u044F\u0434\u0435\u043B.
+      \u0421\u043C\u043E\u0442\u0440\u0435\u043B \u0438 \u0433\u043E\u0432\u043E\u0440\u0438\u0442:
+      \xAB\u041D\u0435 \u0441\u0434\u0430\u0448\u044C \u2014 \u043F\u043E\u0439\u0434\u0451\u0448\u044C
+      \u0447\u0435\u0442\u0432\u0451\u0440\u0442\u044B\u043C. \u0410 \u0443 \u043D\u0435\u0433\u043E
+      \u0443\u0436\u0435 \u0442\u0440\u043E\u0435 \u0438 \u0442\u0430\u043A \u0440\u0430\u0437
+      \u043E\u0434\u043D\u043E\u0433\u043E \u043D\u0435 \u0445\u0432\u0430\u0442\u0430\u0435\u0442\xBB."
+    en: Prokhor looked at my papers yesterday. He said, "Fail to hand them in, and
+      you'll be the fourth. He's already got three, and he's one man short."
+  - key: npc.ilya.34
+    ru: "\u042F \u043D\u0435 \u0431\u043E\u044E\u0441\u044C. \u042F \u043F\u0440\u043E\u0441\u0442\u043E,
+      \u0447\u0442\u043E \u043C\u0435\u043D\u044F \u0443\u0431\u044C\u044E\u0442
+      \u0437\u0430 \u0442\u043E, \u0447\u0442\u043E \u044F \u043D\u0435 \u043C\u043E\u0433\u0443
+      \u0432 \u0433\u043E\u043B\u043E\u0432\u0435 \u0443\u0434\u0435\u0440\u0436\u0430\u0442\u044C
+      \u0446\u0438\u0444\u0440\u0443, \u043A\u043E\u0442\u043E\u0440\u0443\u044E
+      \u0437\u043D\u0430\u044E."
+    en: I'm not afraid. It's just that they'll kill me because I can't hold a number
+      in my head. A number I know.
+  - key: npc.ilya.35
+    ru: "\u0423 \u043C\u0435\u043D\u044F \u0443\u0436\u0435 \u0435\u0441\u0442\u044C.
+      \u0421\u043F\u0430\u0441\u0438\u0431\u043E."
+    en: I've already got one. Thank you.
+  - key: npc.ilya.36
+    ru: "\u0414\u0435\u043B\u043E \u043D\u0435 \u0432 \u0442\u043E\u043C, \u0447\u0435\u043C
+      \u043F\u0438\u0441\u0430\u0442\u044C."
+    en: It's not about what I write with.
+  - key: npc.ilya.37
+    ru: "\u042F \u0437\u0430\u043F\u0438\u0441\u044B\u0432\u0430\u044E. \u042F \u0432\u0441\u0451
+      \u0437\u0430\u043F\u0438\u0441\u044B\u0432\u0430\u044E!"
+    en: I write it down. I write everything down!
+  - key: npc.ilya.38
+    ru: "\u0410 \u043F\u043E\u0442\u043E\u043C \u0441\u043B\u044B\u0448\u0443 \u2014
+      \u0438 \u0437\u0430\u043F\u0438\u0441\u044B\u0432\u0430\u044E \u0443\u0436\u0435
+      \u043D\u0435 \u0442\u043E. \u0412\u043E\u0442 \u0442\u0443\u0442, \u0433\u043B\u044F\u0434\u0438,
+      \u0443 \u043C\u0435\u043D\u044F \xAB84\xBB \u0438 \xAB90\xBB \u043D\u0430 \u043E\u0434\u043D\u043E\u043C
+      \u043B\u0438\u0441\u0442\u0435 \u0441\u0442\u043E\u0438\u0442. \u041E\u0431\u0430
+      \u043C\u043E\u0438. \u041E\u0431\u0430 \u0432\u0440\u0430\u043D\u044C\u0451."
+    en: Then I hear her, and I write down something else. Look here, I've got "84"
+      and "90" on the same sheet. Both mine. Both wrong.
+  - key: npc.ilya.39
+    ru: "\u041C\u043D\u0435 \u044D\u0442\u043E \u0431\u043E\u043B\u044C\u0448\u0435
+      \u043D\u0435 \u043D\u0443\u0436\u043D\u043E."
+    en: I don't need this anymore.
+  - key: npc.ilya.40
+    ru: "\u042F \u0437\u043D\u0430\u044E \u0447\u0442\u043E \u044D\u0442\u043E."
+    en: I know what this is.
+  - key: npc.ilya.41
+    ru: "\u0412\u043E\u0441\u0435\u043C\u044C\u0434\u0435\u0441\u044F\u0442 \u0447\u0435\u0442\u044B\u0440\u0435.
+      \u0412\u043E\u0441\u0435\u043C\u044C\u0434\u0435\u0441\u044F\u0442 \u043F\u044F\u0442\u044C."
+    en: Eighty-four. Eighty-five.
+  - key: npc.ilya.42
+    ru: "\u0412\u0438\u0434\u0438\u0448\u044C? \u041A\u043E\u0441\u0442\u044F\u0448\u043A\u0438
+      \u043E\u0441\u0442\u0430\u043B\u0438\u0441\u044C. \u041C\u043D\u0435 \u043D\u0435
+      \u0441\u0447\u0438\u0442\u0430\u0442\u044C. \u041C\u043D\u0435 \u043F\u043E\u043C\u043D\u0438\u0442\u044C."
+    en: See? The beads stayed put. I don't need to count. I need to remember.
+  - key: npc.ilya.43
+    ru: "\u0423\u0431\u0435\u0440\u0438, \u044F \u043D\u0435 \u0442\u043E\u0440\u0433\u0443\u044E.
+      \u042F \u0441\u0434\u0430\u044E"
+    en: Put it away, I'm not trading. I'm handing in my work
+  - key: npc.ilya.44
+    ru: "\u0418\u043B\u044C\u044F \u0441\u0434\u0430\u043B \u044D\u043A\u0437\u0430\u043C\u0435\u043D."
+    en: Ilya passed the exam.
+  - key: npc.ilya.45
+    ru: "\u041A\u043E\u0433\u0434\u0430 \u043F\u0440\u0435\u043A\u0440\u0430\u0442\u0438\u043B\u0438\u0441\u044C
+      \u043A\u0440\u0438\u043A\u0438, \u0418\u043B\u044C\u044F \u0441\u043C\u043E\u0433
+      \u0441\u043E\u0441\u0440\u0435\u0434\u043E\u0442\u043E\u0447\u0438\u0442\u0441\u044F."
+    en: When the screaming stopped, Ilya was able to concentrate.
+  - key: npc.ilya.46
+    ru: "\u0418\u043B\u044C\u044F \u043D\u0435 \u0441\u0434\u0430\u043B, \u0438 \u0443\u0448\u0435\u043B
+      \u0441 \u041F\u0440\u043E\u0445\u043E\u0440\u043E\u043C \u043D\u0430 \u0444\u0440\u043E\u043D\u0442."
+    en: Ilya failed and went to the front with Prokhor.
+  - key: npc.innokenty.01
+    ru: "\u0416\u0438\u0432\u043E\u0439. \u0421\u043B\u044B\u0448\u0430\u043B? \u0416\u0438\u0432\u043E\u0439."
+    en: Alive. Did you hear? Alive.
+  - key: npc.innokenty.02
+    ru: "\u041D\u0443?"
+    en: Well?
+  - key: npc.innokenty.03
+    ru: "\u041E\u0442\u0441\u0442\u0430\u043D\u044C \u0445\u0440\u0438\u0441\u0442\u0430
+      \u0440\u0430\u0434\u0438, \u044F \u043D\u0438\u043A\u043E\u043C\u0443 \u043D\u0438\u0447\u0435\u0433\u043E
+      \u043D\u0435 \u0434\u043E\u043B\u0436\u0435\u043D"
+    en: Leave me alone, for Christ's sake. I don't owe anyone anything
+  - key: npc.innokenty.04
+    ru: "\u041F\u0438\u0441\u044C\u043C\u043E \u0443 \u043C\u0435\u043D\u044F. \u041E\u0442
+      \u0441\u044B\u043D\u0430."
+    en: I've got a letter. From my son.
+  - key: npc.innokenty.05
+    ru: "\u0422\u0440\u0435\u0442\u0438\u0439 \u043C\u0435\u0441\u044F\u0446 \u0437\u0430
+      \u043F\u0430\u0437\u0443\u0445\u043E\u0439. \u0410 \u044F \u043D\u0435 \u043F\u0440\u043E\u0447\u0442\u0443."
+    en: Been keeping it next to my heart for three months. And I can't read it.
+  - key: npc.innokenty.06
+    ru: "\u041D\u0435 \u0443\u043C\u0435\u044E."
+    en: Never learnt.
+  - key: npc.innokenty.07
+    ru: "\u0418 \u043D\u0435 \u043F\u0440\u043E\u0441\u0438, \u0442\u0435\u0431\u0435
+      \u043D\u0435 \u0434\u0430\u043C."
+    en: And don't ask. I won't give it to you.
+  - key: npc.innokenty.08
+    ru: "\u0412\u043E\u043D, \u0433\u0440\u0430\u043C\u043E\u0442\u043D\u044B\u0439.
+      \u0412\u0441\u044E \u043D\u043E\u0447\u044C \u0446\u0438\u0444\u0440\u044B
+      \u0431\u043E\u0440\u043C\u043E\u0447\u0435\u0442."
+    en: That one can read. Mutters numbers all night.
+  - key: npc.innokenty.09
+    ru: "\u0422\u043E\u043B\u044C\u043A\u043E \u043E\u043D \u0441\u0430\u043C \u0441\u0435\u0431\u044F
+      \u043D\u0435 \u0441\u043B\u044B\u0448\u0438\u0442. \u041A\u0430\u043A\u0430\u044F
+      \u0435\u043C\u0443 \u043C\u043E\u044F \u0431\u0443\u043C\u0430\u0433\u0430"
+    en: Only he can't even hear himself think. What would he want with my bit of
+      paper
+  - key: npc.innokenty.10
+    ru: "\u041E\u0442\u0441\u0442\u0430\u043D\u044C \u0445\u0440\u0438\u0441\u0442\u0430
+      \u0440\u0430\u0434\u0438, \u044F \u043D\u0438\u043A\u043E\u043C\u0443 \u043D\u0438\u0447\u0435\u0433\u043E
+      \u043D\u0435 \u0434\u043E\u043B\u0436\u0435\u043D"
+    en: Leave me alone, for Christ's sake. I don't owe anyone anything
+  - key: npc.innokenty.11
+    ru: "\u041E, \u044D\u0442\u043E \u0434\u0435\u0434\u0443 \u043D\u0430\u0434\u043E"
+    en: Oh, this is just what an old man needs
+  - key: npc.innokenty.12
+    ru: "\u0411\u0443\u043A\u0432\u044B \u0432\u0438\u0436\u0443. \u0410 \u043F\u0440\u043E\u0447\u0435\u0441\u0442\u044C
+      \u0432\u0441\u0451 \u043E\u0434\u043D\u043E. \u041D\u0435 \u043C\u043E\u0433\u0443."
+    en: I can see the letters. Still can't read them.
+  - key: npc.innokenty.13
+    ru: "\u0411\u0443\u043A\u0432\u044B \u2014 \u043E\u043D\u0438 \u043D\u0435 \u0441\u0430\u043C\u0438
+      \u0433\u043E\u0432\u043E\u0440\u044F\u0442."
+    en: Letters don't speak for themselves.
+  - key: npc.innokenty.14
+    ru: "\u0423\u0431\u0435\u0440\u0438"
+    en: Put it away
+  - key: npc.innokenty.15
+    ru: "\u0414\u0435\u0434 \u043D\u0435 \u0441\u043F\u0438\u043B\u0441\u044F"
+    en: The old man didn't drink himself into ruin
+  - key: npc.innokenty.16
+    ru: "\u0414\u0435\u0434 \u0441\u043F\u0438\u043B\u0441\u044F"
+    en: The old man drank himself into ruin
+  - key: npc.liza.01
+    ru: "\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410
+      \u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430"
+    en: AAAAAAAAAAAAAAAAA aaaaaaaaaaaaaaaaaaaaaaaaa
+  - key: npc.liza.02
+    ru: "\u041E\u0442\u043E\u0439\u0434\u0438 \u043E\u0442 \u043D\u0435\u0435"
+    en: Get away from her
+  - key: npc.liza.03
+    ru: "\u0422\u042B \u0421 \u0414\u0423\u0411\u0410 \u0420\u0423\u0425\u041D\u0423\u041B!!!"
+    en: HAVE YOU LOST YOUR MIND!!!
+  - key: npc.liza.04
+    ru: "\u041B\u0438\u0437\u0430 \u0432\u044B\u0436\u0438\u043B\u0430."
+    en: Liza survived.
+  - key: npc.liza.05
+    ru: "\u041B\u0438\u0437\u0430 \u0443\u043C\u0435\u0440\u043B\u0430."
+    en: Liza died.
+  - key: npc.prokhor.01
+    ru: "\u042F \u0434\u0432\u0430 \u0434\u043D\u044F \u043A\u0430\u043A \u0441 \u0434\u043E\u0440\u043E\u0433\u0438."
+    en: I've been back two days.
+  - key: npc.prokhor.02
+    ru: "\u0414\u0432\u0430 \u0434\u043D\u044F. \u0418 \u0437\u0430 \u0434\u0432\u0430
+      \u0434\u043D\u044F \u044F \u0435\u0439 \u043D\u0438\u0447\u0435\u043C \u043D\u0435
+      \u043F\u043E\u043C\u043E\u0433."
+    en: Two days. And in two days I haven't done a thing to help her.
+  - key: npc.prokhor.03
+    ru: "\u0422\u043E\u043B\u044C\u043A\u043E \u043E\u0440\u0430\u043B \u043D\u0430
+      \u0431\u0430\u0431\u043A\u0443."
+    en: Just shouted at the old woman.
+  - key: npc.prokhor.04
+    ru: "\u042D\u0442\u043E \u044F \u043C\u043E\u0433\u0443."
+    en: That I can do.
+  - key: npc.prokhor.05
+    ru: "\u0421\u0442\u043E\u0438\u0448\u044C \u2014 \u0441\u0442\u043E\u0439."
+    en: Stand there if you must.
+  - key: npc.prokhor.06
+    ru: "\u0422\u043E\u043B\u044C\u043A\u043E \u043D\u0435 \u043D\u0430\u0434 \u043D\u0435\u0439."
+    en: Just not over her.
+  - key: npc.prokhor.07
+    ru: "\u041E\u0442\u043E\u0439\u0434\u0438 \u043E\u0442 \u043D\u0435\u0451!"
+    en: Get away from her!
+  - key: npc.prokhor.08
+    ru: "\u042F \u0442\u0435\u0431\u0435 \u043D\u0435 \u0440\u0430\u0434."
+    en: I'm not glad to see you.
+  - key: npc.prokhor.09
+    ru: "\u0412 \u043A\u043E\u043C\u043D\u0430\u0442\u0435 \u0441\u0435\u043C\u0435\u0440\u043E."
+    en: There are seven in this room.
+  - key: npc.prokhor.10
+    ru: "\u0422\u044B \u0432\u043E\u0441\u044C\u043C\u043E\u0439."
+    en: You're the eighth.
+  - key: npc.prokhor.11
+    ru: "\u0412\u043E\u0441\u044C\u043C\u043E\u0439 \u2014 \u043B\u0438\u0448\u043D\u0438\u0439."
+    en: Eight is one too many.
+  - key: npc.prokhor.12
+    ru: "\u0423\u0431\u0435\u0440\u0438"
+    en: Put it away
+  - key: npc.prokhor.13
+    ru: "\u042D\u0442\u043E \u043D\u0435 \u043C\u043D\u0435."
+    en: That's not for me.
+  - key: npc.prokhor.14
+    ru: "\u041E\u0442\u0434\u0430\u0439 \u0441\u0442\u0430\u0440\u0443\u0445\u0435."
+    en: Give it to the old woman.
+  - key: npc.prokhor.15
+    ru: "\u0423\u0431\u0435\u0440\u0438"
+    en: Put it away
+  - key: npc.prokhor.16
+    ru: "\u041F\u0440\u043E\u0445\u043E\u0440 \u0432\u043F\u0435\u0440\u0432\u044B\u0435
+      \u0432\u0437\u0433\u043B\u044F\u043D\u0443\u043B \u0434\u043E\u0447\u0435\u0440\u0438
+      \u0432 \u0433\u043B\u0430\u0437\u0430."
+    en: For the first time, Prokhor looked into his daughter's eyes.
+  - key: npc.prokhor.17
+    ru: "\u041F\u0440\u043E\u0445\u043E\u0440 - \u0443\u0439\u0434\u044F \u043D\u0430
+      \u0444\u0440\u043E\u043D \u0432 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439
+      \u0440\u0430\u0437, \u043E\u043D \u043D\u0435 \u0432\u0435\u0440\u043D\u0443\u043B\u0441\u044F."
+    en: The next time Prokhor went to the front, he never came back.
+  - key: dialogue.silence
+    ru: ...
+    en: ...
+  - key: npc.egor.photo
+    ru: "\u041D\u0435 \u0434\u0432\u0438\u0433\u0430\u0442\u044C\u0441\u044F? \u0425\u043E\u0440\u043E\u0448\u043E"
+    en: Hold still? All right
+  - key: npc.agafyevna.name
+    ru: "\u0410\u0433\u0430\u0444\u044C\u0435\u0432\u043D\u0430"
+    en: Agafyevna
+  - key: npc.anna.name
+    ru: "\u0410\u043D\u043D\u0430"
+    en: Anna
+  - key: npc.barbos.name
+    ru: "\u0411\u0430\u0440\u0431\u043E\u0441"
+    en: Barbos
+  - key: npc.egor.name
+    ru: "\u0415\u0433\u043E\u0440"
+    en: Egor
+  - key: npc.ilya.name
+    ru: "\u0418\u043B\u044C\u044F"
+    en: Ilya
+  - key: npc.innokenty.name
+    ru: "\u0418\u043D\u043D\u043E\u043A\u0435\u043D\u0442\u0438\u0439"
+    en: Innokenty
+  - key: npc.liza.name
+    ru: "\u041B\u0438\u0437\u0430"
+    en: Liza
+  - key: npc.prokhor.name
+    ru: "\u041F\u0440\u043E\u0445\u043E\u0440"
+    en: Prokhor
+  - key: menu.play
+    ru: "\u0418\u0433\u0440\u0430\u0442\u044C"
+    en: Play
+  - key: pause.title
+    ru: "\u041F\u0430\u0443\u0437\u0430"
+    en: Paused
+  - key: pause.resume
+    ru: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
+    en: Resume
+  - key: dialogue.hint
+    ru: "E / \u043F\u0440\u043E\u0431\u0435\u043B / \u0449\u0435\u043B\u0447\u043E\u043A
+      \u2014 \u0434\u0430\u043B\u044C\u0448\u0435"
+    en: "E / space / click \u2014 continue"
+  - key: results.title
+    ru: "\u0427\u0435\u043C \u0437\u0430\u043A\u043E\u043D\u0447\u0438\u043B\u0441\u044F
+      \u044D\u0442\u043E\u0442 \u0434\u0435\u043D\u044C"
+    en: How this day ended
+  - key: results.retry
+    ru: "\u0415\u0449\u0451 \u043F\u043E\u043F\u044B\u0442\u043A\u0430"
+    en: Next try
+  - key: hud.collecting
+    ru: "\u0421\u0431\u043E\u0440 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u043E\u0432
+      \u2014 {0} \u0441"
+    en: "Collect items \u2014 {0} s"
+  - key: hud.helping
+    ru: "\u041F\u043E\u043C\u043E\u0433\u0438 \u043B\u044E\u0434\u044F\u043C \u2014
+      {0} \u0441"
+    en: "Help people \u2014 {0} s"
+  - key: hud.time_up
+    ru: "\u0412\u0440\u0435\u043C\u044F \u0432\u044B\u0448\u043B\u043E\u2026"
+    en: "Time's up\u2026"
+  - key: hud.results
+    ru: "\u0418\u0442\u043E\u0433\u0438"
+    en: Results
+  - key: results.worth
+    ru: "\u042F \u0441\u043C\u043E\u0433 \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u0442\u044C:
+      {0}$"
+    en: 'I earned: ${0}'
+  - key: intro.collect
+    ru: "\u0414\u043E \u0437\u0430\u043A\u0440\u044B\u0442\u0438\u044F \u043E\u0441\u0442\u0430\u043B\u0430\u0441\u044C
+      \u043E\u0434\u043D\u0430 \u043C\u0438\u043D\u0443\u0442\u0430. \u0421\u043E\u0431\u0435\u0440\u0438
+      \u0442\u043E, \u0447\u0442\u043E \u0441\u043C\u043E\u0436\u0435\u0448\u044C
+      \u0443\u043D\u0435\u0441\u0442\u0438."
+    en: One minute until closing. Collect what you can carry.
+  - key: intro.choice
+    ru: "\u0412\u0440\u0435\u043C\u044F \u0432\u044B\u0448\u043B\u043E. \u0427\u0442\u043E
+      \u0438\u0437 \u043D\u0430\u0439\u0434\u0435\u043D\u043D\u043E\u0433\u043E \u0442\u044B
+      \u043E\u0441\u0442\u0430\u0432\u0438\u0448\u044C \u0441\u0435\u0431\u0435?"
+    en: Time's up. Which of the things you found will you keep?
+  - key: intro.items
+    ru: "\u043C\u0430\u0448\u0438\u043D\u043A\u0430          \u0432\u0430\u0437\u0430"
+    en: typewriter          vase
+  - key: intro.help
+    ru: "\u0420\u044F\u0434\u043E\u043C \u0435\u0441\u0442\u044C \u043B\u044E\u0434\u0438,
+      \u043A\u043E\u0442\u043E\u0440\u044B\u043C \u044D\u0442\u0438 \u0432\u0435\u0449\u0438
+      \u043D\u0443\u0436\u043D\u044B. \u0423 \u0442\u0435\u0431\u044F \u0435\u0449\u0451
+      \u0435\u0441\u0442\u044C \u0432\u0440\u0435\u043C\u044F \u043F\u043E\u043C\u043E\u0447\u044C."
+    en: There are people nearby who need these things. You still have time to help.
+  - key: intro.hint
+    ru: "E / \u043F\u0440\u043E\u0431\u0435\u043B / \u0449\u0435\u043B\u0447\u043E\u043A
+      \u2014 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439 \u043A\u0430\u0434\u0440"
+    en: "E / space / click \u2014 next panel"
+  - key: ui.language
+    ru: "[\u0420\u0443\u0441\u0441\u043A\u0438\u0439] / English"
+    en: "\u0420\u0443\u0441\u0441\u043A\u0438\u0439 / [English]"

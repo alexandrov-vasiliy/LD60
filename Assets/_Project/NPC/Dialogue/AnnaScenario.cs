@@ -10,7 +10,7 @@ namespace DialogueSystem
         private static Sequence Request() => new Sequence(
             new SetIntroduction(false),
             new PlayFeedback("NeedItem"),
-            new Say(SpeechMode.Dialogue, "Ты видал чтобы на дитя молча смотрели?"));
+            new Say(SpeechMode.Dialogue, "npc.anna.01"));
 
         private static Sequence Reply(string feedback, SpeechMode mode, params string[] lines) => new Sequence(
             new PlayFeedback(feedback), new Say(mode, lines));
@@ -23,37 +23,37 @@ namespace DialogueSystem
                     new SetIntroduction(true),
                     new PlayFeedback("BeforeItem"),
                     new Say(SpeechMode.Dialogue,
-                        "Тише, тише, моя. Ну тише же!",
-                        "Она с вечера, я ей грудь, не берёт. Я ей тряпку мокрую, не берёт.",
-                        "Муж два дня как приехал, и она вот…",
-                        "Он на неё смотрит, да молчит…"),
+                        "npc.anna.02",
+                        "npc.anna.03",
+                        "npc.anna.04",
+                        "npc.anna.05"),
                     Request())),
 
             new ScenarioRule(ScenarioEvent.Interact, new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Pills),
-                Reply("AfterItem", SpeechMode.Dialogue, "Агафьевна говорит, лекарство. Я только бы до утра её довела. А там, может, полегчает.")),
+                Reply("AfterItem", SpeechMode.Dialogue, "npc.anna.06")),
             new ScenarioRule(ScenarioEvent.Interact, new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Alcohol),
-                Reply("AfterItem", SpeechMode.Dialogue, "Растёрли её. Лежит тихо. Я всё слушаю, как дышит.")),
+                Reply("AfterItem", SpeechMode.Dialogue, "npc.anna.07")),
             new ScenarioRule(ScenarioEvent.Interact, new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Stethoscope),
-                Reply("AfterItem", SpeechMode.Dialogue, "Послушала она её. А я всё на лицо смотрю. Жду, когда глаза откроет.")),
+                Reply("AfterItem", SpeechMode.Dialogue, "npc.anna.08")),
             new ScenarioRule(ScenarioEvent.Interact, new Always(), Request()),
 
             new ScenarioRule(ScenarioEvent.ItemHit, new Not(new FactIs<bool>(StoryFacts.AnnaMet, true)),
-                Reply("BeforeMeeting", SpeechMode.Dialogue, "Ай!")),
+                Reply("BeforeMeeting", SpeechMode.Dialogue, "npc.anna.09")),
             new ScenarioRule(ScenarioEvent.ItemHit,
                 new ItemIs(ItemId.Stethoscope, ItemId.Pills, ItemId.Alcohol),
-                Reply("ItemReceived", SpeechMode.Dialogue, "Не мне.", "Отдай Агафьевне.")),
+                Reply("ItemReceived", SpeechMode.Dialogue, "npc.anna.10", "npc.anna.11")),
             new ScenarioRule(ScenarioEvent.ItemHit, new DuringIntroduction(),
-                new Sequence(Reply("EarlyWrongItem", SpeechMode.Dialogue, "К чему это?"), Request())),
+                new Sequence(Reply("EarlyWrongItem", SpeechMode.Dialogue, "npc.anna.12"), Request())),
             new ScenarioRule(ScenarioEvent.ItemHit, new Always(),
-                Reply("WrongItem", SpeechMode.Dialogue, "К чему это?"))
+                Reply("WrongItem", SpeechMode.Dialogue, "npc.anna.13"))
         };
 
         public override EndingRule[] Endings { get; } = new[]
         {
             new EndingRule(new FactIs<LizaHelp>(StoryFacts.LizaTreatment, LizaHelp.Pills),
-                "Анна ещё долго сидела рядом, боясь поверить, что жар отступил."),
+                "npc.anna.14"),
             new EndingRule(new Always(),
-                "Анна: ...")
+                "npc.anna.15")
         };
     }
 }
