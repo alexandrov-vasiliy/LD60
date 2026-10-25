@@ -37,7 +37,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Color_Steps: 128
+    - _Color_Steps: 256
     - _Dither_Strength: 0
     - _Pixel_Size: 4
     - _Scan_Line: 0
